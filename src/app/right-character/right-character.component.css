@@ -1,0 +1,17 @@
+.character-img {
+    max-width: 50px;
+}
+
+.selected-character {
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding: 10px;
+    font-weight: bold;
+}
+
+.selected-character:hover {
+    opacity: 0.8;
+    cursor: pointer;
+    color: white;
+}

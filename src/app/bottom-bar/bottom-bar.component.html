@@ -1,0 +1,17 @@
+<section class="bottom-section">
+
+  <div *ngFor="let item of bottomItems" class="top-container">
+    <div class="data-container">
+      <div class="title-container">
+        <span>{{item.name}}</span>
+      </div>
+
+      <div class="info-container">
+        <img class="icon" src="assets/icons/{{item.icon}}.png" alt="">
+        <div class="appeal">
+          <span>{{item.value}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>

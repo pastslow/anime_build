@@ -1,0 +1,20 @@
+<div class="calendar">
+    <div>
+      <img class="event-img" src="assets/events/sasuke.png" alt="">
+    </div>
+
+    <div>
+      <h5>{{calendarEvents[eventNumber].name}}</h5>
+    </div>
+
+      <p class="event-description">{{calendarEvents[eventNumber].description}}</p>
+  </div>
+
+  <div *ngFor="let bonus of calendarEvents[eventNumber].bonus" class="event-bonus">
+    <div>
+      <img class="event-bonus-img" src="assets/icons/{{bonus.bonusImg}}.png" alt="">
+    </div>
+    <span>+ </span>
+    <span>{{bonus.bonusValue}}</span>
+    <span>%</span>
+  </div>

@@ -1,0 +1,36 @@
+.title-container {
+    text-align: center;
+    font-weight: bold;
+}
+
+.data-container {
+    width: 100%;
+}
+
+.top-container {
+    display: flex;
+    justify-content: space-between;
+    max-width: 165px;
+    width: 100%;
+}
+
+.info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.icon {
+    width: 30px;
+    height: 30px;
+}
+
+.appeal {
+    width: 80%;
+    text-align: center;
+}
+
+.bottom-section {
+    display: flex;
+    justify-content: space-between;
+}
