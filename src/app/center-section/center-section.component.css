@@ -18,9 +18,17 @@
     height: 500px;
 }
 
+.center-section {
+    position: relative;
+}
+
 
 @media only screen and (max-width:768px) {
     .center {
+        height: 300px;
+    }
+
+    .left-container {
         height: 300px;
     }
 }

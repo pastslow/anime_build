@@ -5,13 +5,14 @@
 
 .data-container {
     width: 100%;
+    border-radius: 40% 40% 0% 0%;
+    cursor: pointer;
 }
 
 .top-container {
     display: flex;
     justify-content: space-between;
-    max-width: 165px;
-    width: 100%;
+    width: 140px;
 }
 
 .info-container {
@@ -31,6 +32,21 @@
 }
 
 .bottom-section {
+    position: absolute;
+    bottom: 0px;
     display: flex;
     justify-content: space-between;
+}
+
+
+@media only screen and (max-width: 768px) {
+    .top-container {
+        width: 100px;
+        font-size: 13px;
+    }
+
+    .icon {
+        width: 25px;
+        height: 25px;
+    }
 }

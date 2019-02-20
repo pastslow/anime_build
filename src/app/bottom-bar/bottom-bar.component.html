@@ -1,7 +1,7 @@
 <section class="bottom-section">
 
   <div *ngFor="let item of bottomItems" class="top-container">
-    <div class="data-container">
+    <div [style.background]="item.bg" class="data-container">
       <div class="title-container">
         <span>{{item.name}}</span>
       </div>

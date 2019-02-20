@@ -1,3 +1,7 @@
+.top-bar {
+    background: url(src/assets/bg/bg_repeat.png);
+}
+
 .icon {
     width: 30px;
     height: 30px;

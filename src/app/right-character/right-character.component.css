@@ -1,17 +1,29 @@
 .character-img {
     max-width: 50px;
+    width: 100%;
 }
 
 .selected-character {
     display: flex;
     align-items: center;
     justify-content: space-around;
-    padding: 10px;
     font-weight: bold;
+    font-size: 14px;
+    margin-top: 10px;
 }
 
 .selected-character:hover {
     opacity: 0.8;
     cursor: pointer;
     color: white;
+}
+
+@media only screen and (max-width: 768px){
+    .character-img {
+        max-width: 40px;
+    }
+
+    .selected-character {
+        font-size: 12px;
+    }
 }
