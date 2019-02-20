@@ -1,0 +1,17 @@
+.icon {
+    width: 25px;
+    height: 25px;
+}
+
+.clock {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 165px;
+}
+
+.energy-border {
+    border: 1px solid black;
+    width: 75%;
+    text-align: center;
+}
