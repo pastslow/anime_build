@@ -7,6 +7,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
+  public topBar = [
+    {
+      title:"Time",
+      
+    }
+  ]
+
   constructor() { }
 
   ngOnInit() {

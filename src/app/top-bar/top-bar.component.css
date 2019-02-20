@@ -1,17 +1,36 @@
 .icon {
-    width: 25px;
-    height: 25px;
-}
-
-.clock {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    max-width: 165px;
+    width: 30px;
+    height: 30px;
 }
 
 .energy-border {
     border: 1px solid black;
     width: 75%;
     text-align: center;
+}
+
+.appeal {
+    width: 80%;
+    text-align: center;
+}
+
+.info-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.title-container {
+    text-align: center;
+    font-weight: bold;
+}
+
+.data-container {
+    max-width: 165px;
+    width: 100%;
+}
+
+.top-container {
+    display: flex;
+    justify-content: space-between;
 }
