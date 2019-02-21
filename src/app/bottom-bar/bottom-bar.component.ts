@@ -12,25 +12,25 @@ export class BottomBarComponent implements OnInit {
       name:"Money",
       icon:'money',
       value:500,
-      bg:"red"
+      bg:"rgba(244, 22, 33, 0.8)"
     },
     {
       name:"Materials",
       icon:'materials',
       value:500,
-      bg:"blue"
+      bg:"rgba(22, 33, 255, 0.8)"
     },
     {
       name:"Workers",
       icon:'worker',
       value:500,
-      bg:"yellow"
+      bg:"rgba(146, 146, 0, 0.8)"
     },
     {
       name:"Engineers",
       icon:'engineer',
       value:500,
-      bg:"teal"
+      bg:"rgba(22, 128, 128, 0.8)"
     },
   ]
 

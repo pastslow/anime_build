@@ -14,12 +14,16 @@
 
 .left-container {
     width: 20%;
-    background: red;
+    background: url(src/assets/bg/bg_right_f.png);
+    background-size: cover;
+    background-position: center;
     height: 500px;
 }
 
 .center-section {
     position: relative;
+    padding-left: 0px;
+    padding-right: 0px;
 }
 
 

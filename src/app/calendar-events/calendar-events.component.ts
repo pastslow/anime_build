@@ -11,8 +11,9 @@ export class CalendarEventsComponent implements OnInit {
 
   public calendarEvents = [
     {
-      name:"Hello Sasuke",
-      description: `Asa event :))`,
+      name:"Sasuke is comming.",
+      description: `Lorem ipsum dolor sit amet consectetur adipisicing elit.
+       Officiis fugit sed cum!`,
       bonus:[
         {
         bonusImg:"income",
