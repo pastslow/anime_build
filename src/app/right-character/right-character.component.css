@@ -1,23 +1,38 @@
 .character-img {
-    max-width: 50px;
+    max-width: 80px;
     width: 100%;
 }
 
 .selected-character {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-around;
     font-weight: bold;
-    font-size: 14px;
-    margin-top: 10px;
-    margin-bottom: 10px;
+    font-size: 20px;
+    margin: 1px;
     color: white;
+    background: url(src/assets/bg/bg_c.png);
+    cursor: pointer;
 }
 
-.selected-character:hover {
-    opacity: 0.8;
-    cursor: pointer;
-    color: white;
+.character-name {
+    width: 100%;
+    text-align: center;
+}
+
+.icon-bonus {
+    width: 24px;
+    height: 24px;
+}
+
+
+@media only screen and (max-width: 992px){
+    
+    .selected-character {
+        font-size: 14px;
+        margin: 0px;
+    }
 }
 
 @media only screen and (max-width: 768px){
@@ -27,5 +42,11 @@
 
     .selected-character {
         font-size: 12px;
+        margin: 0px;
+    }
+
+    .icon-bonus {
+        width: 20px;
+        height: 20px;
     }
 }

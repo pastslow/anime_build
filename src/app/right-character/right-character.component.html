@@ -1,20 +1,20 @@
 <div class="selected-character">
-  <div>
-    <img class="character-img" src="assets/characters/natsu.png" alt="">
+
+  <div class="character-name">
+    <span>{{characters[characterSelected].name}}</span>
   </div>
 
   <div>
-    <span>Gold: </span>
+    <img class="character-img" src="assets/characters/{{characters[characterSelected].img}}.png" alt="">
+  </div>
 
-    <div>
-      <span>10</span>
-      <span>%</span>
+  <div>
+    <div *ngFor="let bonus of characters[characterSelected].bonuses">
+      <img class="icon-bonus" src="assets/icons/{{bonus.bonusImg}}.png" alt="">
+      <span [style.color]="bonus.color">{{bonus.actionValue}}</span>
+      <span [style.color]="bonus.color">{{bonus.value}}</span>
+      <span [style.color]="bonus.color">{{bonus.procent}}</span>
     </div>
 
-    <span>Energy: </span>
-    <div>
-      <span>10</span>
-      <span>%</span>
-    </div>
   </div>
 </div>

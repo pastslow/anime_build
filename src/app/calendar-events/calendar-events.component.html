@@ -10,11 +10,13 @@
       <p class="event-description">{{calendarEvents[eventNumber].description}}</p>
   </div>
 
-  <div *ngFor="let bonus of calendarEvents[eventNumber].bonus" class="event-bonus">
-    <div>
-      <img class="event-bonus-img" src="assets/icons/{{bonus.bonusImg}}.png" alt="">
+  <div class="event-bonuses">
+    <div *ngFor="let bonus of calendarEvents[eventNumber].bonus" class="event-bonus">
+      <div>
+        <img class="event-bonus-img" src="assets/icons/{{bonus.bonusImg}}.png" alt="">
+      </div>
+      <span>+ </span>
+      <span>{{bonus.bonusValue}}</span>
+      <span>%</span>
     </div>
-    <span>+ </span>
-    <span>{{bonus.bonusValue}}</span>
-    <span>%</span>
   </div>
