@@ -6,19 +6,55 @@
 }
 
 .icon {
-    width: 25px;
-    height: 25px;
+    width: 30px;
+    height: 30px;
 }
 
 .energy-border {
-    border: 1px solid black;
+    background: url(src/assets/bg/empty.png);
     width: 75%;
     text-align: center;
+    z-index: 1;
+    position: relative;
+}
+
+.energy-consumption {
+    background: url(src/assets/bg/energy_consumption.png);
+    border-radius: 4px;
+    width: 30%;
+    height: 100%;
+    position: absolute;
+    top: 0px;
+    z-index: -1;
 }
 
 .appeal {
     width: 80%;
     text-align: center;
+}
+
+.red-bg-bar {
+    background: url(src/assets/bg/red_bar.png);
+    background-size: cover;
+    border-radius: 4px;
+}
+
+.green-bg-bar {
+    background: url(src/assets/bg/green_bar.png);
+    background-size: cover;
+    border-radius: 4px;
+}
+
+.yellow-bg-bar {
+    background: url(src/assets/bg/yellow_bar.png);
+    background-size: cover;
+    border-radius: 4px;
+}
+
+.blue-bg-bar {
+    background: url(src/assets/bg/blue_bar.png);
+    background-size: cover;
+    border-radius: 4px;
 }
 
 .info-container {

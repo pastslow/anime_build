@@ -8,6 +8,7 @@ import { CenterSectionComponent } from './center-section/center-section.componen
 import { rightCharacterComponent } from './right-character/right-character.component';
 import { CalendarEventsComponent } from './calendar-events/calendar-events.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+import { MoneySectionComponent } from './money-section/money-section.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
     CenterSectionComponent,
     rightCharacterComponent,
     CalendarEventsComponent,
-    BottomBarComponent
+    BottomBarComponent,
+    MoneySectionComponent
   ],
   imports: [
     BrowserModule,
