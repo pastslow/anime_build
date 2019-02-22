@@ -12,70 +12,70 @@ export class HouseBuildComponent implements OnInit {
   public mapSlots = [
     {
       name: "Easy Map",
-      topSlots:[
+      topSlots: [
         {
-          img:"none0",
-          position:"slot0"
+          img: "none0",
+          name: "slot0"
         },
         {
-          img:"none0",
-          position:"slot1"
+          img: "none1",
+          name: "slot1"
         },
         {
-          img:"none0",
-          position:"slot2"
+          img: "none0",
+          name: "slot2"
         },
         {
-          img:"none0",
-          position:"slot3"
+          img: "none1",
+          name: "slot3"
         },
         {
-          img:"none0",
-          position:"slot4"
-        },
-      ],
-      midSlots:[
-        {
-          img:"none0",
-          position:"slot0"
-        },
-        {
-          img:"none0",
-          position:"slot1"
-        },
-        {
-          img:"none0",
-          position:"slot2"
-        },
-        {
-          img:"none0",
-          position:"slot3"
-        },
-        {
-          img:"none0",
-          position:"slot4"
+          img: "none0",
+          name: "slot4"
         },
       ],
-      bottomSlots:[
+      midSlots: [
         {
-          img:"none0",
-          position:"slot0"
+          img: "none0",
+          name: "slot0"
         },
         {
-          img:"none0",
-          position:"slot1"
+          img: "none0",
+          name: "slot1"
         },
         {
-          img:"none0",
-          position:"slot2"
+          img: "none0",
+          name: "slot2"
         },
         {
-          img:"none0",
-          position:"slot3"
+          img: "none0",
+          name: "slot3"
         },
         {
-          img:"none0",
-          position:"slot4"
+          img: "none0",
+          name: "slot4"
+        },
+      ],
+      bottomSlots: [
+        {
+          img: "none0",
+          name: "slot0"
+        },
+        {
+          img: "none0",
+          name: "slot1"
+        },
+        {
+          img: "none0",
+          name: "slot2"
+        },
+        {
+          img: "none0",
+          name: "slot3"
+        },
+        {
+          img: "none0",
+          name: "slot4"
         },
       ]
     },
@@ -85,4 +85,7 @@ export class HouseBuildComponent implements OnInit {
   ngOnInit() {
   }
 
+  test(modalImg, event) {
+    modalImg.src = event.target.src;
+  }
 }
