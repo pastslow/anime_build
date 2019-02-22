@@ -7,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BottomBarComponent implements OnInit {
 
+  public modalName;
+  public hadClickOnMoney = false;
+
   public bottomItems = [
     {
       name:"Money",
@@ -37,6 +40,17 @@ export class BottomBarComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+  }
+
+  modalInfo(title){
+     this.modalName = title;
+
+     if (title == "Money") {
+      this.hadClickOnMoney = true;
+      return
+     }
+     this.hadClickOnMoney = false;
+
   }
 
 }

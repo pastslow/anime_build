@@ -1,0 +1,61 @@
+.house {
+    max-width: 146px;
+    width: 20%;
+}
+
+.house:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.top-slots {
+    top: -18px;
+}
+
+.mid-slots {
+    top: 140px;
+}
+
+.bottom-slots {
+    top: 300px;
+}
+
+.container-slots {
+    position: absolute;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    align-items: center;
+}
+
+.img-slot {
+    width: 100%;
+}
+
+@media only screen and (max-width:991px){
+    .top-slots {
+        top: 12px;
+    }
+    
+    .mid-slots {
+        top: 172px;
+    }
+    
+    .bottom-slots {
+        top: 320px;
+    }
+}
+
+@media only screen and (max-width:768px){
+    .top-slots {
+        top: -4px;
+    }
+    
+    .mid-slots {
+        top: 88px;
+    }
+    
+    .bottom-slots {
+        top: 184px;
+    }
+}

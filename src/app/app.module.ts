@@ -8,6 +8,7 @@ import { CenterSectionComponent } from './center-section/center-section.componen
 import { rightCharacterComponent } from './right-character/right-character.component';
 import { CalendarEventsComponent } from './calendar-events/calendar-events.component';
 import { BottomBarComponent } from './bottom-bar/bottom-bar.component';
+import { HouseBuildComponent } from './house-build/house-build.component';
 import { MoneySectionComponent } from './money-section/money-section.component';
 
 @NgModule({
@@ -18,6 +19,7 @@ import { MoneySectionComponent } from './money-section/money-section.component';
     rightCharacterComponent,
     CalendarEventsComponent,
     BottomBarComponent,
+    HouseBuildComponent,
     MoneySectionComponent
   ],
   imports: [

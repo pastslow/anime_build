@@ -18,13 +18,13 @@
 
 .event-title {
     font-size: 16px;
+    font-weight: bold;
 }
 
 .event-bonus {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 11px;
     font-weight: bold;
     color: white;
 }
@@ -33,10 +33,12 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
+    font-size: 14px;
 }
 
 @media only screen and (max-width:768px) {
-    .event-title {
+
+    .event-title, .event-bonuses {
         font-size: 11px
     }
 

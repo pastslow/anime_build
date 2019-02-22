@@ -71,6 +71,7 @@
 .data-container {
     max-width: 165px;
     width: 100%;
+    z-index: 1;
 }
 
 .top-container {

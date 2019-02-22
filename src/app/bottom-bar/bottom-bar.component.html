@@ -1,9 +1,10 @@
 <section class="bottom-section">
 
-  <div *ngFor="let item of bottomItems" class="top-container">
+  <div (click)="modalInfo(itemName.innerText)" data-toggle="modal" data-target="#myModal"
+    *ngFor="let item of bottomItems" class="top-container">
     <div [style.background]="item.bg" class="data-container">
       <div class="title-container">
-        <span>{{item.name}}</span>
+        <span #itemName>{{item.name}}</span>
       </div>
 
       <div class="info-container">
@@ -15,3 +16,66 @@
     </div>
   </div>
 </section>
+
+<!-- The Modal -->
+<div class="modal" id="myModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title">{{modalName}}</h4>
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <div *ngIf="hadClickOnMoney">
+
+          <div class="money-container">
+            <div class="income-container">
+              <div>
+                <img class="income-img" src="assets/icons/income_money.png" alt="">
+              </div>
+              <span>Colecting Rent</span>
+              <div class="income-border">
+                <div class="income-procent">
+                </div>
+                <div class="income-img-container">
+                  <img class="income-bar-img" src="assets/icons/money.png" alt="">
+                </div>
+              </div>
+            </div>
+
+            <div>
+              <div>
+                <span>Bonus income: </span>
+                <span>10</span>
+                <span>%</span>
+              </div>
+
+              <div>
+                <span>Rental income: </span>
+                <span>300</span>
+              </div>
+
+              <div>
+                <span>Current Goal: </span>
+                <span>1000000$</span>
+              </div>
+
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- Modal footer -->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
+</div>
