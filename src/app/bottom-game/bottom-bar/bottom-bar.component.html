@@ -24,51 +24,29 @@
 
       <!-- Modal Header -->
       <div class="modal-header">
-        <h4 class="modal-title">{{modalName}}</h4>
+        <h5 class="modal-title">{{modalName}}</h5>
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
 
       <!-- Modal body -->
       <div class="modal-body">
+
         <div *ngIf="hadClickOnMoney">
+          <app-money-section></app-money-section>
+        </div>
 
-          <div class="money-container">
-            <div class="income-container">
-              <div>
-                <img class="income-img" src="assets/icons/income_money.png" alt="">
-              </div>
-              <span>Colecting Rent</span>
-              <div class="income-border">
-                <div class="income-procent">
-                </div>
-                <div class="income-img-container">
-                  <img class="income-bar-img" src="assets/icons/money.png" alt="">
-                </div>
-              </div>
-            </div>
+        <div *ngIf="hadClickOnMaterials">
+          <app-materials-section></app-materials-section>
+        </div>
 
-            <div>
-              <div>
-                <span>Bonus income: </span>
-                <span>10</span>
-                <span>%</span>
-              </div>
+        <div *ngIf="hadClickOnWorkers">
+          <app-workers-section></app-workers-section>
+        </div>
 
-              <div>
-                <span>Rental income: </span>
-                <span>300</span>
-              </div>
-
-              <div>
-                <span>Current Goal: </span>
-                <span>1000000$</span>
-              </div>
-
-            </div>
+        <div *ngIf="hadClickOnEngineers">
+            <app-engineers-section></app-engineers-section>
           </div>
 
-
-        </div>
       </div>
 
       <!-- Modal footer -->

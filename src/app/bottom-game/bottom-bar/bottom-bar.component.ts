@@ -9,6 +9,10 @@ export class BottomBarComponent implements OnInit {
 
   public modalName;
   public hadClickOnMoney = false;
+  public hadClickOnMaterials = false;
+  public hadClickOnWorkers = false;
+  public hadClickOnEngineers = false;
+
 
   public bottomItems = [
     {
@@ -43,13 +47,34 @@ export class BottomBarComponent implements OnInit {
   }
 
   modalInfo(title){
-     this.modalName = title;
+     this.hadClickOnMoney = false;
+     this.hadClickOnMaterials = false;
+     this.hadClickOnWorkers = false;
+     this.hadClickOnEngineers = false;
 
      if (title == "Money") {
+      this.modalName = "MONEY & GOALS";
       this.hadClickOnMoney = true;
       return
      }
-     this.hadClickOnMoney = false;
+
+     if (title == "Materials") {
+      this.modalName = "GET MATERIALS";
+      this.hadClickOnMaterials = true;
+      return
+     }
+
+     if (title == "Workers") {
+      this.modalName = "HIRE WORKERS";
+      this.hadClickOnWorkers = true;
+      return
+     }
+
+     if (title == "Engineers") {
+      this.modalName = "HIRE ENGINEERS";
+      this.hadClickOnEngineers = true;
+      return
+     }
 
   }
 

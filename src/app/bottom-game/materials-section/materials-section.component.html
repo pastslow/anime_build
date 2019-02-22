@@ -1,0 +1,48 @@
+<div class="bottom-shop-data">
+
+  <div class="shop-item-container">
+
+    <div>
+      <img class="shop-left-img" src="assets/icons/woods.png" alt="">
+    </div>
+
+    <span>Buying Materials</span>
+
+    <div class="shop-parent-border">
+
+      <div class="shop-procent-border bg-brown">
+      </div>
+      
+      <div class="materials-img-container shop-img">
+        <img class="shop-bar-img" src="assets/icons/materials.png" alt="">
+      </div>
+
+    </div>
+  </div>
+
+  <div>
+
+    <div>
+      <span>Bonus materials: </span>
+      <span>10</span>
+      <span>%</span>
+    </div>
+
+    <div class="d-flex">
+
+      <div *ngFor="let pack of materialsShop" class="shop-items">
+        <img src="assets/icons/materials/{{pack.icon}}.png" alt="">
+        <div>
+          <span>Cost:</span>
+          <span>{{pack.cost}}</span>
+        </div>
+        <div>
+            <span>Packs:</span>
+            <span>{{pack.number}}</span>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</div>
