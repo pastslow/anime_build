@@ -2,21 +2,21 @@
   <div class="top-slots container-slots">
     <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
       *ngFor="let slot of mapSlots[mapNumber].topSlots" class="house">
-      <img data-slot="{{slot.img}}" class="img-slot" src="assets/buildings/house0/{{slot.img}}.png" />
+      <img data-slot="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.png" />
     </div>
   </div>
 
   <div class="mid-slots container-slots">
     <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
-     *ngFor="let slot of mapSlots[mapNumber].midSlots" class="house">
-      <img data-slot="{{slot.img}}" class="img-slot" src="assets/buildings/house0/none0.png" />
+      *ngFor="let slot of mapSlots[mapNumber].midSlots" class="house">
+      <img data-slot="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.png" />
     </div>
   </div>
 
   <div class="bottom-slots container-slots">
     <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
-     *ngFor="let slot of mapSlots[mapNumber].midSlots" class="house">
-      <img data-slot="{{slot.img}}" class="img-slot" src="assets/buildings/house0/none0.png" />
+      *ngFor="let slot of mapSlots[mapNumber].bottomSlots" class="house">
+      <img data-slot="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.png" />
     </div>
   </div>
 
@@ -34,19 +34,11 @@
           <img #modalImg class="img-slot" src="assets/buildings/house0/none0.png" />
         </div>
 
-        <div *ngIf="isLandBought" class="slot-description">
-          <span>
-            This land belongs to you.
-            You can build a construction by chosing one from the bottom menu.
-          </span>
-        </div>
+        <app-land-bought *ngIf="isLandBought" class="slot-description"></app-land-bought>
 
-        <div *ngIf="!isLandBought" class="slot-description">
-          <span>
-            This land dosen't belongs to you !
-            But it can be bought for a moderate sum.
-          </span>
-        </div>
+        <app-land-empty *ngIf="!isLandBought && !hasConstruction" class="slot-description"></app-land-empty>
+
+        <app-construction-details class="slot-description m-left-auto" *ngIf="hasConstruction"></app-construction-details>
 
         <button type="button" class="close" data-dismiss="modal">&times;</button>
       </div>
@@ -54,7 +46,8 @@
       <!-- Modal body -->
       <div class="modal-body">
         <app-slot-actions *ngIf="isLandBought"></app-slot-actions>
-        <app-buy-land *ngIf="!isLandBought"></app-buy-land>
+        <app-buy-land *ngIf="!isLandBought && !hasConstruction"></app-buy-land>
+        <app-construction-actions *ngIf="hasConstruction"></app-construction-actions>
       </div>
 
       <!-- Modal footer -->

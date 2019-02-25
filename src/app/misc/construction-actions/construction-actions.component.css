@@ -1,0 +1,15 @@
+.action-data {
+    max-width: 80px;
+    text-align: center;
+}
+
+.action-data:hover {
+    cursor: pointer;
+    opacity: 0.7;
+}
+
+.container-action {
+    font-size: 14px;
+    display: flex;
+    justify-content: space-between;
+}

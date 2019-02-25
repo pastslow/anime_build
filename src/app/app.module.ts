@@ -13,8 +13,12 @@ import { MoneySectionComponent } from './bottom-game/money-section/money-section
 import { MaterialsSectionComponent } from './bottom-game/materials-section/materials-section.component';
 import { WorkersSectionComponent } from './bottom-game/workers-section/workers-section.component';
 import { EngineersSectionComponent } from './bottom-game/engineers-section/engineers-section.component';
-import { SlotActionsComponent } from './center-game/slot-actions/slot-actions.component';
-import { BuyLandComponent } from './center-game/buy-land/buy-land.component';
+import { SlotActionsComponent } from './misc/slot-actions/slot-actions.component';
+import { BuyLandComponent } from './misc/buy-land/buy-land.component';
+import { ConstructionDetailsComponent } from './misc/construction-details/construction-details.component';
+import { LandBoughtComponent } from './misc/land-bought/land-bought.component';
+import { LandEmptyComponent } from './misc/land-empty/land-empty.component';
+import { ConstructionActionsComponent } from './misc/construction-actions/construction-actions.component';
 
 @NgModule({
   declarations: [
@@ -30,7 +34,11 @@ import { BuyLandComponent } from './center-game/buy-land/buy-land.component';
     WorkersSectionComponent,
     EngineersSectionComponent,
     SlotActionsComponent,
-    BuyLandComponent
+    BuyLandComponent,
+    ConstructionDetailsComponent,
+    LandBoughtComponent,
+    LandEmptyComponent,
+    ConstructionActionsComponent
   ],
   imports: [
     BrowserModule,

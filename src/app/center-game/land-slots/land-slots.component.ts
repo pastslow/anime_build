@@ -8,75 +8,76 @@ import { Component, OnInit } from '@angular/core';
 export class HouseBuildComponent implements OnInit {
 
   public mapNumber = 0;
-  public isLandBought = true;
+  public isLandBought = false;
+  public hasConstruction = false;
 
   public mapSlots = [
     {
       name: "Easy Map",
       topSlots: [
         {
-          img: "none0",
-          name: "slot0"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none1",
-          name: "slot1"
+          img: "house0/none1",
+          condition: "bought"
         },
         {
-          img: "none0",
-          name: "slot2"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none1",
-          name: "slot3"
+          img: "house0/none1",
+          condition: "bought"
         },
         {
-          img: "none0",
-          name: "slot4"
+          img: "house0/none0",
+          condition: "empty"
         },
       ],
       midSlots: [
         {
-          img: "none0",
-          name: "slot0"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none0",
-          name: "slot1"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none0",
-          name: "slot2"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none0",
-          name: "slot3"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none0",
-          name: "slot4"
+          img: "house0/none0",
+          condition: "empty"
         },
       ],
       bottomSlots: [
         {
-          img: "none0",
-          name: "slot0"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none0",
-          name: "slot1"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none0",
-          name: "slot2"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none0",
-          name: "slot3"
+          img: "house0/none0",
+          condition: "empty"
         },
         {
-          img: "none0",
-          name: "slot4"
+          img: "house1/construct/construct08",
+          condition: "build"
         },
       ]
     },
@@ -87,12 +88,21 @@ export class HouseBuildComponent implements OnInit {
   }
 
   test(modalImg, event) {
-    if(event.target.slot == "none0"){
+    if(event.target.slot === "empty"){
       this.isLandBought = false;
+      this.hasConstruction = false;
+      modalImg.src = event.target.src;
+      return;
+    }
+    if(event.target.slot === "bought"){
+      this.isLandBought = true;
+      this.hasConstruction = false;
       modalImg.src = event.target.src;
       return;
     }
     modalImg.src = event.target.src;
-    this.isLandBought = true;
+    this.isLandBought = false;
+    this.hasConstruction = true;
+    
   }
 }
