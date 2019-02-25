@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'app-house-build',
-  templateUrl: './house-build.component.html',
-  styleUrls: ['./house-build.component.css']
+  selector: 'app-land-slots',
+  templateUrl: './land-slots.component.html',
+  styleUrls: ['./land-slots.component.css']
 })
 export class HouseBuildComponent implements OnInit {
 
   public mapNumber = 0;
+  public isLandBought = true;
 
   public mapSlots = [
     {
@@ -86,6 +87,12 @@ export class HouseBuildComponent implements OnInit {
   }
 
   test(modalImg, event) {
+    if(event.target.slot == "none0"){
+      this.isLandBought = false;
+      modalImg.src = event.target.src;
+      return;
+    }
     modalImg.src = event.target.src;
+    this.isLandBought = true;
   }
 }

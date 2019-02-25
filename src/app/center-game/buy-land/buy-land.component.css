@@ -1,0 +1,21 @@
+.buy-land-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.buy-land {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 90px;
+    justify-content: center;
+}
+
+.buy-land:hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.buy-img {
+    width: 100%ș
+}

@@ -54,3 +54,13 @@
    opacity: 0.7;
    cursor: pointer;
 }
+
+.modal-body, .modal-header, .modal-footer {
+    background: url(src/assets/bg/bg_top.png);
+    color: white;
+}
+
+.modal-title {
+    width: 100%;
+    text-align: center;
+}

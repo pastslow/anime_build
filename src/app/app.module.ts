@@ -8,11 +8,13 @@ import { CenterSectionComponent } from './center-game/center-section/center-sect
 import { rightCharacterComponent } from './center-game/right-character/right-character.component';
 import { CalendarEventsComponent } from './center-game/calendar-events/calendar-events.component';
 import { BottomBarComponent } from './bottom-game/bottom-bar/bottom-bar.component';
-import { HouseBuildComponent } from './center-game/house-build/house-build.component';
+import { HouseBuildComponent } from './center-game/land-slots/land-slots.component';
 import { MoneySectionComponent } from './bottom-game/money-section/money-section.component';
 import { MaterialsSectionComponent } from './bottom-game/materials-section/materials-section.component';
 import { WorkersSectionComponent } from './bottom-game/workers-section/workers-section.component';
 import { EngineersSectionComponent } from './bottom-game/engineers-section/engineers-section.component';
+import { SlotActionsComponent } from './center-game/slot-actions/slot-actions.component';
+import { BuyLandComponent } from './center-game/buy-land/buy-land.component';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { EngineersSectionComponent } from './bottom-game/engineers-section/engin
     MoneySectionComponent,
     MaterialsSectionComponent,
     WorkersSectionComponent,
-    EngineersSectionComponent
+    EngineersSectionComponent,
+    SlotActionsComponent,
+    BuyLandComponent
   ],
   imports: [
     BrowserModule,
