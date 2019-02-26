@@ -1,0 +1,18 @@
+<div>
+
+  <div *ngIf = "menuIsDisplayed" class="menu-container">
+    <div (click)="button.btnMethod()" *ngFor="let button of slotActions" class="menu-button">
+      <span>{{button.name}}</span>
+      <img class="menu-icon" src="assets/icons/{{button.icon}}.png" alt="" />
+    </div>
+  </div>
+  
+  <app-construct-house *ngIf="isHouseBtnPressed"></app-construct-house>
+  <app-construct-building *ngIf="isBuildingBtnPressed"></app-construct-building>
+  <app-construct-shop *ngIf="isShopBtnPressed"></app-construct-shop>
+  <app-construct-mark *ngIf="isMarkBtnPressed"></app-construct-mark>
+  <app-construct-service *ngIf="isServiceBtnPressed"></app-construct-service>
+
+
+
+</div>

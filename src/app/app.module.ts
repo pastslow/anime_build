@@ -13,12 +13,17 @@ import { MoneySectionComponent } from './bottom-game/money-section/money-section
 import { MaterialsSectionComponent } from './bottom-game/materials-section/materials-section.component';
 import { WorkersSectionComponent } from './bottom-game/workers-section/workers-section.component';
 import { EngineersSectionComponent } from './bottom-game/engineers-section/engineers-section.component';
-import { SlotActionsComponent } from './misc/slot-actions/slot-actions.component';
+import { SlotActionsComponent } from './misc/slot-data/slot-actions/slot-actions.component';
 import { BuyLandComponent } from './misc/buy-land/buy-land.component';
 import { ConstructionDetailsComponent } from './misc/construction-details/construction-details.component';
 import { LandBoughtComponent } from './misc/land-bought/land-bought.component';
 import { LandEmptyComponent } from './misc/land-empty/land-empty.component';
 import { ConstructionActionsComponent } from './misc/construction-actions/construction-actions.component';
+import { ConstructHouseComponent } from './misc/slot-data/construct-house/construct-house.component';
+import { ConstructBuildingComponent } from './misc/slot-data/construct-building/construct-building.component';
+import { ConstructShopComponent } from './misc/slot-data/construct-shop/construct-shop.component';
+import { ConstructMarkComponent } from './misc/slot-data/construct-mark/construct-mark.component';
+import { ConstructServiceComponent } from './misc/slot-data/construct-service/construct-service.component';
 
 @NgModule({
   declarations: [
@@ -38,7 +43,12 @@ import { ConstructionActionsComponent } from './misc/construction-actions/constr
     ConstructionDetailsComponent,
     LandBoughtComponent,
     LandEmptyComponent,
-    ConstructionActionsComponent
+    ConstructionActionsComponent,
+    ConstructHouseComponent,
+    ConstructBuildingComponent,
+    ConstructShopComponent,
+    ConstructMarkComponent,
+    ConstructServiceComponent
   ],
   imports: [
     BrowserModule,

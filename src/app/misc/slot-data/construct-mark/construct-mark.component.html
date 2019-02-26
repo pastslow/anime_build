@@ -1,0 +1,55 @@
+<div class="construct-container">
+
+  <div class="back-btn">
+
+    <div class="btn-container">
+      <div>
+        <span>BACK</span>
+      </div>
+      <img class="img-back" src="assets/icons/marks/back.png" alt="">
+    </div>
+
+  </div>
+
+  <div *ngFor="let mark of constructMark">
+    <div class="slot-button">
+      <span>{{mark.name}}</span>
+
+      <div class="house-info">
+        <img class="img-slot" src="assets/icons/marks/{{mark.icon}}.png" alt="">
+
+        <div class="slot-info">
+          <div>
+            <span>Cost:</span>
+            <span>{{mark.cost}}</span>
+          </div>
+          
+          <div>
+            <span>Workers:</span>
+            <span>{{mark.workers}}</span>
+          </div>
+
+          <div>
+            <span>Materials:</span>
+            <span>{{mark.materials}}</span>
+          </div>
+
+          <div>
+            <span>Energy:</span>
+            <span>{{mark.energy}}</span>
+          </div>
+
+          <div>
+            <span>Appeal:</span>
+            <span>{{mark.energy}}</span>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

@@ -1,6 +1,7 @@
 .menu-container {
     display: flex;
-    justify-content: space-around;
+    flex-wrap: wrap;
+    justify-content: center;
     align-items: center;
 }
 
