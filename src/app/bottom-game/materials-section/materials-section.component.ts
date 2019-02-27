@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { LogicService } from 'src/app/logic.service';
 
 @Component({
   selector: 'app-materials-section',
@@ -7,30 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MaterialsSectionComponent implements OnInit {
 
-  public materialsShop = [
-    {
-      name:"few materials",
-      icon:'material',
-      cost:5000,
-      number:100
-    },
-    {
-      name:"medium pack of materials",
-      icon:'material2',
-      cost:24000,
-      number:500
-    },
-    {
-      name:"huge pack of materials",
-      icon:'material3',
-      cost:45000,
-      number:1000
-    },
-  ]
+  @Input() public btnPressed;
 
-  constructor() { }
+
+  public bottomDataValues = [];
+
+
+  constructor(private _logicService: LogicService) {  }
 
   ngOnInit() {
+    this.bottomDataValues = this._logicService.bottomLogicData();
   }
 
 }

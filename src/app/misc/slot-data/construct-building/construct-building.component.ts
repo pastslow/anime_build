@@ -1,58 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { LogicService } from 'src/app/logic.service';
 
 @Component({
   selector: 'app-construct-building',
   templateUrl: './construct-building.component.html',
   styleUrls: ['./construct-building.component.css']
 })
-export class ConstructBuildingComponent implements OnInit {
+export class ConstructBuildingComponent implements OnChanges {
 
-  public constructBuilding = [
-    {
-      name:"Garden",
-      icon:"gardencenter",
-      cost:15000,
-      workers:4,
-      materials:300,
-      energy:50
-    },
-    {
-      name:"Lumber Mill",
-      icon:"lumbermill",
-      cost:35000,
-      workers:6,
-      materials:500,
-      energy:100
-    },
-    {
-      name:"Recycle Center",
-      icon:"recyclecenter",
-      cost:45000,
-      workers:8,
-      materials:800,
-      energy:120
-    },
-    {
-      name:"Business Center",
-      icon:"businesscenter",
-      cost:60000,
-      workers:15,
-      materials:2000,
-      energy:200
-    },
-    {
-      name:"Tech Center",
-      icon:"techcenter",
-      cost:90000,
-      workers:30,
-      materials:4000,
-      energy:400
-    }
-  ]
+  @Input() public btnPressed
 
-  constructor() { }
+  public constructionArr = [];
+  public constructArr;
 
-  ngOnInit() {
+
+  constructor(private _logicService: LogicService) { }
+
+  ngOnChanges(changes: SimpleChanges) {
+    this.constructionArr = this._logicService.slotActions();
+    this.constructArr = this.constructionArr.find(elem => elem.name == this.btnPressed);
   }
+
 
 }

@@ -6,63 +6,43 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./slot-actions.component.css']
 })
 export class SlotActionsComponent implements OnInit {
+
+  public btnValue;
+
   public menuIsDisplayed = true;
-  public isHouseBtnPressed = false;
   public isBuildingBtnPressed = false;
-  public isShopBtnPressed = false;
-  public isMarkBtnPressed = false;
-  public isServiceBtnPressed = false;
 
-  constructHouse = () => {
-    this.menuIsDisplayed = !this.menuIsDisplayed;
-    this.isHouseBtnPressed = !this.isHouseBtnPressed;
-   }
-
-   constructBuilding = () => {
+  constructBuilding = (button) => {
+    this.btnValue = button;
     this.menuIsDisplayed = !this.menuIsDisplayed;
     this.isBuildingBtnPressed = !this.isBuildingBtnPressed;
-   }
-
-   constructShop = () => {
-    this.menuIsDisplayed = !this.menuIsDisplayed;
-    this.isShopBtnPressed = !this.isShopBtnPressed;
-   }
-
-   constructMark = () => {
-    this.menuIsDisplayed = !this.menuIsDisplayed;
-    this.isMarkBtnPressed = !this.isMarkBtnPressed;
-   }
-
-   constructService = () => {
-    this.menuIsDisplayed = !this.menuIsDisplayed;
-    this.isServiceBtnPressed = !this.isServiceBtnPressed;
-   }
+  }
 
   public slotActions = [
     {
-      name:"House",
-      icon:"construct_house",
-      btnMethod: this.constructHouse
+      name: "House",
+      icon: "construct_house",
+      btnMethod: () => this.constructBuilding("Houses")
     },
     {
-      name:"Building",
-      icon:"construct_building",
-      btnMethod: this.constructBuilding
+      name: "Building",
+      icon: "construct_building",
+      btnMethod: () => this.constructBuilding("Buildings")
     },
     {
-      name:"Shop",
-      icon:"construct_shop",
-      btnMethod: this.constructShop
+      name: "Shop",
+      icon: "construct_shop",
+      btnMethod: () => this.constructBuilding("Shops")
     },
     {
-      name:"Mark",
-      icon:"construct_mark",
-      btnMethod: this.constructMark
+      name: "Mark",
+      icon: "construct_mark",
+      btnMethod: () => this.constructBuilding("Marks")
     },
     {
-      name:"Service",
-      icon:"construct_service",
-      btnMethod: this.constructService
+      name: "Service",
+      icon: "construct_service",
+      btnMethod: () => this.constructBuilding("Services")
     },
   ]
 
@@ -70,5 +50,5 @@ export class SlotActionsComponent implements OnInit {
 
   ngOnInit() {
   }
-  
+
 }

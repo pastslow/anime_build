@@ -3,10 +3,10 @@
   <div class="shop-item-container">
 
     <div>
-      <img class="shop-left-img" src="assets/icons/woods.png" alt="">
+      <img class="shop-left-img" src="assets/icons/{{bottomDataValues[btnPressed].primaryIcon}}.png" alt="">
     </div>
 
-    <span>Buying Materials</span>
+    <span>{{bottomDataValues[btnPressed].title}}</span>
 
     <div class="shop-parent-border">
 
@@ -14,7 +14,7 @@
       </div>
       
       <div class="materials-img-container shop-img">
-        <img class="shop-bar-img" src="assets/icons/materials.png" alt="">
+        <img class="shop-bar-img" src="assets/icons/{{bottomDataValues[btnPressed].secondaryIcon}}.png" alt="">
       </div>
 
     </div>
@@ -23,15 +23,15 @@
   <div>
 
     <div>
-      <span>Bonus materials: </span>
-      <span>10</span>
+      <span>{{bottomDataValues[btnPressed].bonusTitle}} </span>
+      <span>{{bottomDataValues[btnPressed].bonusValue}}</span>
       <span>%</span>
     </div>
 
     <div class="d-flex">
 
-      <div *ngFor="let pack of materialsShop" class="shop-items">
-        <img src="assets/icons/materials/{{pack.icon}}.png" alt="">
+      <div *ngFor="let pack of bottomDataValues[btnPressed].shopItems" class="shop-items">
+        <img src="assets/icons/{{bottomDataValues[btnPressed].folderIcons}}/{{pack.icon}}.png" alt="">
         <div>
           <span>Cost:</span>
           <span>{{pack.cost}}</span>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogicService } from 'src/app/logic.service';
 
 @Component({
   selector: 'app-money-section',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MoneySectionComponent implements OnInit {
 
-  constructor() { }
+  public logic = [];
+
+  constructor(private _logicService: LogicService) { }
 
   ngOnInit() {
+    this.logic = this._logicService.test();
   }
+
 
 }

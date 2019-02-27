@@ -30,23 +30,8 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-
-        <div *ngIf="hadClickOnMoney">
-          <app-money-section></app-money-section>
-        </div>
-
-        <div *ngIf="hadClickOnMaterials">
-          <app-materials-section></app-materials-section>
-        </div>
-
-        <div *ngIf="hadClickOnWorkers">
-          <app-workers-section></app-workers-section>
-        </div>
-
-        <div *ngIf="hadClickOnEngineers">
-            <app-engineers-section></app-engineers-section>
-          </div>
-
+          <app-money-section *ngIf="isMoneyPressed"></app-money-section>
+          <app-materials-section [btnPressed]="btnValue" *ngIf="isMaterialsPressed"></app-materials-section>
       </div>
 
       <!-- Modal footer -->

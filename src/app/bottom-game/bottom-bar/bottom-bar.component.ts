@@ -7,12 +7,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BottomBarComponent implements OnInit {
 
-  public modalName;
-  public hadClickOnMoney = false;
-  public hadClickOnMaterials = false;
-  public hadClickOnWorkers = false;
-  public hadClickOnEngineers = false;
+  public btnValue = 2;
 
+  public modalName;
+
+  public isMoneyPressed = false;
+  public isMaterialsPressed = false;
 
   public bottomItems = [
     {
@@ -47,32 +47,33 @@ export class BottomBarComponent implements OnInit {
   }
 
   modalInfo(title){
-     this.hadClickOnMoney = false;
-     this.hadClickOnMaterials = false;
-     this.hadClickOnWorkers = false;
-     this.hadClickOnEngineers = false;
+    this.isMoneyPressed = false;
+    this.isMaterialsPressed = false;
 
      if (title == "Money") {
       this.modalName = "MONEY & GOALS";
-      this.hadClickOnMoney = true;
+      this.isMoneyPressed = true;
       return
      }
 
      if (title == "Materials") {
       this.modalName = "GET MATERIALS";
-      this.hadClickOnMaterials = true;
+      this.btnValue = 0;
+      this.isMaterialsPressed = true;
       return
      }
 
      if (title == "Workers") {
       this.modalName = "HIRE WORKERS";
-      this.hadClickOnWorkers = true;
+      this.btnValue = 1;
+      this.isMaterialsPressed = true;
       return
      }
 
      if (title == "Engineers") {
       this.modalName = "HIRE ENGINEERS";
-      this.hadClickOnEngineers = true;
+      this.btnValue = 2;
+      this.isMaterialsPressed = true;
       return
      }
 
