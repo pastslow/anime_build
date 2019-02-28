@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogicService } from 'src/app/logic.service';
 
 @Component({
   selector: 'app-top-bar',
@@ -7,15 +8,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TopBarComponent implements OnInit {
 
-  public topBar = [
-    {
-      title:"Time",
-      
-    }
-  ]
-
-  constructor() { }
-
+  public topBarData;
+  
+  constructor(private _logicService:LogicService) { 
+    this._logicService.cast.subscribe(gameValues => this.topBarData = gameValues)
+  }
+  
   ngOnInit() {
   }
 

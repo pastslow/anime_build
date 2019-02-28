@@ -5,7 +5,7 @@
     </div>
     <span>Colecting Rent</span>
     <div class="shop-parent-border">
-      <div class="shop-procent-border bg-light-green">
+      <div class="shop-procent-border bg-light-green loadingIncome">
       </div>
       <div class="money-img-container shop-img">
         <img class="shop-bar-img" src="assets/icons/money.png" alt="">
@@ -16,18 +16,18 @@
   <div>
     <div>
       <span>Bonus income: </span>
-      <span>{{logic[0].income | currency}}</span>
+      <span>{{gameData.income | currency}}</span>
       <span>%</span>
     </div>
 
     <div>
       <span>Rental income: </span>
-      <span>{{logic[0].income | currency}}</span>
+      <span>{{gameData.income | currency}}</span>
     </div>
 
     <div>
       <span>Current Goal: </span>
-      <span>{{logic[0].goal | currency}}</span>
+      <span>{{gameData.goal | currency}}</span>
     </div>
 
   </div>

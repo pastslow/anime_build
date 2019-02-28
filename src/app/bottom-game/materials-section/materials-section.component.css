@@ -1,7 +1,17 @@
 .bg-brown {
 background: rgb(112, 17, 17);
+width: 100%;
 }
 
 .materials-img-container {
     top: -7px;
+}
+
+.bg-transparent {
+    background: transparent;
+    transition: 0s;
+}
+
+.disabled-btn {
+    opacity: 0.4;
 }

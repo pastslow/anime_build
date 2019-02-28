@@ -1,20 +1,65 @@
 <section class="bottom-section">
 
-  <div (click)="modalInfo(itemName.innerText)" data-toggle="modal" data-target="#myModal"
-    *ngFor="let item of bottomItems" class="top-container">
-    <div [style.background]="item.bg" class="data-container">
+  <div (click)="modalInfo(money.innerText)" data-toggle="modal" data-target="#myModal" class="top-container">
+    <div class="data-container bg-red">
       <div class="title-container">
-        <span #itemName>{{item.name}}</span>
+        <span #money>Money</span>
       </div>
 
       <div class="info-container">
-        <img class="icon" src="assets/icons/{{item.icon}}.png" alt="">
+        <img class="icon" src="assets/icons/money.png" alt="">
         <div class="appeal">
-          <span>{{item.value}}</span>
+          <span>{{bottomValues.money}}</span>
         </div>
       </div>
     </div>
   </div>
+
+  <div (click)="modalInfo(materials.innerText)" data-toggle="modal" data-target="#myModal" class="top-container">
+    <div class="data-container bg-blue">
+      <div class="title-container">
+        <span #materials>Materials</span>
+      </div>
+
+      <div class="info-container">
+        <img class="icon" src="assets/icons/materials.png" alt="">
+        <div class="appeal">
+          <span>{{bottomValues.materials}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div (click)="modalInfo(workers.innerText)" data-toggle="modal" data-target="#myModal" class="top-container">
+    <div class="data-container bg-yellow">
+      <div class="title-container">
+        <span #workers>Workers</span>
+      </div>
+
+      <div class="info-container">
+        <img class="icon" src="assets/icons/worker.png" alt="">
+        <div class="appeal">
+          <span>{{bottomValues.workers}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div (click)="modalInfo(engineers.innerText)" data-toggle="modal" data-target="#myModal" class="top-container">
+    <div class="data-container bg-light-blue">
+      <div class="title-container">
+        <span #engineers>Engineers</span>
+      </div>
+
+      <div class="info-container">
+        <img class="icon" src="assets/icons/engineer.png" alt="">
+        <div class="appeal">
+          <span>{{bottomValues.engineers}}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </section>
 
 <!-- The Modal -->
@@ -30,8 +75,10 @@
 
       <!-- Modal body -->
       <div class="modal-body">
-          <app-money-section *ngIf="isMoneyPressed"></app-money-section>
-          <app-materials-section [btnPressed]="btnValue" *ngIf="isMaterialsPressed"></app-materials-section>
+        <app-money-section *ngIf="isMoneyPressed"></app-money-section>
+
+        <app-materials-section [btnPressed]="btnValue" *ngIf="isMaterialsPressed">
+        </app-materials-section>
       </div>
 
       <!-- Modal footer -->

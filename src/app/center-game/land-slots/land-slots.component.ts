@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogicService } from 'src/app/logic.service';
 
 @Component({
   selector: 'app-land-slots',
@@ -7,94 +8,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HouseBuildComponent implements OnInit {
 
-  public mapNumber = 0;
+  public slotNumber = 0;
   public isLandBought = false;
   public hasConstruction = false;
 
-  public mapSlots = [
-    {
-      name: "Easy Map",
-      topSlots: [
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none1",
-          condition: "bought"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none1",
-          condition: "bought"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-      ],
-      midSlots: [
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-      ],
-      bottomSlots: [
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house0/none0",
-          condition: "empty"
-        },
-        {
-          img: "house1/construct/construct08",
-          condition: "build"
-        },
-      ]
-    },
-  ]
-  constructor() { }
+  public topSlots;
+  public midSlots
+
+  constructor(private _logicService: LogicService) {
+    this._logicService.castTopSlots.subscribe(mapTopSlots => this.topSlots = mapTopSlots);
+    
+   }
 
   ngOnInit() {
   }
 
   test(modalImg, event) {
-    if(event.target.slot === "empty"){
+    this.slotNumber = event.target.slot;
+
+    if (event.target.alt === "empty") {
       this.isLandBought = false;
       this.hasConstruction = false;
       modalImg.src = event.target.src;
       return;
     }
-    if(event.target.slot === "bought"){
+    if (event.target.alt === "bought") {
       this.isLandBought = true;
       this.hasConstruction = false;
       modalImg.src = event.target.src;
@@ -103,6 +41,6 @@ export class HouseBuildComponent implements OnInit {
     modalImg.src = event.target.src;
     this.isLandBought = false;
     this.hasConstruction = true;
-    
   }
+
 }

@@ -1,28 +1,34 @@
 import { Injectable } from '@angular/core';
+import { BehaviorSubject } from 'rxjs/';
 
 @Injectable({
   providedIn: 'root'
 })
 export class LogicService {
 
+
   constructor() { }
 
-  test() {
-    return [
-      {
-        money: 50000,
-        income: 0,
-        bonusIncome: 10,
-        materials: 100,
-        workers: 2,
-        engineers: 1,
-        energy: 0,
-        maxEnergy: 100,
-        goal: 8000000,
-        score: 0,
-        appeal: 0,
-      }
-    ]
+  public gameDataValues = {
+    money: 20000,
+    income: 10000,
+    bonusIncome: 10,
+    materials: 100,
+    workers: 2,
+    engineers: 1,
+    energy: 0,
+    maxEnergy: 100,
+    goal: 8000000,
+    score: 0,
+    appeal: 10,
+    landCost:25000
+  }
+
+  private gameValues = new BehaviorSubject<object>(this.gameDataValues)
+  cast = this.gameValues.asObservable();
+
+  changeObject(newObj){
+    this.gameValues.next(newObj)
   }
 
   bottomLogicData() {
@@ -332,4 +338,92 @@ export class LogicService {
     ]
   }
 
+    public mapTopSlots = [
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:0
+      },
+      {
+        img: "house0/none1",
+        condition: "bought",
+        number:1
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:2
+      },
+      {
+        img: "house0/none1",
+        condition: "bought",
+        number:3
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:4
+      },
+    ]
+    public midTopSlots = [
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:5
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:6
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:7
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:8
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:9
+      }
+    ]
+    public bottomSlots = [
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:10
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:11
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:12
+      },
+      {
+        img: "house0/none0",
+        condition: "empty",
+        number:13
+      },
+      {
+        img: "house1/construct/construct08",
+        condition: "build",
+        number:14
+      }
+    ]
+  
+    private gameTopSlots = new BehaviorSubject<object>(this.mapTopSlots)
+  castTopSlots = this.gameTopSlots.asObservable();
+
+  getSlots(newObj){
+    this.gameTopSlots.next(newObj)
+  }
 }

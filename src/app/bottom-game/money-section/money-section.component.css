@@ -5,3 +5,12 @@
 .money-img-container {
     top: -3px;
 }
+
+.loadingIncome {
+animation: loading-bar 10s linear infinite;
+}
+
+@keyframes loading-bar {
+    0% {width: 0%;}
+    100%{width: 100%;}
+}

@@ -9,6 +9,22 @@
     cursor: pointer;
 }
 
+.bg-red {
+    background: rgba(244, 22, 33, 1);
+}
+
+.bg-blue {
+    background: rgba(22, 33, 255, 1);
+}
+
+.bg-yellow {
+    background: rgba(146, 146, 0, 1);
+}
+
+.bg-light-blue {
+    background: rgba(22, 128, 128, 1);
+}
+
 .top-container {
     display: flex;
     justify-content: space-between;

@@ -25,9 +25,9 @@
       <div class="info-container">
         <img class="icon" src="assets/icons/power.png" alt="">
         <div class="energy-border">
-          <span>40</span>
+          <span>{{topBarData.energy}}</span>
           <span>/</span>
-          <span>400</span>
+          <span>{{topBarData.maxEnergy}}</span>
           <div class="energy-consumption">
           </div>
         </div>
@@ -45,7 +45,7 @@
         <img class="icon" src="assets/icons/sad.png" alt="">
         <div class="appeal red-bg-bar">
           <span>- </span>
-          <span>300</span>
+          <span>{{topBarData.appeal}}</span>
         </div>
       </div>
   
@@ -61,7 +61,7 @@
   
         <img class="icon" src="assets/icons/score.png" alt="">
         <div class="appeal green-bg-bar">
-          <span>3213132</span>
+          <span>{{topBarData.money}}</span>
         </div>
       </div>
   
@@ -76,7 +76,7 @@
       <div class="info-container">
         <img class="icon" src="assets/icons/GOALS09.PNG" alt="">
         <div class="appeal yellow-bg-bar">
-          <span>{{1000000 | currency}}</span>
+          <span>{{topBarData.goal | currency}}</span>
         </div>
       </div>
   

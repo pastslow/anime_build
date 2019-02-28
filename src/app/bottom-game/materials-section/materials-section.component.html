@@ -6,13 +6,21 @@
       <img class="shop-left-img" src="assets/icons/{{bottomDataValues[btnPressed].primaryIcon}}.png" alt="">
     </div>
 
-    <span>{{bottomDataValues[btnPressed].title}}</span>
+    <span #title>{{bottomDataValues[btnPressed].title}}</span>
 
     <div class="shop-parent-border">
 
-      <div class="shop-procent-border bg-brown">
+      <div [ngClass]="{
+        'shop-procent-border':defaultClass,
+         'bg-brown':isLoading,
+         'bg-transparent':isNotDisplayed,
+         'fast-time':isSmallPack,
+         'medium-time':isMediumPack,
+         'slow-time':isLargePack
+        }">
+
       </div>
-      
+
       <div class="materials-img-container shop-img">
         <img class="shop-bar-img" src="assets/icons/{{bottomDataValues[btnPressed].secondaryIcon}}.png" alt="">
       </div>
@@ -30,17 +38,21 @@
 
     <div class="d-flex">
 
-      <div *ngFor="let pack of bottomDataValues[btnPressed].shopItems" class="shop-items">
+      <button [disabled]="isDisabled" (click)="buyItems(packCost.innerText, title.innerText, packItem.innerText)"
+        *ngFor="let pack of bottomDataValues[btnPressed].shopItems" [ngClass]="{
+         'shop-items':defaultClass,
+         'disabled-btn':isDisabled
+        }">
         <img src="assets/icons/{{bottomDataValues[btnPressed].folderIcons}}/{{pack.icon}}.png" alt="">
         <div>
           <span>Cost:</span>
-          <span>{{pack.cost}}</span>
+          <span #packCost>{{pack.cost}}</span>
         </div>
         <div>
-            <span>Packs:</span>
-            <span>{{pack.number}}</span>
+          <span>Packs:</span>
+          <span #packItem>{{pack.number}}</span>
         </div>
-      </div>
+      </button>
 
     </div>
 

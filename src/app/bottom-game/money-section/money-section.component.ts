@@ -8,13 +8,10 @@ import { LogicService } from 'src/app/logic.service';
 })
 export class MoneySectionComponent implements OnInit {
 
-  public logic = [];
-
-  constructor(private _logicService: LogicService) { }
-
-  ngOnInit() {
-    this.logic = this._logicService.test();
+  public gameData;
+  constructor(private _logicService: LogicService) {
+    this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
   }
-
-
+  ngOnInit() {
+  }
 }
