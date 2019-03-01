@@ -1,12 +1,13 @@
 <div>
 
-  <div *ngIf = "menuIsDisplayed" class="menu-container">
+  <div *ngIf="menuIsDisplayed || returnToMenu" class="menu-container">
     <div (click)="button.btnMethod()" *ngFor="let button of slotActions" class="menu-button">
       <span>{{button.name}}</span>
       <img class="menu-icon" src="assets/icons/{{button.icon}}.png" alt="" />
     </div>
   </div>
-  
-  <app-construct-building [btnPressed]="btnValue" *ngIf="isBuildingBtnPressed"></app-construct-building>
-  
+
+  <app-construct-building (getBack)="returnToMenu = $event" [btnPressed]="btnValue" *ngIf="isBuildingBtnPressed && !returnToMenu">
+  </app-construct-building>
+
 </div>

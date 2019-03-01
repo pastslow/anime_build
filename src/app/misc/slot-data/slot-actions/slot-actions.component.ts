@@ -1,21 +1,23 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'app-slot-actions',
   templateUrl: './slot-actions.component.html',
   styleUrls: ['./slot-actions.component.css']
 })
-export class SlotActionsComponent implements OnInit {
+export class SlotActionsComponent implements OnInit,OnChanges {
 
   public btnValue;
+  public returnToMenu = false;
 
   public menuIsDisplayed = true;
   public isBuildingBtnPressed = false;
 
   constructBuilding = (button) => {
+    this.returnToMenu = false;
     this.btnValue = button;
-    this.menuIsDisplayed = !this.menuIsDisplayed;
-    this.isBuildingBtnPressed = !this.isBuildingBtnPressed;
+    this.menuIsDisplayed = false;
+    this.isBuildingBtnPressed = true;
   }
 
   public slotActions = [
@@ -49,6 +51,11 @@ export class SlotActionsComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
+  }
+
+  ngOnChanges(changes:SimpleChanges){
+
   }
 
 }

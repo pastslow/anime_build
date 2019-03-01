@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 
 @Component({
@@ -9,6 +9,12 @@ import { LogicService } from 'src/app/logic.service';
 export class ConstructBuildingComponent implements OnChanges {
 
   @Input() public btnPressed
+  @Output() public getBack = new EventEmitter();
+
+  public returnToMenu = true;
+  getBackToMenu(){
+    this.getBack.emit(this.returnToMenu);
+  }
 
   public constructionArr = [];
   public constructArr;
