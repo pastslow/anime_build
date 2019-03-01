@@ -8,17 +8,21 @@ import { LogicService } from 'src/app/logic.service';
 })
 export class HouseBuildComponent implements OnInit {
 
-  public slotNumber = 0;
   public isLandBought = false;
   public hasConstruction = false;
 
+  public slotIdNumber;
   public topSlots;
   public midSlots;
   public bottomSlots;
 
   constructor(private _logicService: LogicService) {
+    this._logicService.castSlotId.subscribe(slotId => this.slotIdNumber = slotId)
+
     this._logicService.castTopSlots.subscribe(mapTopSlots => this.topSlots = mapTopSlots);
+
     this._logicService.castMidSlots.subscribe(mapMidSlots => this.midSlots = mapMidSlots);
+    
     this._logicService.castBottomSlots.subscribe(mapBottomSlots => this.bottomSlots = mapBottomSlots)
    }
 
@@ -26,7 +30,10 @@ export class HouseBuildComponent implements OnInit {
   }
 
   test(modalImg, event) {
-    this.slotNumber = event.target.slot;
+
+    this.slotIdNumber = parseInt(event.target.slot);
+    // Change the new value into the service
+    this._logicService.getSlotId(this.slotIdNumber);
 
     if (event.target.alt === "empty") {
       this.isLandBought = false;

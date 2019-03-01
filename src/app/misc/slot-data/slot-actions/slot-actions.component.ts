@@ -7,7 +7,11 @@ import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
 })
 export class SlotActionsComponent implements OnInit,OnChanges {
 
-  public btnValue;
+
+  public parentData = {
+    buttonNamePressed: "Houses",
+  }
+
   public returnToMenu = false;
 
   public menuIsDisplayed = true;
@@ -15,7 +19,7 @@ export class SlotActionsComponent implements OnInit,OnChanges {
 
   constructBuilding = (button) => {
     this.returnToMenu = false;
-    this.btnValue = button;
+    this.parentData.buttonNamePressed = button;
     this.menuIsDisplayed = false;
     this.isBuildingBtnPressed = true;
   }

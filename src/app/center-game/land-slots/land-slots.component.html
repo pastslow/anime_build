@@ -2,21 +2,21 @@
   <div class="top-slots container-slots">
     <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
       *ngFor="let slot of topSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.png" />
+      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.PNG" />
     </div>
   </div>
 
   <div class="mid-slots container-slots">
     <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
       *ngFor="let slot of midSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.png" />
+      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.PNG" />
     </div>
   </div>
 
   <div class="bottom-slots container-slots">
     <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
       *ngFor="let slot of bottomSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.png" />
+      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.PNG" />
     </div>
   </div>
 
@@ -31,7 +31,7 @@
       <div class="modal-header">
 
         <div class="house">
-          <img #modalImg class="img-slot" src="assets/buildings/house0/none0.png" />
+          <img #modalImg class="img-slot" src="assets/buildings/HOUSE0/NONE0.PNG" />
         </div>
 
         <app-land-bought *ngIf="isLandBought" class="slot-description"></app-land-bought>
@@ -47,7 +47,7 @@
       <!-- Modal body -->
       <div class="modal-body">
         <app-slot-actions *ngIf="isLandBought"></app-slot-actions>
-        <app-buy-land [parentSlot]="slotNumber" *ngIf="!isLandBought && !hasConstruction"></app-buy-land>
+        <app-buy-land *ngIf="!isLandBought && !hasConstruction"></app-buy-land>
         <app-construction-actions *ngIf="hasConstruction"></app-construction-actions>
       </div>
 

@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 
 @Component({
@@ -8,8 +8,6 @@ import { LogicService } from 'src/app/logic.service';
 })
 export class BuyLandComponent implements OnInit {
 
-  @Input() parentSlot;
-
   public obj;
 
 
@@ -18,11 +16,15 @@ export class BuyLandComponent implements OnInit {
   public midSlots;
   public bottomSlots;
   public gameData;
+  public slotNumberId;
 
   constructor(private _logicService: LogicService) {
+    this._logicService.castSlotId.subscribe(slotId => this.slotNumberId = slotId);
 
     this._logicService.castTopSlots.subscribe(mapTopSlots => this.topSlots = mapTopSlots);
+
     this._logicService.castMidSlots.subscribe(mapMidSlots => this.midSlots = mapMidSlots);
+
     this._logicService.castBottomSlots.subscribe(mapBottomSlots => this.bottomSlots = mapBottomSlots);
 
   }
@@ -43,22 +45,23 @@ export class BuyLandComponent implements OnInit {
 
     this.isModalClosed = true;
 
-    let landNumber = parseInt(this.parentSlot)
+    let landNumber = this.slotNumberId;
+    
     if (landNumber <= 4) {
       this.obj = this.topSlots.find(elem => elem.number == landNumber);
-      this.obj.img = "house0/none1";
+      this.obj.img = "HOUSE0/NONE1";
       this.obj.condition = "bought";
       return
     }
     if (landNumber <= 9) {
       this.obj = this.midSlots.find(elem => elem.number == landNumber);
-      this.obj.img = "house0/none1";
+      this.obj.img = "HOUSE0/NONE1";
       this.obj.condition = "bought";
       return;
     }
     if (landNumber <= 14) {
       this.obj = this.bottomSlots.find(elem => elem.number == landNumber);
-      this.obj.img = "house0/none1";
+      this.obj.img = "HOUSE0/NONE1";
       this.obj.condition = "bought";
       return;
     }

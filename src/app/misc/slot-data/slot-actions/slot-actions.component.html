@@ -7,7 +7,7 @@
     </div>
   </div>
 
-  <app-construct-building (getBack)="returnToMenu = $event" [btnPressed]="btnValue" *ngIf="isBuildingBtnPressed && !returnToMenu">
+  <app-construct-building (getBack)="returnToMenu = $event" [btnPressed]="parentData" *ngIf="isBuildingBtnPressed && !returnToMenu">
   </app-construct-building>
 
 </div>
