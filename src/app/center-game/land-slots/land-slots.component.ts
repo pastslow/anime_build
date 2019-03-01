@@ -13,11 +13,13 @@ export class HouseBuildComponent implements OnInit {
   public hasConstruction = false;
 
   public topSlots;
-  public midSlots
+  public midSlots;
+  public bottomSlots;
 
   constructor(private _logicService: LogicService) {
     this._logicService.castTopSlots.subscribe(mapTopSlots => this.topSlots = mapTopSlots);
-    
+    this._logicService.castMidSlots.subscribe(mapMidSlots => this.midSlots = mapMidSlots);
+    this._logicService.castBottomSlots.subscribe(mapBottomSlots => this.bottomSlots = mapBottomSlots)
    }
 
   ngOnInit() {

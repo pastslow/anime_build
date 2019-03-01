@@ -21,13 +21,13 @@ export class LogicService {
     goal: 8000000,
     score: 0,
     appeal: 10,
-    landCost:25000
+    landCost: 25000
   }
 
   private gameValues = new BehaviorSubject<object>(this.gameDataValues)
   cast = this.gameValues.asObservable();
 
-  changeObject(newObj){
+  changeObject(newObj) {
     this.gameValues.next(newObj)
   }
 
@@ -223,207 +223,223 @@ export class LogicService {
         ]
       },
       {
-        name:"Marks",
+        name: "Marks",
         folderIcons: "marks",
         construct: [
           {
-            name:"Tennis",
-            icon:"tennis",
-            cost:10000,
-            workers:3,
-            materials:500,
-            energy:10,
-            appeal:10
+            name: "Tennis",
+            icon: "tennis",
+            cost: 10000,
+            workers: 3,
+            materials: 500,
+            energy: 10,
+            appeal: 10
           },
           {
-            name:"Pool",
-            icon:"pool",
-            cost:14000,
-            workers:4,
-            materials:600,
-            energy:20,
-            appeal:15
+            name: "Pool",
+            icon: "pool",
+            cost: 14000,
+            workers: 4,
+            materials: 600,
+            energy: 20,
+            appeal: 15
           },
           {
-            name:"Minigolf",
-            icon:"minigolf",
-            cost:30000,
-            workers:6,
-            materials:800,
-            energy:40,
-            appeal:20
+            name: "Minigolf",
+            icon: "minigolf",
+            cost: 30000,
+            workers: 6,
+            materials: 800,
+            energy: 40,
+            appeal: 20
           },
           {
-            name:"Amphitheater",
-            icon:"amphitheater",
-            cost:40000,
-            workers:8,
-            materials:1000,
-            energy:100,
-            appeal:25
+            name: "Amphitheater",
+            icon: "amphitheater",
+            cost: 40000,
+            workers: 8,
+            materials: 1000,
+            energy: 100,
+            appeal: 25
           }
         ]
       },
       {
-        name:"Services",
+        name: "Services",
         folderIcons: "services",
         construct: [
           {
-            name:"Wind",
-            icon:"wind",
-            cost:10000,
-            workers:5,
-            materials:500,
-            energy:100,
-            appeal:10
+            name: "Wind",
+            icon: "wind",
+            cost: 10000,
+            workers: 5,
+            materials: 500,
+            energy: 100,
+            appeal: 10
           },
           {
-            name:"Solar",
-            icon:"solar",
-            cost:40000,
-            workers:12,
-            materials:1500,
-            energy:300,
-            appeal:20
+            name: "Solar",
+            icon: "solar",
+            cost: 40000,
+            workers: 12,
+            materials: 1500,
+            energy: 300,
+            appeal: 20
           },
           {
-            name:"Nuclear",
-            icon:"nuclear",
-            cost:80000,
-            workers:40,
-            materials:4000,
-            energy:800,
-            appeal:40
+            name: "Nuclear",
+            icon: "nuclear",
+            cost: 80000,
+            workers: 40,
+            materials: 4000,
+            energy: 800,
+            appeal: 40
           }
         ]
       },
       {
-        name:"Shops",
+        name: "Shops",
         folderIcons: "shops",
         construct: [
           {
-            name:"Botique",
-            icon:"botique",
-            cost:40000,
-            workers:8,
-            materials:500,
-            energy:100
+            name: "Botique",
+            icon: "botique",
+            cost: 40000,
+            workers: 8,
+            materials: 500,
+            energy: 100
           },
           {
-            name:"Grocery",
-            icon:"grocery",
-            cost:60000,
-            workers:16,
-            materials:1000,
-            energy:250
+            name: "Grocery",
+            icon: "grocery",
+            cost: 60000,
+            workers: 16,
+            materials: 1000,
+            energy: 250
           },
           {
-            name:"Cinema",
-            icon:"cinema",
-            cost:85000,
-            workers:20,
-            materials:3000,
-            energy:550
+            name: "Cinema",
+            icon: "cinema",
+            cost: 85000,
+            workers: 20,
+            materials: 3000,
+            energy: 550
           },
           {
-            name:"Banckery",
-            icon:"backery",
-            cost:98000,
-            workers:32,
-            materials:5000,
-            energy:700
+            name: "Banckery",
+            icon: "backery",
+            cost: 98000,
+            workers: 32,
+            materials: 5000,
+            energy: 700
           }
         ]
       }
     ]
   }
+  // Game Land Slots
+  public mapTopSlots = [
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 0
+    },
+    {
+      img: "house0/none1",
+      condition: "bought",
+      number: 1
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 2
+    },
+    {
+      img: "house0/none1",
+      condition: "bought",
+      number: 3
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 4
+    },
+  ]
+  public mapMidSlots = [
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 5
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 6
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 7
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 8
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 9
+    }
+  ]
+  public mapBottomSlots = [
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 10
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 11
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 12
+    },
+    {
+      img: "house0/none0",
+      condition: "empty",
+      number: 13
+    },
+    {
+      img: "house1/construct/construct08",
+      condition: "build",
+      number: 14
+    }
+  ]
 
-    public mapTopSlots = [
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:0
-      },
-      {
-        img: "house0/none1",
-        condition: "bought",
-        number:1
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:2
-      },
-      {
-        img: "house0/none1",
-        condition: "bought",
-        number:3
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:4
-      },
-    ]
-    public midTopSlots = [
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:5
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:6
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:7
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:8
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:9
-      }
-    ]
-    public bottomSlots = [
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:10
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:11
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:12
-      },
-      {
-        img: "house0/none0",
-        condition: "empty",
-        number:13
-      },
-      {
-        img: "house1/construct/construct08",
-        condition: "build",
-        number:14
-      }
-    ]
-  
-    private gameTopSlots = new BehaviorSubject<object>(this.mapTopSlots)
+  // Top slots
+  private gameTopSlots = new BehaviorSubject<object>(this.mapTopSlots)
   castTopSlots = this.gameTopSlots.asObservable();
 
-  getSlots(newObj){
+  getSlots(newObj) {
     this.gameTopSlots.next(newObj)
+  }
+  // Mid Slots
+  private gameMidSlots = new BehaviorSubject<object>(this.mapMidSlots);
+  castMidSlots = this.gameMidSlots.asObservable();
+
+  getMidSlots(newObj) {
+    this.gameMidSlots.next(newObj);
+  }
+
+  /// Bottom Slots
+  private gameBottomSlots = new BehaviorSubject<object>(this.mapBottomSlots);
+  castBottomSlots = this.gameBottomSlots.asObservable();
+
+  getBottomSlots(newObj) {
+    this.gameBottomSlots.next(newObj)
   }
 }
