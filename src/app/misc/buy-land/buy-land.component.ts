@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 
 @Component({
@@ -6,12 +6,14 @@ import { LogicService } from 'src/app/logic.service';
   templateUrl: './buy-land.component.html',
   styleUrls: ['./buy-land.component.css']
 })
-export class BuyLandComponent implements OnInit, OnChanges {
+export class BuyLandComponent implements OnInit {
 
   @Input() parentSlot;
 
   public obj;
 
+
+  public isModalClosed = false;
   public topSlots;
   public midSlots;
   public bottomSlots;
@@ -29,10 +31,8 @@ export class BuyLandComponent implements OnInit, OnChanges {
     this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
   }
 
-  ngOnChanges(changes: SimpleChanges) {
-  }
-
   buyLand() {
+    this.isModalClosed = false;
 
     if (this.gameData.money < this.gameData.landCost) {
       alert("you don't have enough money");
@@ -40,6 +40,8 @@ export class BuyLandComponent implements OnInit, OnChanges {
     }
 
     this.gameData.money = this.gameData.money - this.gameData.landCost;
+
+    this.isModalClosed = true;
 
     let landNumber = parseInt(this.parentSlot)
     if (landNumber <= 4) {
