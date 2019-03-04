@@ -1,6 +1,13 @@
 .action-data {
-    max-width: 80px;
     text-align: center;
+    color: white;
+    background: transparent;
+    border: 0px;
+}
+
+.action-info {
+    display: flex;
+    align-items: center;
 }
 
 .action-data:hover {
@@ -11,5 +18,6 @@
 .container-action {
     font-size: 14px;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
 }

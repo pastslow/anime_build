@@ -55,7 +55,7 @@ export class ConstructBuildingComponent implements OnChanges {
   constructBuildingOverTime(gameObject, image, workers,
     energy, buildingIncome, buildingType) {
 
-    gameObject.condition = "build";
+    gameObject.condition = "underConstruction";
 
     for (let i = 1; i <= 8; i++) {
       let timeout = i === 1? 50 : (i - 1) * 1800;
@@ -66,22 +66,37 @@ export class ConstructBuildingComponent implements OnChanges {
 
     setTimeout(() => {
       this.gameData.workers = this.gameData.workers + workers;
+
       if (buildingType === "producer") {
         this.gameData.maxEnergy = this.gameData.maxEnergy + energy;
+
+        gameObject.energy = 0;        
+        gameObject.maxEnergy = energy;
       } else {
         let bonusEnergyProcent = (
           this.gameData.reduceEnergyConsumption * energy) / 100;
 
         this.gameData.energy = (
           this.gameData.energy + energy - bonusEnergyProcent);
-      }
+
+          gameObject.energy = energy - bonusEnergyProcent;
+        }
+        
 
       let bonusIncomeProcent = (
         this.gameData.bonusIncome * buildingIncome) / 100;
 
-      this.gameData.income = (
-        + buildingIncome + bonusIncomeProcent);
+      gameObject.income = buildingIncome + bonusIncomeProcent;
 
+      let rentalIncome = (this.gameData.income + buildingIncome +
+         bonusIncomeProcent);
+
+      let rentalIncomeBeforeStopped = (this.gameData.incomeBeforeStopped + 
+      buildingIncome +bonusIncomeProcent)
+
+      this.gameData.income = rentalIncome;
+      this.gameData.incomeBeforeStopped = rentalIncomeBeforeStopped;
+      gameObject.condition = "build";
 
       this.changeBuildingStatus();
     }, 14500);

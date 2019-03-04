@@ -19,10 +19,10 @@ export class LogicService {
   }
 
   public gameDataValues = {
-    money: 200000,
-    income: 300,
+    money: 400000,
+    income: 0,
     incomeStopped:0,
-    incomeBeforeStopped:300,
+    incomeBeforeStopped:0,
     bonusIncome: 10,
     reduceEnergyConsumption: 10,
     materials: 10000,
@@ -32,7 +32,7 @@ export class LogicService {
     maxEnergy: 100,
     goal: 8000000,
     score: 0,
-    appeal: 10,
+    appeal: 0,
     landCost: 25000,
   }
 
@@ -422,30 +422,40 @@ export class LogicService {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 0
     },
     {
       img: "HOUSE0/NONE1",
       condition: "bought",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 1
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 2
     },
     {
       img: "HOUSE0/NONE1",
       condition: "bought",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 3
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 4
     },
   ]
@@ -454,30 +464,40 @@ export class LogicService {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 5
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 6
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 7
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 8
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 9
     }
   ]
@@ -486,30 +506,40 @@ export class LogicService {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 10
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 11
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 12
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
       income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 13
     },
     {
-      img: "HOUSE01/CONSTRUCT/CONSTRUCT08",
-      condition: "build",
-      income: 300,
+      img: "HOUSE0/NONE0",
+      condition: "empty",
+      income: 0,
+      energy:0,
+      maxEnergy:0,
       number: 14
     }
   ]

@@ -1,44 +1,84 @@
 <div class="container-action">
 
-  <div class="action-data">
+  <button class="action-data">
     <span>Upgrade Star</span>
-    <img src="assets/icons/upgrade_star.png" alt="">
-    <span>Income: </span>
-    <br />
-    <span>+ 10%</span>
-    <br />
-    <span>Cost: </span>
-    <br />
-    <span>3000</span><span>$</span>
-    <br />
-    <span>Materials: </span>
-    <br />
-    <span>30</span>
-  </div>
+    <div class="action-info">
+      <img src="assets/icons/upgrade_star.png" alt="">
+      <div>
+        <span>Income: </span>
+        <br />
+        <span>+ 10%</span>
+        <br />
+        <span>Cost: </span>
+        <br />
+        <span>3000</span><span>$</span>
+        <br />
+        <span>Materials: </span>
+        <br />
+        <span>30</span>
+      </div>
+    </div>
+  </button>
 
-  <div class="action-data">
+  <button class="action-data">
     <span>Upgrade Energy</span>
-    <img src="assets/icons/upgrade_energy.png" alt="">
-    <span>Income: </span>
-    <br />
-    <span>+ 10%</span>
-    <br />
-    <span>Cost: </span>
-    <br />
-    <span>3000</span><span>$</span>
-    <br />
-    <span>Materials: </span>
-    <br />
-    <span>30</span>
-  </div>
+    <div class="action-info">
+      <img src="assets/icons/upgrade_energy.png" alt="">
+      <div>
+        <span>Income: </span>
+        <br />
+        <span>+ 10%</span>
+        <br />
+        <span>Cost: </span>
+        <br />
+        <span>3000</span><span>$</span>
+        <br />
+        <span>Materials: </span>
+        <br />
+        <span>30</span>
+      </div>
+    </div>
+  </button>
 
-  <div class="action-data">
+  <button class="action-data">
     <span>Repair Construction</span>
-    <img src="assets/icons/no_repair.png" alt="">
-  </div>
+    <div class="action-info">
+      <img src="assets/icons/no_repair.png" alt="">
+      <div>
+        <span>Workers: </span>
+        <br />
+        <span>3</span>
+        <br />
+        <span>Cost: </span>
+        <br />
+        <span>3000</span><span>$</span>
+        <br />
+        <span>Materials: </span>
+        <br />
+        <span>30</span>
+      </div>
+    </div>
+  </button>
 
-  <div class="action-data">
-      <span>Demolish Construction</span>
-  <img src="assets/icons/demolish.png" alt="">
-  </div>
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="demolishBuilding()" class="action-data">
+    <span>Demolish Construction</span>
+    <div class="action-info">
+      <img src="assets/icons/demolish.png" alt="" />
+      <div>
+        <span>Workers: </span>
+        <br />
+        <span>3</span>
+        <br />
+        <span>Cost: </span>
+        <br />
+        <span>3000</span><span>$</span>
+        <br />
+        <span>Materials: </span>
+        <br />
+        <span>30</span>
+      </div>
+    </div>
+  </button>
+
+
 </div>
