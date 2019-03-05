@@ -17,19 +17,19 @@
     </div>
   </button>
 
-  <button class="action-data">
+  <button (click)="updateEnergyReduction()" class="action-data">
     <span>Upgrade Energy</span>
     <div class="action-info">
       <img src="assets/icons/upgrade_energy.png" alt="">
       <div>
-        <span>Income: </span>
-        <span>+ 10%</span>
+        <span>Energy: -</span>
+        <span>10%</span>
         <br />
         <span>Cost: </span>
-        <span>3000</span><span>$</span>
+        <span>{{allGameSlots[slotNumber].income * 5}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>30</span>
+        <span>{{allGameSlots[slotNumber].income / 9 | number:'1.2-2'}}</span>
       </div>
     </div>
   </button>

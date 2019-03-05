@@ -49,11 +49,24 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
+  chanceStatusOfPowerToAllBuildings() {
+    if (this.gameValues.energy > this.gameValues.maxEnergy) {
+      this.changePowerOfBuildings(this.topSlots, "NONE00");
+      this.changePowerOfBuildings(this.midSlots, "NONE00");
+      this.changePowerOfBuildings(this.bottomSlots, "NONE00");
+      this.gameValues.income = this.gameValues.incomeStopped;
+    } else {
+      this.changePowerOfBuildings(this.topSlots, "CONSTRUCT08");
+      this.changePowerOfBuildings(this.midSlots, "CONSTRUCT08");
+      this.changePowerOfBuildings(this.bottomSlots, "CONSTRUCT08");
+    }
+  }
+
   performDemolishBuilding(gameSlot, materials) {
-    debugger
-    let currentHouse = gameSlot[this.slotNumber].img.slice(0, 7);
 
     let gameObject = gameSlot.find(elem => elem.number == this.slotNumber);
+    let currentHouse = gameObject.img.slice(0, 7);
+
     if (gameObject.condition === "underConstruction") {
       alert("This building is under construction. You can not demolis yet")
       return;
@@ -70,37 +83,29 @@ export class ConstructionActionsComponent implements OnInit {
     this.gameValues.maxEnergy = this.gameValues.maxEnergy - gameObject.maxEnergy;
 
     // If you demolish the building and have less or more energy
-    if (this.gameValues.energy > this.gameValues.maxEnergy) {
-      this.changePowerOfBuildings(this.topSlots, "NONE00");
-      this.changePowerOfBuildings(this.midSlots, "NONE00");
-      this.changePowerOfBuildings(this.bottomSlots, "NONE00");
-      this.gameValues.income = this.gameValues.incomeStopped;
-    } else {
-      this.changePowerOfBuildings(this.topSlots, "CONSTRUCT08");
-      this.changePowerOfBuildings(this.midSlots, "CONSTRUCT08");
-      this.changePowerOfBuildings(this.bottomSlots, "CONSTRUCT08");
+    this.chanceStatusOfPowerToAllBuildings();
 
-      this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
-      this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
+    this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
+    this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
 
-      this.gameValues.materials = this.gameValues.materials + parseInt(materials);
-      this._logicService.changeObject(this.gameValues);
+    this.gameValues.materials = this.gameValues.materials + parseInt(materials);
+    this._logicService.changeObject(this.gameValues);
 
-      this.isModalClosed = true;
+    this.isModalClosed = true;
 
-      this.resetSlotData(gameObject);
+    this.resetSlotData(gameObject);
 
-    }
   }
 
   resetSlotData(slot) {
     slot.income = 0;
     slot.maxEnergy = 0;
     slot.energy = 0;
+    slot.energyUpdateImg = "NOUPDATE";
   }
 
   demolishAnimation(object, currentHouse) {
-      object.condition = "underDemolishing";
+    object.condition = "underDemolishing";
 
     for (let i = 1; i <= 4; i++) {
       let timeout = i === 1 ? 50 : (i - 1) * 1200;
@@ -130,4 +135,57 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
+  updateEnergyStats(gameObject, image) {
+    gameObject.energyUpdateImg = image;
+    let newEnergyReduction = Math.round((gameObject.energy * 10) / 100)
+    gameObject.energy = gameObject.energy - newEnergyReduction;
+
+    this.gameValues.energy = this.gameValues.energy - newEnergyReduction;
+
+  }
+
+  updateEnergyConditions(buildingObject) {
+    if (buildingObject.energyUpdateImg === "NOUPDATE") {
+      this.updateEnergyStats(buildingObject, "ENG01");
+      return;
+    }
+    if (buildingObject.energyUpdateImg === "ENG01") {
+      this.updateEnergyStats(buildingObject, "ENG02");
+      return;
+    }
+    if (buildingObject.energyUpdateImg === "ENG02") {
+      this.updateEnergyStats(buildingObject, "ENG03");
+      return;
+    }
+    if (buildingObject.energyUpdateImg === "ENG03") {
+      this.updateEnergyStats(buildingObject, "ENG04");
+      return;
+    }
+
+    if (buildingObject.energyUpdateImg === "ENG04") {
+      alert("This building have already maximum update at energy")
+      return;
+    }
+  }
+
+  updateEnergyReduction() {
+    let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber )
+
+    debugger
+
+    if (gameObject.condition === "underConstruction") {
+      alert("You can not update this building yet");
+      return;
+    }
+
+    if (gameObject.condition === "underDemolishing") {
+      alert("This building is demolishing. You can not update it");
+      return;
+    }
+
+    this.updateEnergyConditions(gameObject)
+    this.chanceStatusOfPowerToAllBuildings();
+    this.gameValues.income = this.gameValues.incomeBeforeStopped
+
+  }
 }

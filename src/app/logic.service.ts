@@ -421,6 +421,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -429,6 +430,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE1",
       condition: "bought",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -437,6 +439,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -445,6 +448,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE1",
       condition: "bought",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -453,6 +457,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -463,6 +468,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -471,6 +477,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -479,6 +486,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -487,6 +495,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -495,6 +504,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -505,6 +515,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -513,6 +524,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -521,6 +533,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -529,6 +542,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -537,6 +551,7 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
+      energyUpdateImg:"NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,

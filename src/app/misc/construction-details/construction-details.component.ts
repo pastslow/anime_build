@@ -25,7 +25,7 @@ export class ConstructionDetailsComponent implements OnInit {
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
   }
-
+  
   ngOnInit() {
   }
 

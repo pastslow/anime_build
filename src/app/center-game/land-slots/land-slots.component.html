@@ -1,22 +1,40 @@
 <section>
   <div class="top-slots container-slots">
-    <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
-      *ngFor="let slot of topSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.PNG" />
+    <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)" *ngFor="let slot of topSlots"
+      class="house">
+      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
+        src="assets/buildings/{{slot.img}}.PNG" />
+
+      <div class="slot-update">
+        <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+      </div>
+
     </div>
   </div>
 
   <div class="mid-slots container-slots">
-    <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
-      *ngFor="let slot of midSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.PNG" />
+    <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)" *ngFor="let slot of midSlots"
+      class="house">
+      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
+        src="assets/buildings/{{slot.img}}.PNG" />
+
+      <div class="slot-update">
+        <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+      </div>
+
     </div>
   </div>
 
   <div class="bottom-slots container-slots">
-    <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)"
-      *ngFor="let slot of bottomSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot" src="assets/buildings/{{slot.img}}.PNG" />
+    <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)" *ngFor="let slot of bottomSlots"
+      class="house">
+      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
+        src="assets/buildings/{{slot.img}}.PNG" />
+
+      <div class="slot-update">
+        <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+      </div>
+
     </div>
   </div>
 
