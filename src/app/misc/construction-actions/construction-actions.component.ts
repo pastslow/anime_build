@@ -45,9 +45,8 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
-  demolishStructure(gameSlot){
+  performDemolishBuilding(gameSlot){
     let gameObject = gameSlot.find(elem => elem.number == this.slotNumber);
-
     if (gameObject.condition !== "build") {
       alert("This building is under construction. You can not demolis yet")
       return;
@@ -72,23 +71,29 @@ export class ConstructionActionsComponent implements OnInit {
 
     this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
     this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
-
     this._logicService.changeObject(this.gameValues);
     this.isModalClosed = true;
+    this.resetSlotData(gameObject);
     }
+  }
+
+  resetSlotData(slot){
+      slot.income = 0;
+      slot.maxEnergy = 0;
+      slot.energy = 0;
   }
 
   demolishBuilding() {
     if (this.slotNumber <= 4) {
-      this.demolishStructure(this.topSlots);
+      this.performDemolishBuilding(this.topSlots);
       return;
     }
     if (this.slotNumber <= 9) {
-      this.demolishStructure(this.midSlots);
+      this.performDemolishBuilding(this.midSlots);
       return;
     }
     if (this.slotNumber <= 14) {
-      this.demolishStructure(this.bottomSlots);
+      this.performDemolishBuilding(this.bottomSlots);
       return;
     }
   }
