@@ -54,7 +54,6 @@ export class ConstructBuildingComponent implements OnChanges {
 
   constructBuildingOverTime(gameObject, image, workers,
     energy, buildingIncome, buildingType) {
-
     gameObject.condition = "underConstruction";
 
     for (let i = 1; i <= 8; i++) {
@@ -78,7 +77,6 @@ export class ConstructBuildingComponent implements OnChanges {
 
         this.gameData.energy = (
           this.gameData.energy + energy - bonusEnergyProcent);
-
           gameObject.energy = energy - bonusEnergyProcent;
         }
         

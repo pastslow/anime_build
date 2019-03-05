@@ -170,7 +170,7 @@ export class ConstructionActionsComponent implements OnInit {
 
   updateEnergyReduction() {
     let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber )
-
+    
     debugger
 
     if (gameObject.condition === "underConstruction") {
@@ -185,7 +185,12 @@ export class ConstructionActionsComponent implements OnInit {
 
     this.updateEnergyConditions(gameObject)
     this.chanceStatusOfPowerToAllBuildings();
-    this.gameValues.income = this.gameValues.incomeBeforeStopped
+
+    if (this.gameValues.energy <= this.gameValues.maxEnergy) {
+
+    this.gameValues.income = this.gameValues.incomeBeforeStopped;
+
+    }
 
   }
 }

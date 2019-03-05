@@ -37,12 +37,27 @@
     height: 16.16px;
 }
 
+.slot-top-update {
+    position: absolute;
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    align-items: center;
+    top: 8%;
+    z-index: 1;
+    left: -2px;
+}
+
 .slot-update {
     position: absolute;
     max-width: 50px;
     width: 100%;
     top: 80%;
-    margin-left: 20px;
+}
+
+.slot-update-star {
+    max-width: 50px;
+    width: 100%;
 }
 
 @media only screen and (max-width:991px){

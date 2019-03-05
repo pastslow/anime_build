@@ -4,12 +4,20 @@
       class="house">
       <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
         src="assets/buildings/{{slot.img}}.PNG" />
-
-      <div class="slot-update">
-        <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
-      </div>
-
     </div>
+
+    <div class="slot-top-update">
+      <div *ngFor="let slot of topSlots">
+        <div class="slot-update">
+          <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+        </div>
+  
+        <div class="slot-update-star">
+          <img class="slot-update-img" src="assets/icons/STAR01.PNG" alt="">
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="mid-slots container-slots">

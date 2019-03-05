@@ -24,7 +24,7 @@ export class LogicService {
     incomeStopped:0,
     incomeBeforeStopped:0,
     bonusIncome: 10,
-    reduceEnergyConsumption: 10,
+    reduceEnergyConsumption: 0,
     materials: 10000,
     workers: 100,
     engineers: 100,
