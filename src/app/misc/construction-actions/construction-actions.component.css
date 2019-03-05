@@ -3,11 +3,14 @@
     color: white;
     background: transparent;
     border: 0px;
+    max-width: 180px;
+    width: 100%;
 }
 
 .action-info {
     display: flex;
     align-items: center;
+    text-align: left;
 }
 
 .action-data:hover {
@@ -16,7 +19,7 @@
 }
 
 .container-action {
-    font-size: 14px;
+    font-size: 12.5px;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;

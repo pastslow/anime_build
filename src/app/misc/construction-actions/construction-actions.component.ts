@@ -19,6 +19,8 @@ export class ConstructionActionsComponent implements OnInit {
 
   public slotActions;
 
+  public allGameSlots;
+
   constructor(private _logicService: LogicService) {
     this._logicService.castSlotId.subscribe(slotId => this.slotNumber = slotId);
 
@@ -31,12 +33,14 @@ export class ConstructionActionsComponent implements OnInit {
     this._logicService.cast.subscribe(gameDataValues => this.gameValues = gameDataValues);
 
     this.slotActions = this._logicService.slotActions();
+
+    this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
   }
 
   ngOnInit() {
   }
 
-  changePowerOfBuildings(array, image){
+  changePowerOfBuildings(array, image) {
     for (let i = 0; i < array.length; i++) {
       if (array[i].condition === "build") {
         let arrSlots = array[i].img.slice(0, 18);
@@ -45,15 +49,22 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
-  performDemolishBuilding(gameSlot){
+  performDemolishBuilding(gameSlot, materials) {
+    debugger
+    let currentHouse = gameSlot[this.slotNumber].img.slice(0, 7);
+
     let gameObject = gameSlot.find(elem => elem.number == this.slotNumber);
-    if (gameObject.condition !== "build") {
+    if (gameObject.condition === "underConstruction") {
       alert("This building is under construction. You can not demolis yet")
       return;
     }
 
-    gameObject.img = "HOUSE0/NONE1";
-    gameObject.condition = "bought";
+    if (gameObject.condition === "underDemolishing") {
+      alert("This building is already under demolishing")
+      return;
+    }
+
+    this.demolishAnimation(gameObject, currentHouse);
 
     this.gameValues.energy = this.gameValues.energy - gameObject.energy;
     this.gameValues.maxEnergy = this.gameValues.maxEnergy - gameObject.maxEnergy;
@@ -65,35 +76,56 @@ export class ConstructionActionsComponent implements OnInit {
       this.changePowerOfBuildings(this.bottomSlots, "NONE00");
       this.gameValues.income = this.gameValues.incomeStopped;
     } else {
-    this.changePowerOfBuildings(this.topSlots, "CONSTRUCT08");
-    this.changePowerOfBuildings(this.midSlots, "CONSTRUCT08");
-    this.changePowerOfBuildings(this.bottomSlots, "CONSTRUCT08");
+      this.changePowerOfBuildings(this.topSlots, "CONSTRUCT08");
+      this.changePowerOfBuildings(this.midSlots, "CONSTRUCT08");
+      this.changePowerOfBuildings(this.bottomSlots, "CONSTRUCT08");
 
-    this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
-    this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
-    this._logicService.changeObject(this.gameValues);
-    this.isModalClosed = true;
-    this.resetSlotData(gameObject);
+      this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
+      this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
+
+      this.gameValues.materials = this.gameValues.materials + parseInt(materials);
+      this._logicService.changeObject(this.gameValues);
+
+      this.isModalClosed = true;
+
+      this.resetSlotData(gameObject);
+
     }
   }
 
-  resetSlotData(slot){
-      slot.income = 0;
-      slot.maxEnergy = 0;
-      slot.energy = 0;
+  resetSlotData(slot) {
+    slot.income = 0;
+    slot.maxEnergy = 0;
+    slot.energy = 0;
   }
 
-  demolishBuilding() {
+  demolishAnimation(object, currentHouse) {
+      object.condition = "underDemolishing";
+
+    for (let i = 1; i <= 4; i++) {
+      let timeout = i === 1 ? 50 : (i - 1) * 1200;
+      setTimeout(() => {
+        object.img = `${currentHouse}/DEMOLISH/DEMOLISH0${i}`;
+      }, timeout);
+    }
+
+    setTimeout(() => {
+      object.img = "HOUSE0/NONE1";
+      object.condition = "bought";
+    }, 4850);
+  }
+
+  demolishBuilding(materials) {
     if (this.slotNumber <= 4) {
-      this.performDemolishBuilding(this.topSlots);
+      this.performDemolishBuilding(this.topSlots, materials);
       return;
     }
     if (this.slotNumber <= 9) {
-      this.performDemolishBuilding(this.midSlots);
+      this.performDemolishBuilding(this.midSlots, materials);
       return;
     }
     if (this.slotNumber <= 14) {
-      this.performDemolishBuilding(this.bottomSlots);
+      this.performDemolishBuilding(this.bottomSlots, materials);
       return;
     }
   }
