@@ -47,19 +47,19 @@
     </div>
   </button>
 
-  <button class="action-data">
+  <button *ngIf="slotNeedRepair" class="action-data">
     <span>Repair Construction</span>
     <div class="action-info">
       <img src="assets/icons/no_repair.png" alt="">
       <div>
         <span>Workers: </span>
-        <span>3</span>
+        <span>{{(allGameSlots[slotNumber].income / 500) | number:'1.0-0'}}</span>
         <br />
         <span>Cost: </span>
-        <span>3000</span><span>$</span>
+        <span>{{allGameSlots[slotNumber].income * 5}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>30</span>
+        <span>{{allGameSlots[slotNumber].income / 10}}</span>
       </div>
     </div>
   </button>

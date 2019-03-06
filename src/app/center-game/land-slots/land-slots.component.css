@@ -1,6 +1,7 @@
 .house {
     max-width: 146px;
     width: 20%;
+    z-index: 1;
 }
 
 .house:hover {

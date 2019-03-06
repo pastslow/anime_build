@@ -18,11 +18,20 @@ export class LogicService {
     this.slotId.next(newId);
   }
 
+  public slotCondition = false;
+
+  private slotDetails = new BehaviorSubject<boolean>(this.slotCondition);
+  castSlotDetails = this.slotDetails.asObservable();
+
+  getSlotDetails(newCondition) {
+    this.slotDetails.next(newCondition);
+  }
+
   public gameDataValues = {
     money: 2400000,
     income: 0,
-    incomeStopped:0,
-    incomeBeforeStopped:0,
+    incomeStopped: 0,
+    incomeBeforeStopped: 0,
     bonusIncome: 10,
     reduceEnergyConsumption: 0,
     materials: 10000,
@@ -147,7 +156,7 @@ export class LogicService {
             energy: 50,
             income: 400,
             buildingId: "HOUSE20",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Lumber Mill",
@@ -158,7 +167,7 @@ export class LogicService {
             energy: 100,
             income: 900,
             buildingId: "HOUSE20",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Recycle Center",
@@ -169,7 +178,7 @@ export class LogicService {
             energy: 120,
             income: 1200,
             buildingId: "HOUSE19",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Business Center",
@@ -180,7 +189,7 @@ export class LogicService {
             energy: 200,
             income: 1600,
             buildingId: "HOUSE22",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Tech Center",
@@ -191,7 +200,7 @@ export class LogicService {
             energy: 400,
             income: 2200,
             buildingId: "HOUSE45",
-            buildingType:"consumer"
+            buildingType: "consumer"
           }
         ]
       },
@@ -208,7 +217,7 @@ export class LogicService {
             energy: 40,
             income: 300,
             buildingId: "HOUSE01",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Duplex",
@@ -219,7 +228,7 @@ export class LogicService {
             energy: 60,
             income: 650,
             buildingId: "HOUSE02",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Craftsman",
@@ -230,7 +239,7 @@ export class LogicService {
             energy: 80,
             income: 1400,
             buildingId: "HOUSE03",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Condo",
@@ -241,7 +250,7 @@ export class LogicService {
             energy: 90,
             income: 3000,
             buildingId: "HOUSE04",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Georgian",
@@ -252,7 +261,7 @@ export class LogicService {
             energy: 140,
             income: 4000,
             buildingId: "HOUSE05",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Apartment",
@@ -263,7 +272,7 @@ export class LogicService {
             energy: 250,
             income: 8000,
             buildingId: "HOUSE06",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
         ]
       },
@@ -281,7 +290,7 @@ export class LogicService {
             appeal: 10,
             income: 1000,
             buildingId: "HOUSE41",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Pool",
@@ -293,7 +302,7 @@ export class LogicService {
             appeal: 15,
             income: 1400,
             buildingId: "HOUSE42",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Minigolf",
@@ -305,7 +314,7 @@ export class LogicService {
             appeal: 20,
             income: 3000,
             buildingId: "HOUSE43",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Amphitheater",
@@ -317,7 +326,7 @@ export class LogicService {
             appeal: 25,
             income: 4000,
             buildingId: "HOUSE44",
-            buildingType:"consumer"
+            buildingType: "consumer"
           }
         ]
       },
@@ -335,7 +344,7 @@ export class LogicService {
             appeal: 10,
             income: 100,
             buildingId: "HOUSE37",
-            buildingType:"producer"
+            buildingType: "producer"
           },
           {
             name: "Solar",
@@ -347,7 +356,7 @@ export class LogicService {
             appeal: 20,
             income: 400,
             buildingId: "HOUSE38",
-            buildingType:"producer"
+            buildingType: "producer"
           },
           {
             name: "Nuclear",
@@ -359,7 +368,7 @@ export class LogicService {
             appeal: 40,
             income: 800,
             buildingId: "HOUSE40",
-            buildingType:"producer"
+            buildingType: "producer"
           }
         ]
       },
@@ -376,7 +385,7 @@ export class LogicService {
             energy: 100,
             income: 4000,
             buildingId: "HOUSE47",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Grocery",
@@ -387,7 +396,7 @@ export class LogicService {
             energy: 250,
             income: 6000,
             buildingId: "HOUSE48",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Cinema",
@@ -398,7 +407,7 @@ export class LogicService {
             energy: 550,
             income: 8500,
             buildingId: "HOUSE16",
-            buildingType:"consumer"
+            buildingType: "consumer"
           },
           {
             name: "Banckery",
@@ -409,7 +418,7 @@ export class LogicService {
             energy: 700,
             income: 9800,
             buildingId: "HOUSE46",
-            buildingType:"consumer"
+            buildingType: "consumer"
           }
         ]
       }
@@ -421,51 +430,56 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: true,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 0
     },
     {
       img: "HOUSE0/NONE1",
       condition: "bought",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 1
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 2
     },
     {
       img: "HOUSE0/NONE1",
       condition: "bought",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 3
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: true,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 4
     },
   ]
@@ -473,51 +487,56 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 5
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 6
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 7
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 8
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 9
     }
   ]
@@ -525,51 +544,56 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 10
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 11
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 12
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 13
     },
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"UPGRADE/NOUPDATE",
-      starUpdateImg:"UPGRADE/NOUPDATE",
+      energyUpdateImg: "UPGRADE/NOUPDATE",
+      starUpdateImg: "UPGRADE/NOUPDATE",
+      needRepair: false,
       income: 0,
-      energy:0,
-      maxEnergy:0,
+      energy: 0,
+      maxEnergy: 0,
       number: 14
     }
   ]

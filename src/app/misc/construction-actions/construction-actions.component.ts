@@ -8,18 +8,21 @@ import { LogicService } from 'src/app/logic.service';
 })
 export class ConstructionActionsComponent implements OnInit {
   public isModalClosed = false;
+  
+  public slotNeedRepair;
 
   public slotNumber;
-
+  
   public topSlots;
   public midSlots;
   public bottomSlots;
-
+  
   public gameValues;
-
+  
   public slotActions;
-
+  
   public allGameSlots;
+
 
   constructor(private _logicService: LogicService) {
     this._logicService.castSlotId.subscribe(slotId => this.slotNumber = slotId);
@@ -35,6 +38,8 @@ export class ConstructionActionsComponent implements OnInit {
     this.slotActions = this._logicService.slotActions();
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
+
+    this._logicService.castSlotDetails.subscribe(slotDetails => this.slotNeedRepair = slotDetails);
   }
 
   ngOnInit() {
@@ -293,4 +298,7 @@ export class ConstructionActionsComponent implements OnInit {
     }
 
   }
+
+
+
 }

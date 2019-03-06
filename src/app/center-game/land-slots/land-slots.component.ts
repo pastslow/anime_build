@@ -12,18 +12,26 @@ export class HouseBuildComponent implements OnInit {
   public hasConstruction = false;
 
   public slotIdNumber;
+  public slotNeedRepair;
+
   public topSlots;
   public midSlots;
   public bottomSlots;
 
+  public allGameSlots;
+
   constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(slotId => this.slotIdNumber = slotId)
+    this._logicService.castSlotId.subscribe(slotId => this.slotIdNumber = slotId);
 
     this._logicService.castTopSlots.subscribe(mapTopSlots => this.topSlots = mapTopSlots);
 
     this._logicService.castMidSlots.subscribe(mapMidSlots => this.midSlots = mapMidSlots);
     
-    this._logicService.castBottomSlots.subscribe(mapBottomSlots => this.bottomSlots = mapBottomSlots)
+    this._logicService.castBottomSlots.subscribe(mapBottomSlots => this.bottomSlots = mapBottomSlots);
+
+    this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
+
+    this._logicService.castSlotDetails.subscribe(slotDetails => this.slotNeedRepair = slotDetails);
    }
 
   ngOnInit() {
@@ -32,8 +40,10 @@ export class HouseBuildComponent implements OnInit {
   test(modalImg, event) {
 
     this.slotIdNumber = parseInt(event.target.slot);
+    this.slotNeedRepair = this.allGameSlots[this.slotIdNumber].needRepair;
     // Change the new value into the service
     this._logicService.getSlotId(this.slotIdNumber);
+    this._logicService.getSlotDetails(this.slotNeedRepair);
 
     if (event.target.alt === "empty") {
       this.isLandBought = false;
