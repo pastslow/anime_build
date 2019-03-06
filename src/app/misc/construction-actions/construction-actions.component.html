@@ -1,6 +1,9 @@
 <div class="container-action">
 
-  <button class="action-data">
+  <button (click)="updateStarRating(
+    upgradeStarCost.innerText,
+    upgradeStarMaterials.innerText,
+    workers.innerText)" class="action-data">
     <span>Upgrade Star</span>
     <div class="action-info">
       <img src="assets/icons/upgrade_star.png" alt="">
@@ -9,15 +12,22 @@
         <span>+ 10%</span>
         <br />
         <span>Cost: </span>
-        <span>{{allGameSlots[slotNumber].income * 4}}</span><span>$</span>
+        <span #upgradeStarCost>{{allGameSlots[slotNumber].income * 4}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>{{allGameSlots[slotNumber].income / 10}}</span>
+        <span #upgradeStarMaterials>{{allGameSlots[slotNumber].income / 10}}</span>
+        <br />
+        <span>Workers: </span>
+        <span #workers>{{(allGameSlots[slotNumber].income / 300) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
 
-  <button (click)="updateEnergyReduction()" class="action-data">
+  <button (click)="updateEnergyReduction(
+    energyUpgradeCost.innerText,
+    energyUpgradeMaterials.innerText,
+    engineers.innerText)" class="action-data">
+
     <span>Upgrade Energy</span>
     <div class="action-info">
       <img src="assets/icons/upgrade_energy.png" alt="">
@@ -26,10 +36,13 @@
         <span>10%</span>
         <br />
         <span>Cost: </span>
-        <span>{{allGameSlots[slotNumber].income * 5}}</span><span>$</span>
+        <span #energyUpgradeCost>{{allGameSlots[slotNumber].income * 5}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>{{allGameSlots[slotNumber].income / 9 | number:'1.2-2'}}</span>
+        <span #energyUpgradeMaterials>{{allGameSlots[slotNumber].income / 8}}</span>
+        <br />
+        <span>Engineers: </span>
+        <span #engineers>{{(allGameSlots[slotNumber].income / 500) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>

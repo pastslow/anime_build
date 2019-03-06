@@ -101,7 +101,7 @@ export class ConstructionActionsComponent implements OnInit {
     slot.income = 0;
     slot.maxEnergy = 0;
     slot.energy = 0;
-    slot.energyUpdateImg = "NOUPDATE";
+    slot.energyUpdateImg = "UPGRADE/NOUPDATE";
   }
 
   demolishAnimation(object, currentHouse) {
@@ -135,6 +135,40 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
+  updateValidation(gameObject, cost, materials, tehniciansName, tehniciansNumber,
+    upgradeImage, upgradeFolder) {
+    
+    if (gameObject.condition === "underConstruction") {
+      alert("This building is underconstruction you can not upgrade now");
+      return false;
+    }
+
+    if (gameObject.condition === "underDemolishing") {
+      alert("This building is demolishing. You can not upgrade it");
+      return false;
+    }
+
+    if (gameObject[upgradeImage] === `UPGRADE/${upgradeFolder}/UPGRADE04`) {
+      alert("This building have already maximum update.")
+      return false;
+    }
+
+    if (this.gameValues.money < cost) {
+      alert("You don't have enough money");
+      return false;
+    }
+
+    if (this.gameValues.materials < materials) {
+      alert("You don't have enough materials");
+      return false;
+    }
+
+    if (this.gameValues[tehniciansName] < tehniciansNumber) {
+      alert(`You don't have enough ${tehniciansName}`);
+      return false;
+    }
+  }
+
   updateEnergyStats(gameObject, image) {
     gameObject.energyUpdateImg = image;
     let newEnergyReduction = Math.round((gameObject.energy * 10) / 100)
@@ -145,51 +179,105 @@ export class ConstructionActionsComponent implements OnInit {
   }
 
   updateEnergyConditions(buildingObject) {
-    if (buildingObject.energyUpdateImg === "NOUPDATE") {
-      this.updateEnergyStats(buildingObject, "ENG01");
+    if (buildingObject.energyUpdateImg === "UPGRADE/NOUPDATE") {
+      this.updateEnergyStats(buildingObject, "UPGRADE/ENERGY/UPGRADE01");
       return;
     }
-    if (buildingObject.energyUpdateImg === "ENG01") {
-      this.updateEnergyStats(buildingObject, "ENG02");
+    if (buildingObject.energyUpdateImg === "UPGRADE/ENERGY/UPGRADE01") {
+      this.updateEnergyStats(buildingObject, "UPGRADE/ENERGY/UPGRADE02");
       return;
     }
-    if (buildingObject.energyUpdateImg === "ENG02") {
-      this.updateEnergyStats(buildingObject, "ENG03");
+    if (buildingObject.energyUpdateImg === "UPGRADE/ENERGY/UPGRADE02") {
+      this.updateEnergyStats(buildingObject, "UPGRADE/ENERGY/UPGRADE03");
       return;
     }
-    if (buildingObject.energyUpdateImg === "ENG03") {
-      this.updateEnergyStats(buildingObject, "ENG04");
+    if (buildingObject.energyUpdateImg === "UPGRADE/ENERGY/UPGRADE03") {
+      this.updateEnergyStats(buildingObject, "UPGRADE/ENERGY/UPGRADE04");
       return;
     }
 
-    if (buildingObject.energyUpdateImg === "ENG04") {
-      alert("This building have already maximum update at energy")
-      return;
-    }
   }
 
-  updateEnergyReduction() {
-    let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber )
-    
+  updateEnergyReduction(cost, materials, engineers) {
     debugger
+    let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber);
+    let engineersNumber = parseInt(engineers);
+    let costUpdate = parseInt(cost);
+    let materialsRequired = parseInt(materials);
+    let tehniciansName = "engineers";
+    let objectImage = "energyUpdateImg";
+    let upgradeFolder = "ENERGY";
 
-    if (gameObject.condition === "underConstruction") {
-      alert("You can not update this building yet");
+    if (this.updateValidation(gameObject, costUpdate, materialsRequired,
+      tehniciansName, engineersNumber, objectImage, upgradeFolder) == false) {
       return;
     }
 
-    if (gameObject.condition === "underDemolishing") {
-      alert("This building is demolishing. You can not update it");
-      return;
-    }
-
-    this.updateEnergyConditions(gameObject)
+    this.updateEnergyConditions(gameObject);
     this.chanceStatusOfPowerToAllBuildings();
+
+    this.gameValues.money = this.gameValues.money - costUpdate;
+    this.gameValues.materials = this.gameValues.materials - materialsRequired;
 
     if (this.gameValues.energy <= this.gameValues.maxEnergy) {
 
-    this.gameValues.income = this.gameValues.incomeBeforeStopped;
+      this.gameValues.income = this.gameValues.incomeBeforeStopped;
+    }
 
+  }
+
+  updateIncomeStats(gameObject, image) {
+    gameObject.starUpdateImg = image;
+    let newIncome = Math.round((gameObject.income * 10) / 100)
+    gameObject.income = gameObject.income + newIncome;
+
+    this.gameValues.income = this.gameValues.income + newIncome;
+    this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped + newIncome;
+  }
+
+  starRatingConditions(buildingObject) {
+    if (buildingObject.starUpdateImg === "UPGRADE/NOUPDATE") {
+      this.updateIncomeStats(buildingObject, "UPGRADE/STAR/UPGRADE01");
+      return;
+    }
+    if (buildingObject.starUpdateImg === "UPGRADE/STAR/UPGRADE01") {
+      this.updateIncomeStats(buildingObject, "UPGRADE/STAR/UPGRADE02");
+      return;
+    }
+    if (buildingObject.starUpdateImg === "UPGRADE/STAR/UPGRADE02") {
+      this.updateIncomeStats(buildingObject, "UPGRADE/STAR/UPGRADE03");
+      return;
+    }
+    if (buildingObject.starUpdateImg === "UPGRADE/STAR/UPGRADE03") {
+      this.updateIncomeStats(buildingObject, "UPGRADE/STAR/UPGRADE04");
+      return;
+    }
+
+  }
+
+  updateStarRating(cost, materials, workers) {
+    let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber)
+
+    let workersNumber = parseInt(workers);
+    let costUpdate = parseInt(cost);
+    let materialsRequired = parseInt(materials);
+    let tehniciansName = "workers";
+    let objectImage = "starUpdateImg";
+    let upgradeFolder = "STAR";
+    
+    if (this.updateValidation(gameObject, costUpdate, materialsRequired,
+      tehniciansName, workersNumber, objectImage, upgradeFolder) == false) {
+      return;
+    }
+
+    this.starRatingConditions(gameObject);
+
+    this.gameValues.money = this.gameValues.money - costUpdate;
+    this.gameValues.materials = this.gameValues.materials - materialsRequired;
+
+    if (this.gameValues.energy > this.gameValues.maxEnergy) {
+
+      this.gameValues.income = this.gameValues.incomeStopped;
     }
 
   }

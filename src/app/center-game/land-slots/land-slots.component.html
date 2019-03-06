@@ -1,19 +1,24 @@
 <section>
   <div class="top-slots container-slots">
+
     <div data-toggle="modal" data-target="#slotModal" (click)="test(modalImg, $event)" *ngFor="let slot of topSlots"
       class="house">
       <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
         src="assets/buildings/{{slot.img}}.PNG" />
     </div>
 
-    <div class="slot-top-update">
-      <div *ngFor="let slot of topSlots">
-        <div class="slot-update">
-          <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+    <div class="slot-update top-8">
+      <div class="update-container" *ngFor="let slot of topSlots">
+        <div>
+          <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
         </div>
-  
-        <div class="slot-update-star">
-          <img class="slot-update-img" src="assets/icons/STAR01.PNG" alt="">
+      </div>
+    </div>
+
+    <div class="slot-update top-88">
+      <div class="update-container" *ngFor="let slot of topSlots">
+        <div>
+          <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
         </div>
       </div>
     </div>
@@ -25,12 +30,24 @@
       class="house">
       <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
         src="assets/buildings/{{slot.img}}.PNG" />
-
-      <div class="slot-update">
-        <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
-      </div>
-
     </div>
+
+    <div class="slot-update top-8">
+      <div class="update-container" *ngFor="let slot of midSlots">
+        <div>
+          <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="slot-update top-88">
+      <div class="update-container" *ngFor="let slot of midSlots">
+        <div>
+          <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="bottom-slots container-slots">
@@ -38,12 +55,24 @@
       class="house">
       <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
         src="assets/buildings/{{slot.img}}.PNG" />
-
-      <div class="slot-update">
-        <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
-      </div>
-
     </div>
+
+    <div class="slot-update top-8">
+      <div class="update-container" *ngFor="let slot of bottomSlots">
+        <div>
+          <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="slot-update top-88">
+      <div class="update-container" *ngFor="let slot of bottomSlots">
+        <div>
+          <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+        </div>
+      </div>
+    </div>
+
   </div>
 
 </section>

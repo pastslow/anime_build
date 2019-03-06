@@ -19,15 +19,15 @@ export class LogicService {
   }
 
   public gameDataValues = {
-    money: 400000,
+    money: 2400000,
     income: 0,
     incomeStopped:0,
     incomeBeforeStopped:0,
     bonusIncome: 10,
     reduceEnergyConsumption: 0,
     materials: 10000,
-    workers: 100,
-    engineers: 100,
+    workers: 20,
+    engineers: 20,
     energy: 0,
     maxEnergy: 100,
     goal: 8000000,
@@ -421,7 +421,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -430,7 +431,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE1",
       condition: "bought",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -439,7 +441,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -448,7 +451,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE1",
       condition: "bought",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -457,7 +461,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -468,7 +473,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -477,7 +483,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -486,7 +493,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -495,7 +503,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -504,7 +513,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -515,7 +525,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -524,7 +535,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -533,7 +545,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -542,7 +555,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
@@ -551,7 +565,8 @@ export class LogicService {
     {
       img: "HOUSE0/NONE0",
       condition: "empty",
-      energyUpdateImg:"NOUPDATE",
+      energyUpdateImg:"UPGRADE/NOUPDATE",
+      starUpdateImg:"UPGRADE/NOUPDATE",
       income: 0,
       energy:0,
       maxEnergy:0,
