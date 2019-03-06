@@ -77,6 +77,11 @@ export class ConstructionActionsComponent implements OnInit {
       return;
     }
 
+    if (gameObject.condition === "bought") {
+      alert("You can not demolish a empty land")
+      return;
+    }
+
     this.demolishAnimation(gameObject, currentHouse);
 
     this.gameValues.energy = this.gameValues.energy - gameObject.energy;
@@ -102,6 +107,7 @@ export class ConstructionActionsComponent implements OnInit {
     slot.maxEnergy = 0;
     slot.energy = 0;
     slot.energyUpdateImg = "UPGRADE/NOUPDATE";
+    slot.starUpdateImg = "UPGRADE/NOUPDATE";
   }
 
   demolishAnimation(object, currentHouse) {
@@ -145,6 +151,11 @@ export class ConstructionActionsComponent implements OnInit {
 
     if (gameObject.condition === "underDemolishing") {
       alert("This building is demolishing. You can not upgrade it");
+      return false;
+    }
+
+    if (gameObject.condition === "bought") {
+      alert("You can not upgrade an empty land");
       return false;
     }
 
