@@ -12,13 +12,13 @@
         <span>+ 10%</span>
         <br />
         <span>Cost: </span>
-        <span #upgradeStarCost>{{allGameSlots[slotNumber].income * 4}}</span><span>$</span>
+        <span #upgradeStarCost>{{allGameSlots[slotNumber].cost / 2}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span #upgradeStarMaterials>{{allGameSlots[slotNumber].income / 10}}</span>
+        <span #upgradeStarMaterials>{{allGameSlots[slotNumber].cost / 100}}</span>
         <br />
         <span>Workers: </span>
-        <span #workers>{{(allGameSlots[slotNumber].income / 300) | number:'1.0-0'}}</span>
+        <span #workers>{{(allGameSlots[slotNumber].cost / 4000) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
@@ -36,13 +36,13 @@
         <span>10%</span>
         <br />
         <span>Cost: </span>
-        <span #energyUpgradeCost>{{allGameSlots[slotNumber].income * 5}}</span><span>$</span>
+        <span #energyUpgradeCost>{{allGameSlots[slotNumber].cost / 2}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span #energyUpgradeMaterials>{{allGameSlots[slotNumber].income / 8}}</span>
+        <span #energyUpgradeMaterials>{{allGameSlots[slotNumber].cost / 80}}</span>
         <br />
         <span>Engineers: </span>
-        <span #engineers>{{(allGameSlots[slotNumber].income / 500) | number:'1.0-0'}}</span>
+        <span #engineers>{{(allGameSlots[slotNumber].cost / 6000) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
@@ -59,7 +59,7 @@
         <span>{{allGameSlots[slotNumber].income * 5}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>{{allGameSlots[slotNumber].income / 10}}</span>
+        <span>{{allGameSlots[slotNumber].income / 100}}</span>
       </div>
     </div>
   </button>
@@ -72,7 +72,7 @@
       <div>
         <span>Return Materials: </span>
         <br />
-        <span #demolishMaterials>{{allGameSlots[slotNumber].income / 10}}</span>
+        <span #demolishMaterials>{{allGameSlots[slotNumber].cost / 250 | number:'1.2-2'}}</span>
       </div>
     </div>
   </button>

@@ -71,6 +71,7 @@ export class ConstructBuildingComponent implements OnChanges {
 
         gameObject.energy = 0;        
         gameObject.maxEnergy = energy;
+        gameObject.buildingType = "producer";
       } else {
         let bonusEnergyProcent = (
           this.gameData.reduceEnergyConsumption * energy) / 100;
@@ -78,6 +79,7 @@ export class ConstructBuildingComponent implements OnChanges {
         this.gameData.energy = (
           this.gameData.energy + energy - bonusEnergyProcent);
           gameObject.energy = energy - bonusEnergyProcent;
+          gameObject.buildingType = "consumer";
         }
         
 
@@ -85,6 +87,7 @@ export class ConstructBuildingComponent implements OnChanges {
         this.gameData.bonusIncome * buildingIncome) / 100;
 
       gameObject.income = buildingIncome + bonusIncomeProcent;
+      gameObject.cost = buildingIncome * 10;
 
       let rentalIncome = (this.gameData.income + buildingIncome +
          bonusIncomeProcent);
@@ -154,7 +157,7 @@ export class ConstructBuildingComponent implements OnChanges {
     // degresse resource
     this.gameData.money = this.gameData.money - buildCost;
     this.gameData.workers = this.gameData.workers - buildWorkers;
-    this.gameData.buildMaterials = this.gameData.materials - buildMaterials;
+    this.gameData.materials = this.gameData.materials - buildMaterials;
 
     this.isModalClosed = true;
 

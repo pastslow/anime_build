@@ -34,9 +34,9 @@ export class LogicService {
     incomeBeforeStopped: 0,
     bonusIncome: 10,
     reduceEnergyConsumption: 0,
-    materials: 10000,
-    workers: 20,
-    engineers: 20,
+    materials: 30000,
+    workers: 100,
+    engineers: 100,
     energy: 0,
     maxEnergy: 100,
     goal: 8000000,
@@ -436,6 +436,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 0
     },
     {
@@ -447,6 +449,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 1
     },
     {
@@ -458,6 +462,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 2
     },
     {
@@ -469,6 +475,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 3
     },
     {
@@ -480,6 +488,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 4
     },
   ]
@@ -493,6 +503,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 5
     },
     {
@@ -504,6 +516,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 6
     },
     {
@@ -515,6 +529,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 7
     },
     {
@@ -526,6 +542,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 8
     },
     {
@@ -537,6 +555,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 9
     }
   ]
@@ -550,6 +570,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 10
     },
     {
@@ -561,6 +583,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 11
     },
     {
@@ -572,6 +596,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 12
     },
     {
@@ -583,6 +609,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 13
     },
     {
@@ -594,6 +622,8 @@ export class LogicService {
       income: 0,
       energy: 0,
       maxEnergy: 0,
+      cost:0,
+      buildingType:"consumer",
       number: 14
     }
   ]

@@ -8,19 +8,19 @@ import { LogicService } from 'src/app/logic.service';
 })
 export class ConstructionActionsComponent implements OnInit {
   public isModalClosed = false;
-  
+
   public slotNeedRepair;
 
   public slotNumber;
-  
+
   public topSlots;
   public midSlots;
   public bottomSlots;
-  
+
   public gameValues;
-  
+
   public slotActions;
-  
+
   public allGameSlots;
 
 
@@ -147,7 +147,7 @@ export class ConstructionActionsComponent implements OnInit {
   }
 
   updateValidation(gameObject, requirementObject) {
-    
+
     if (gameObject.condition === "underConstruction") {
       alert("This building is underconstruction you can not upgrade now");
       return false;
@@ -188,7 +188,7 @@ export class ConstructionActionsComponent implements OnInit {
     gameObject.energyUpdateImg = image;
     let newEnergyReduction = Math.round((gameObject.energy * 10) / 100)
     gameObject.energy = gameObject.energy - newEnergyReduction;
-
+    gameObject.cost = gameObject.cost + Math.round((gameObject.cost * 15) / 100);
     this.gameValues.energy = this.gameValues.energy - newEnergyReduction;
 
   }
@@ -218,11 +218,11 @@ export class ConstructionActionsComponent implements OnInit {
 
     let requirementObject = {
       cost: parseInt(cost),
-      materials:parseInt(materials),
+      materials: parseInt(materials),
       tehniciansNumber: parseInt(engineers),
-      tehniciansName:"engineers",
-      objectImage:"energyUpdateImg",
-      upgradeFolder:"ENERGY"
+      tehniciansName: "engineers",
+      objectImage: "energyUpdateImg",
+      upgradeFolder: "ENERGY"
     }
 
     if (this.updateValidation(gameObject, requirementObject) == false) {
@@ -244,8 +244,12 @@ export class ConstructionActionsComponent implements OnInit {
 
   updateIncomeStats(gameObject, image) {
     gameObject.starUpdateImg = image;
+
     let newIncome = Math.round((gameObject.income * 10) / 100)
     gameObject.income = gameObject.income + newIncome;
+
+
+    gameObject.cost = gameObject.cost + Math.round((gameObject.cost * 10) / 100);
 
     this.gameValues.income = this.gameValues.income + newIncome;
     this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped + newIncome;
@@ -276,13 +280,13 @@ export class ConstructionActionsComponent implements OnInit {
 
     let requirementObject = {
       cost: parseInt(cost),
-      materials:parseInt(materials),
+      materials: parseInt(materials),
       tehniciansNumber: parseInt(workers),
-      tehniciansName:"workers",
-      objectImage:"starUpdateImg",
-      upgradeFolder:"STAR"
+      tehniciansName: "workers",
+      objectImage: "starUpdateImg",
+      upgradeFolder: "STAR"
     }
-    
+
     if (this.updateValidation(gameObject, requirementObject) === false) {
       return;
     }
