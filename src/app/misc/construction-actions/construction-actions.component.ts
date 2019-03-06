@@ -141,8 +141,7 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
-  updateValidation(gameObject, cost, materials, tehniciansName, tehniciansNumber,
-    upgradeImage, upgradeFolder) {
+  updateValidation(gameObject, requirementObject) {
     
     if (gameObject.condition === "underConstruction") {
       alert("This building is underconstruction you can not upgrade now");
@@ -159,23 +158,23 @@ export class ConstructionActionsComponent implements OnInit {
       return false;
     }
 
-    if (gameObject[upgradeImage] === `UPGRADE/${upgradeFolder}/UPGRADE04`) {
+    if (gameObject[requirementObject.objectImage] === `UPGRADE/${requirementObject.upgradeFolder}/UPGRADE04`) {
       alert("This building have already maximum update.")
       return false;
     }
 
-    if (this.gameValues.money < cost) {
+    if (this.gameValues.money < requirementObject.cost) {
       alert("You don't have enough money");
       return false;
     }
 
-    if (this.gameValues.materials < materials) {
+    if (this.gameValues.materials < requirementObject.materials) {
       alert("You don't have enough materials");
       return false;
     }
 
-    if (this.gameValues[tehniciansName] < tehniciansNumber) {
-      alert(`You don't have enough ${tehniciansName}`);
+    if (this.gameValues[requirementObject.tehniciansName] < requirementObject.tehniciansNumber) {
+      alert(`You don't have enough ${requirementObject.tehniciansName}`);
       return false;
     }
   }
@@ -210,25 +209,26 @@ export class ConstructionActionsComponent implements OnInit {
   }
 
   updateEnergyReduction(cost, materials, engineers) {
-    debugger
     let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber);
-    let engineersNumber = parseInt(engineers);
-    let costUpdate = parseInt(cost);
-    let materialsRequired = parseInt(materials);
-    let tehniciansName = "engineers";
-    let objectImage = "energyUpdateImg";
-    let upgradeFolder = "ENERGY";
 
-    if (this.updateValidation(gameObject, costUpdate, materialsRequired,
-      tehniciansName, engineersNumber, objectImage, upgradeFolder) == false) {
+    let requirementObject = {
+      cost: parseInt(cost),
+      materials:parseInt(materials),
+      tehniciansNumber: parseInt(engineers),
+      tehniciansName:"engineers",
+      objectImage:"energyUpdateImg",
+      upgradeFolder:"ENERGY"
+    }
+
+    if (this.updateValidation(gameObject, requirementObject) == false) {
       return;
     }
 
     this.updateEnergyConditions(gameObject);
     this.chanceStatusOfPowerToAllBuildings();
 
-    this.gameValues.money = this.gameValues.money - costUpdate;
-    this.gameValues.materials = this.gameValues.materials - materialsRequired;
+    this.gameValues.money = this.gameValues.money - requirementObject.cost;
+    this.gameValues.materials = this.gameValues.materials - requirementObject.materials;
 
     if (this.gameValues.energy <= this.gameValues.maxEnergy) {
 
@@ -269,22 +269,23 @@ export class ConstructionActionsComponent implements OnInit {
   updateStarRating(cost, materials, workers) {
     let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber)
 
-    let workersNumber = parseInt(workers);
-    let costUpdate = parseInt(cost);
-    let materialsRequired = parseInt(materials);
-    let tehniciansName = "workers";
-    let objectImage = "starUpdateImg";
-    let upgradeFolder = "STAR";
+    let requirementObject = {
+      cost: parseInt(cost),
+      materials:parseInt(materials),
+      tehniciansNumber: parseInt(workers),
+      tehniciansName:"workers",
+      objectImage:"starUpdateImg",
+      upgradeFolder:"STAR"
+    }
     
-    if (this.updateValidation(gameObject, costUpdate, materialsRequired,
-      tehniciansName, workersNumber, objectImage, upgradeFolder) == false) {
+    if (this.updateValidation(gameObject, requirementObject) === false) {
       return;
     }
 
     this.starRatingConditions(gameObject);
 
-    this.gameValues.money = this.gameValues.money - costUpdate;
-    this.gameValues.materials = this.gameValues.materials - materialsRequired;
+    this.gameValues.money = this.gameValues.money - requirementObject.cost;
+    this.gameValues.materials = this.gameValues.materials - requirementObject.materials;
 
     if (this.gameValues.energy > this.gameValues.maxEnergy) {
 
