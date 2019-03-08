@@ -15,6 +15,7 @@ export class BuyLandComponent implements OnInit {
   public topSlots;
   public midSlots;
   public bottomSlots;
+  public allGameSlots;
   public gameData;
   public slotNumberId;
 
@@ -27,43 +28,29 @@ export class BuyLandComponent implements OnInit {
 
     this._logicService.castBottomSlots.subscribe(mapBottomSlots => this.bottomSlots = mapBottomSlots);
 
+    this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
   }
 
   ngOnInit() {
     this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
   }
 
-  buyLand(landPrice) {
-    let slotPrice = parseInt(landPrice);
-    if (this.gameData.money < slotPrice) {
+  buyLand() {
+    let landCost = (this.gameData.landCost - this.gameData.appeal*50);
+    if (this.gameData.money < landCost) {
       alert("you don't have enough money");
       return;
     }
 
-    this.gameData.money = this.gameData.money - slotPrice;
+    this.gameData.money = this.gameData.money - landCost;
 
     this.isModalClosed = true;
 
     let landNumber = this.slotNumberId;
     
-    if (landNumber <= 4) {
-      this.obj = this.topSlots.find(elem => elem.number == landNumber);
+      this.obj = this.allGameSlots.find(elem => elem.number == landNumber);
       this.obj.img = "HOUSE0/NONE1";
       this.obj.condition = "bought";
-      return
-    }
-    if (landNumber <= 9) {
-      this.obj = this.midSlots.find(elem => elem.number == landNumber);
-      this.obj.img = "HOUSE0/NONE1";
-      this.obj.condition = "bought";
-      return;
-    }
-    if (landNumber <= 14) {
-      this.obj = this.bottomSlots.find(elem => elem.number == landNumber);
-      this.obj.img = "HOUSE0/NONE1";
-      this.obj.condition = "bought";
-      return;
-    }
 
   }
 
