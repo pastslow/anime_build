@@ -25,10 +25,10 @@
       <div class="info-container">
         <img class="icon" src="assets/icons/power.png" alt="">
         <div class="energy-border">
-          <span>{{topBarData.energy}}</span>
+          <span #eng>{{topBarData.energy}}</span>
           <span>/</span>
-          <span>{{topBarData.maxEnergy}}</span>
-          <div class="energy-consumption">
+          <span #maxEng>{{topBarData.maxEnergy}}</span>
+          <div [style.width]="getConsumption(eng.innerText, maxEng.innerText)" class="energy-consumption">
           </div>
         </div>
       </div>
@@ -42,8 +42,8 @@
       </div>
   
       <div class="info-container">
-        <img class="icon" src="assets/icons/sad.png" alt="">
-        <div class="appeal red-bg-bar">
+        <img class="icon" src="assets/icons/HAPPY.PNG" alt="">
+        <div class="appeal green-bg-bar">
           <span>{{topBarData.appeal}}</span>
         </div>
       </div>
@@ -59,7 +59,7 @@
       <div class="info-container">
   
         <img class="icon" src="assets/icons/score.png" alt="">
-        <div class="appeal green-bg-bar">
+        <div class="appeal red-bg-bar">
           <span>{{topBarData.score | number:'1.0-0'}}</span>
         </div>
       </div>
