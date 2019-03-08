@@ -33,18 +33,24 @@ export class MaterialsSectionComponent implements OnInit {
     this.bottomValues[item] = this.bottomValues[item] + pack;
   }
 
-  buyItems(cost, title, pack) {
+  buyItems(title, slotNumber) {
+    let slotObject = this.bottomDataValues.find(elem => elem.title == title);
+    let slotId = parseInt(slotNumber.slot);
 
-    if (parseInt(cost) > this.bottomValues.money) {
+    let selectedItem = slotObject.shopItems.find(elem => elem.id == slotId);
+    let newPack = selectedItem.number;
+
+    if (selectedItem.cost > this.bottomValues.money) {
       alert(" You don't have enough money!!!");
       return;
     }
 
-    // Convert value of pack to number
-    let newPack = parseInt(pack)
     // Actualizing money
-    let newMoney = this.bottomValues.money - parseInt(cost);
+    let newMoney = this.bottomValues.money - (selectedItem.cost - (
+      selectedItem.cost * (this.bottomValues.appeal / 10)) / 100);
+      
     this.bottomValues.money = newMoney;
+
     // Produce the change on the observable object
     this._logicService.changeObject(this.bottomValues);
 

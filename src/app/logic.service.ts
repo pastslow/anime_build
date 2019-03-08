@@ -64,19 +64,22 @@ export class LogicService {
             name: "few materials",
             icon: 'material',
             cost: 5000,
-            number: 100
+            number: 100,
+            id:1
           },
           {
             name: "medium pack of materials",
             icon: 'material2',
             cost: 24000,
-            number: 500
+            number: 500,
+            id:2
           },
           {
             name: "huge pack of materials",
             icon: 'material3',
             cost: 45000,
-            number: 1000
+            number: 1000,
+            id:3
           },
         ]
       },
@@ -90,19 +93,22 @@ export class LogicService {
             name: "One Worker",
             icon: 'worker',
             cost: 30000,
-            number: 1
+            number: 1,
+            id:1
           },
           {
             name: "Two Workers",
             icon: 'worker2',
             cost: 55000,
-            number: 2
+            number: 2,
+            id:2
           },
           {
             name: "Three Workers",
             icon: 'worker3',
             cost: 80000,
-            number: 3
+            number: 3,
+            id:3
           },
         ]
       },
@@ -116,19 +122,22 @@ export class LogicService {
             name: "One Engineer",
             icon: 'engineer',
             cost: 35000,
-            number: 1
+            number: 1,
+            id:1
           },
           {
             name: "Two Engineers",
             icon: 'engineer2',
             cost: 65000,
-            number: 2
+            number: 2,
+            id:2
           },
           {
             name: "Three Engineers",
             icon: 'engineer3',
             cost: 90000,
-            number: 3
+            number: 3,
+            id:3
           },
         ]
       }
