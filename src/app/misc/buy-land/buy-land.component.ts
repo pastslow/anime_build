@@ -33,15 +33,14 @@ export class BuyLandComponent implements OnInit {
     this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
   }
 
-  buyLand() {
-    this.isModalClosed = false;
-
-    if (this.gameData.money < this.gameData.landCost) {
+  buyLand(landPrice) {
+    let slotPrice = parseInt(landPrice);
+    if (this.gameData.money < slotPrice) {
       alert("you don't have enough money");
       return;
     }
 
-    this.gameData.money = this.gameData.money - this.gameData.landCost;
+    this.gameData.money = this.gameData.money - slotPrice;
 
     this.isModalClosed = true;
 

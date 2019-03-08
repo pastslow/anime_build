@@ -26,6 +26,8 @@ export class ConstructBuildingComponent implements OnChanges {
   public midSlots;
   public bottomSlots;
 
+  public allGameSlots;
+
   public isModalClosed = false;
 
   constructor(private _logicService: LogicService) {
@@ -44,6 +46,8 @@ export class ConstructBuildingComponent implements OnChanges {
     this._logicService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
 
+    this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
+    
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -52,52 +56,62 @@ export class ConstructBuildingComponent implements OnChanges {
       elem => elem.name == this.btnPressed.buttonNamePressed);
   }
 
-  constructBuildingOverTime(gameObject, image, workers,
-    energy, buildingIncome, buildingType) {
+  changeImageOfSlot(gameObject, requireObject) {
     gameObject.condition = "underConstruction";
-
     for (let i = 1; i <= 8; i++) {
-      let timeout = i === 1? 50 : (i - 1) * 1800;
+      let timeout = i === 1 ? 50 : (i - 1) * 1800;
       setTimeout(() => {
-        gameObject.img = `${image}/CONSTRUCT/CONSTRUCT0${i}`;
+        gameObject.img = `${requireObject.buildImg}/CONSTRUCT/CONSTRUCT0${i}`;
       }, timeout);
     }
+  }
+
+  changeSlotEnergyBasedOnType(gameObject, requireObject){
+    if (requireObject.buildType === "producer") {
+      this.gameData.maxEnergy = this.gameData.maxEnergy + requireObject.buildEnergy;
+      gameObject.energy = 0;
+      gameObject.maxEnergy = requireObject.buildEnergy;
+      gameObject.buildingType = "producer";
+    } else {
+      let bonusEnergyProcent = (
+        this.gameData.reduceEnergyConsumption * requireObject.buildEnergy) / 100;
+
+      this.gameData.energy = (
+        this.gameData.energy + requireObject.buildEnergy - bonusEnergyProcent);
+
+      gameObject.energy = requireObject.buildEnergy - bonusEnergyProcent;
+      gameObject.buildingType = "consumer";
+    }
+  }
+
+  changeGameAndSlotIncome(gameObject, requireObject){
+    let bonusIncomeProcent = (
+      this.gameData.bonusIncome * requireObject.buildIncome) / 100;
+
+    gameObject.income = requireObject.buildIncome + bonusIncomeProcent;
+    gameObject.cost = requireObject.buildIncome * 10;
+
+    let rentalIncome = (this.gameData.income + requireObject.buildIncome +
+      bonusIncomeProcent);
+
+    let rentalIncomeBeforeStopped = (this.gameData.incomeBeforeStopped +
+      requireObject.buildIncome + bonusIncomeProcent)
+
+    this.gameData.income = rentalIncome;
+    this.gameData.incomeBeforeStopped = rentalIncomeBeforeStopped;
+    gameObject.condition = "build";
+  }
+
+  constructBuildingOverTime(gameObject, requireObject) {
+
+    this.changeImageOfSlot(gameObject, requireObject);
 
     setTimeout(() => {
-      this.gameData.workers = this.gameData.workers + workers;
+      this.gameData.workers = this.gameData.workers + requireObject.buildWorkers;
 
-      if (buildingType === "producer") {
-        this.gameData.maxEnergy = this.gameData.maxEnergy + energy;
+      this.changeSlotEnergyBasedOnType(gameObject, requireObject);
 
-        gameObject.energy = 0;        
-        gameObject.maxEnergy = energy;
-        gameObject.buildingType = "producer";
-      } else {
-        let bonusEnergyProcent = (
-          this.gameData.reduceEnergyConsumption * energy) / 100;
-
-        this.gameData.energy = (
-          this.gameData.energy + energy - bonusEnergyProcent);
-          gameObject.energy = energy - bonusEnergyProcent;
-          gameObject.buildingType = "consumer";
-        }
-        
-
-      let bonusIncomeProcent = (
-        this.gameData.bonusIncome * buildingIncome) / 100;
-
-      gameObject.income = buildingIncome + bonusIncomeProcent;
-      gameObject.cost = buildingIncome * 10;
-
-      let rentalIncome = (this.gameData.income + buildingIncome +
-         bonusIncomeProcent);
-
-      let rentalIncomeBeforeStopped = (this.gameData.incomeBeforeStopped + 
-      buildingIncome +bonusIncomeProcent)
-
-      this.gameData.income = rentalIncome;
-      this.gameData.incomeBeforeStopped = rentalIncomeBeforeStopped;
-      gameObject.condition = "build";
+      this.changeGameAndSlotIncome(gameObject, requireObject);
 
       this.changeBuildingStatus();
     }, 14500);
@@ -105,15 +119,11 @@ export class ConstructBuildingComponent implements OnChanges {
 
   changeBuildingStatus() {
     if (this.gameData.energy > this.gameData.maxEnergy) {
-      this.changePowerOfBuildings(this.topSlots, "NONE00");
-      this.changePowerOfBuildings(this.midSlots, "NONE00");
-      this.changePowerOfBuildings(this.bottomSlots, "NONE00");
+      this.changePowerOfBuildings(this.allGameSlots, "NONE00");
       this.gameData.income = this.gameData.incomeStopped;
       return;
     }
-    this.changePowerOfBuildings(this.topSlots, "CONSTRUCT08");
-    this.changePowerOfBuildings(this.midSlots, "CONSTRUCT08");
-    this.changePowerOfBuildings(this.bottomSlots, "CONSTRUCT08");
+    this.changePowerOfBuildings(this.allGameSlots, "CONSTRUCT08");
     this.gameData.income = this.gameData.incomeBeforeStopped;
   }
 
@@ -126,62 +136,53 @@ export class ConstructBuildingComponent implements OnChanges {
     }
   }
 
+  buildValidation(requireObject){
+    if (this.gameData.money < requireObject.buildCost) {
+      alert("You don't have enough Money !!")
+      return true;
+    }
+    if (this.gameData.workers < requireObject.buildWorkers) {
+      alert("You don't have enough Workers !!")
+      return true;
+    }
+    if (this.gameData.materials < requireObject.buildMaterials) {
+      alert("You don't have enough Materials !!")
+      return true;
+    }
+  }
 
-  buildPurchasedBuilding(buildingCost, buildingWorkers, buildingMaterials,
-    buildingEnergy, buildingImg, buildingIncome, buildingType) {
-
+  buildPurchasedBuilding(buildingName) {
     this.isModalClosed = false;
 
-    let buildCost = parseInt(buildingCost);
-    let buildWorkers = parseInt(buildingWorkers);
-    let buildMaterials = parseInt(buildingMaterials);
-    let buildEnergy = parseInt(buildingEnergy);
-    let buildIncome = parseInt(buildingIncome);
-    let buildImg = buildingImg.slot;
-    let buildType = buildingType;
-    let slotId = this.slotIdNumber;
+    let building = this.constructArr.construct.find(elem => elem.name == buildingName);
 
-    // Validation
-    if (this.gameData.money < buildCost) {
-      alert("You don't have enough Money !!")
+    let requireObject = {
+      buildCost: building.cost,
+      buildWorkers: building.workers,
+      buildMaterials: building.materials,
+      buildEnergy: building.energy,
+      buildIncome: building.income,
+      buildImg: building.buildingId,
+      buildType: building.buildingType
+    }
+
+    let slotId = this.slotIdNumber;
+    
+
+    if (this.buildValidation(requireObject) === true) {
       return;
     }
-    if (this.gameData.workers < buildWorkers) {
-      alert("You don't have enough Workers !!")
-      return;
-    }
-    if (this.gameData.materials < buildMaterials) {
-      alert("You don't have enough Materials !!")
-      return;
-    }
+  
     // degresse resource
-    this.gameData.money = this.gameData.money - buildCost;
-    this.gameData.workers = this.gameData.workers - buildWorkers;
-    this.gameData.materials = this.gameData.materials - buildMaterials;
+    this.gameData.money = this.gameData.money - requireObject.buildCost;
+    this.gameData.workers = this.gameData.workers - requireObject.buildWorkers;
+    this.gameData.materials = this.gameData.materials - requireObject.buildMaterials;
+
+
+    let newObj = this.allGameSlots.find(elem => elem.number == slotId);
+    this.constructBuildingOverTime(newObj, requireObject);
 
     this.isModalClosed = true;
-
-    if (slotId <= 4) {
-      let newObj = this.topSlots.find(elem => elem.number == slotId);
-      this.constructBuildingOverTime(newObj, buildImg,
-        buildWorkers, buildEnergy, buildIncome, buildType);
-      return;
-    }
-
-    if (slotId <= 9) {
-      let newObj = this.midSlots.find(elem => elem.number == slotId);
-      this.constructBuildingOverTime(newObj, buildImg,
-        buildWorkers, buildEnergy, buildIncome, buildType);
-      return;
-    }
-
-    if (slotId <= 14) {
-      let newObj = this.bottomSlots.find(elem => elem.number == slotId);
-      this.constructBuildingOverTime(newObj, buildImg,
-        buildWorkers, buildEnergy, buildIncome, buildType);
-      return;
-    }
-
   }
 
 

@@ -28,7 +28,7 @@ export class LogicService {
   }
 
   public gameDataValues = {
-    money: 2400000,
+    money: 200000,
     income: 0,
     incomeStopped: 0,
     incomeBeforeStopped: 0,
@@ -56,8 +56,6 @@ export class LogicService {
     return [
       {
         title: "Buying Materials",
-        bonusTitle: "Bonus materials:",
-        bonusValue: 10,
         primaryIcon: 'woods',
         secondaryIcon: 'materials',
         folderIcons: 'materials',
@@ -84,8 +82,6 @@ export class LogicService {
       },
       {
         title: "Hire Workers",
-        bonusTitle: "Reduce workers cost by:",
-        bonusValue: 10,
         primaryIcon: 'workers',
         secondaryIcon: 'worker',
         folderIcons: 'workers',
@@ -115,8 +111,6 @@ export class LogicService {
         primaryIcon: 'engineers',
         secondaryIcon: 'engineer',
         folderIcons: 'engineers',
-        bonusTitle: "Reduce engineers cost by:",
-        bonusValue: 10,
         shopItems: [
           {
             name: "One Engineer",
@@ -155,6 +149,7 @@ export class LogicService {
             materials: 300,
             energy: 50,
             income: 400,
+            appeal:0,
             buildingId: "HOUSE20",
             buildingType: "consumer"
           },
@@ -166,6 +161,7 @@ export class LogicService {
             materials: 500,
             energy: 100,
             income: 900,
+            appeal:0,
             buildingId: "HOUSE20",
             buildingType: "consumer"
           },
@@ -177,6 +173,7 @@ export class LogicService {
             materials: 800,
             energy: 120,
             income: 1200,
+            appeal:0,
             buildingId: "HOUSE19",
             buildingType: "consumer"
           },
@@ -188,6 +185,7 @@ export class LogicService {
             materials: 2000,
             energy: 200,
             income: 1600,
+            appeal:0,
             buildingId: "HOUSE22",
             buildingType: "consumer"
           },
@@ -199,6 +197,7 @@ export class LogicService {
             materials: 4000,
             energy: 400,
             income: 2200,
+            appeal:0,
             buildingId: "HOUSE45",
             buildingType: "consumer"
           }
@@ -216,6 +215,7 @@ export class LogicService {
             materials: 100,
             energy: 40,
             income: 300,
+            appeal:0,
             buildingId: "HOUSE01",
             buildingType: "consumer"
           },
@@ -227,6 +227,7 @@ export class LogicService {
             materials: 200,
             energy: 60,
             income: 650,
+            appeal:0,
             buildingId: "HOUSE02",
             buildingType: "consumer"
           },
@@ -238,6 +239,7 @@ export class LogicService {
             materials: 350,
             energy: 80,
             income: 1400,
+            appeal:0,
             buildingId: "HOUSE03",
             buildingType: "consumer"
           },
@@ -249,6 +251,7 @@ export class LogicService {
             materials: 560,
             energy: 90,
             income: 3000,
+            appeal:0,
             buildingId: "HOUSE04",
             buildingType: "consumer"
           },
@@ -260,6 +263,7 @@ export class LogicService {
             materials: 1200,
             energy: 140,
             income: 4000,
+            appeal:0,
             buildingId: "HOUSE05",
             buildingType: "consumer"
           },
@@ -271,6 +275,7 @@ export class LogicService {
             materials: 2200,
             energy: 250,
             income: 8000,
+            appeal:0,
             buildingId: "HOUSE06",
             buildingType: "consumer"
           },
@@ -288,7 +293,7 @@ export class LogicService {
             materials: 500,
             energy: 10,
             appeal: 10,
-            income: 1000,
+            income: 100,
             buildingId: "HOUSE41",
             buildingType: "consumer"
           },
@@ -300,7 +305,7 @@ export class LogicService {
             materials: 600,
             energy: 20,
             appeal: 15,
-            income: 1400,
+            income: 140,
             buildingId: "HOUSE42",
             buildingType: "consumer"
           },
@@ -312,7 +317,7 @@ export class LogicService {
             materials: 800,
             energy: 40,
             appeal: 20,
-            income: 3000,
+            income: 300,
             buildingId: "HOUSE43",
             buildingType: "consumer"
           },
@@ -324,7 +329,7 @@ export class LogicService {
             materials: 1000,
             energy: 100,
             appeal: 25,
-            income: 4000,
+            income: 400,
             buildingId: "HOUSE44",
             buildingType: "consumer"
           }
@@ -384,6 +389,7 @@ export class LogicService {
             materials: 500,
             energy: 100,
             income: 4000,
+            appeal:0,
             buildingId: "HOUSE47",
             buildingType: "consumer"
           },
@@ -395,6 +401,7 @@ export class LogicService {
             materials: 1000,
             energy: 250,
             income: 6000,
+            appeal:0,
             buildingId: "HOUSE48",
             buildingType: "consumer"
           },
@@ -406,6 +413,7 @@ export class LogicService {
             materials: 3000,
             energy: 550,
             income: 8500,
+            appeal:0,
             buildingId: "HOUSE16",
             buildingType: "consumer"
           },
@@ -417,6 +425,7 @@ export class LogicService {
             materials: 5000,
             energy: 700,
             income: 9800,
+            appeal:0,
             buildingId: "HOUSE46",
             buildingType: "consumer"
           }
@@ -437,6 +446,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 0
     },
@@ -450,6 +460,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 1
     },
@@ -463,6 +474,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 2
     },
@@ -476,6 +488,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 3
     },
@@ -489,6 +502,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 4
     },
@@ -504,6 +518,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 5
     },
@@ -517,6 +532,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 6
     },
@@ -530,6 +546,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 7
     },
@@ -543,6 +560,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 8
     },
@@ -556,6 +574,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 9
     }
@@ -571,6 +590,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 10
     },
@@ -584,6 +604,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 11
     },
@@ -597,6 +618,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 12
     },
@@ -610,6 +632,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 13
     },
@@ -623,6 +646,7 @@ export class LogicService {
       energy: 0,
       maxEnergy: 0,
       cost:0,
+      appeal:0,
       buildingType:"consumer",
       number: 14
     }

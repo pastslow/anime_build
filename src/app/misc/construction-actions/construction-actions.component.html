@@ -1,6 +1,6 @@
 <div class="container-action">
 
-  <button (click)="updateStarRating(
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="updateStarRating(
     upgradeStarCost.innerText,
     upgradeStarMaterials.innerText,
     workers.innerText)" class="action-data">
@@ -23,7 +23,7 @@
     </div>
   </button>
 
-  <button *ngIf="isSupportingEngUpgrade" (click)="updateEnergyReduction(
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" *ngIf="isSupportingEngUpgrade" (click)="updateEnergyReduction(
     energyUpgradeCost.innerText,
     energyUpgradeMaterials.innerText,
     engineers.innerText)" class="action-data">

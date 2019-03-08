@@ -29,13 +29,6 @@
   </div>
 
   <div>
-
-    <div>
-      <span>{{bottomDataValues[btnPressed].bonusTitle}} </span>
-      <span>{{bottomDataValues[btnPressed].bonusValue}}</span>
-      <span>%</span>
-    </div>
-
     <div class="d-flex">
 
       <button [disabled]="isDisabled" (click)="buyItems(packCost.innerText, title.innerText, packItem.innerText)"
@@ -46,7 +39,7 @@
         <img src="assets/icons/{{bottomDataValues[btnPressed].folderIcons}}/{{pack.icon}}.png" alt="">
         <div>
           <span>Cost:</span>
-          <span #packCost>{{pack.cost}}</span>
+          <span #packCost>{{pack.cost - (pack.cost * (bottomValues.appeal / 10)) / 100}}</span>
         </div>
         <div>
           <span>Packs:</span>

@@ -13,13 +13,15 @@ export class MaterialsSectionComponent implements OnInit {
   public bottomDataValues = [];
 
   public bottomValues;
+  public gameDataValues;
 
   constructor(private _logicService: LogicService) { }
 
   ngOnInit() {
-    this._logicService.cast.subscribe(gameValues => this.bottomValues = gameValues)
+    this._logicService.cast.subscribe(gameValues => this.bottomValues = gameValues);
 
     this.bottomDataValues = this._logicService.bottomLogicData();
+
   }
 
   public defaultClass = true;

@@ -1,14 +1,14 @@
 <div class="buy-land-container">
 
-  <div [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="buyLand()" class="buy-land">
+  <div [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="buyLand(landPrice.innerText)" class="buy-land">
     <span>Buy</span>
     <img class="buy-img" src="assets/icons/buy.png" alt="">
   </div>
 
   <div class="text-center">
     <span>You can buy this land for: </span>
-    <br/>
-    <span>25000</span>
+    <br />
+    <span #landPrice>{{gameData.landCost - gameData.appeal*50}}</span>
     <span>$</span>
   </div>
 

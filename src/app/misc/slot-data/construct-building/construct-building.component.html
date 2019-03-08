@@ -12,10 +12,9 @@
   </div>
 
   <div *ngFor="let building of constructArr.construct">
-    <div (click)="buildPurchasedBuilding(cost.innerText, workers.innerText, materials.innerText,
-     energy.innerText, img, income.innerText, buildingType.innerText)" class="slot-button"
+    <div (click)="buildPurchasedBuilding(buildName.innerText)" class="slot-button"
       [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'">
-      <span>{{building.name}}</span>
+      <span #buildName>{{building.name}}</span>
 
       <div class="house-info">
         <img #img data-slot="{{building.buildingId}}" class="img-slot"
@@ -45,11 +44,6 @@
           <div>
             <span>Income:</span>
             <span #income>{{building.income}}</span>
-          </div>
-
-          <div>
-            <span>Type:</span>
-            <span #buildingType>{{building.buildingType}}</span>
           </div>
 
         </div>

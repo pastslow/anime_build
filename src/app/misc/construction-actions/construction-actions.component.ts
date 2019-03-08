@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 
 @Component({
@@ -11,7 +11,7 @@ export class ConstructionActionsComponent implements OnInit {
 
   public slotNeedRepair;
 
-  public isSupportingEngUpgrade;
+  @Input() public isSupportingEngUpgrade;
 
   public slotNumber;
   
@@ -115,6 +115,8 @@ export class ConstructionActionsComponent implements OnInit {
     slot.energy = 0;
     slot.energyUpdateImg = "UPGRADE/NOUPDATE";
     slot.starUpdateImg = "UPGRADE/NOUPDATE";
+    slot.needRepair = false;
+    slot.buildingType = "consumer";
   }
 
   demolishAnimation(object, currentHouse) {
@@ -162,6 +164,11 @@ export class ConstructionActionsComponent implements OnInit {
 
     if (gameObject.condition === "bought") {
       alert("You can not upgrade an empty land");
+      return false;
+    }
+
+    if (gameObject.buildingType === "producer" && requirementObject.upgradeFolder === "ENERGY") {
+      alert("You can not upgrade a producer building");
       return false;
     }
 
@@ -241,6 +248,7 @@ export class ConstructionActionsComponent implements OnInit {
 
       this.gameValues.income = this.gameValues.incomeBeforeStopped;
     }
+    this.isModalClosed = true;
 
   }
 
@@ -302,6 +310,8 @@ export class ConstructionActionsComponent implements OnInit {
 
       this.gameValues.income = this.gameValues.incomeStopped;
     }
+
+    this.isModalClosed = true;
 
   }
 

@@ -103,7 +103,8 @@
       <div class="modal-body">
         <app-slot-actions *ngIf="isLandBought"></app-slot-actions>
         <app-buy-land *ngIf="!isLandBought && !hasConstruction"></app-buy-land>
-        <app-construction-actions *ngIf="hasConstruction"></app-construction-actions>
+        <app-construction-actions [isSupportingEngUpgrade]="isSupportingEngUpgrade" *ngIf="hasConstruction">
+        </app-construction-actions>
       </div>
 
       <!-- Modal footer -->
