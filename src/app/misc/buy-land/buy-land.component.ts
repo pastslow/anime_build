@@ -7,10 +7,6 @@ import { LogicService } from 'src/app/logic.service';
   styleUrls: ['./buy-land.component.css']
 })
 export class BuyLandComponent implements OnInit {
-
-  public obj;
-
-
   public isModalClosed = false;
   public topSlots;
   public midSlots;
@@ -38,7 +34,7 @@ export class BuyLandComponent implements OnInit {
   buyLand() {
     let landCost = (this.gameData.landCost - this.gameData.appeal*50);
     if (this.gameData.money < landCost) {
-      alert("you don't have enough money");
+      alert("You don't have enough money");
       return;
     }
 
@@ -48,9 +44,9 @@ export class BuyLandComponent implements OnInit {
 
     let landNumber = this.slotNumberId;
     
-      this.obj = this.allGameSlots.find(elem => elem.number == landNumber);
-      this.obj.img = "HOUSE0/NONE1";
-      this.obj.condition = "bought";
+      let obj = this.allGameSlots.find(elem => elem.number == landNumber);
+      obj.img = "HOUSE0/NONE1";
+      obj.condition = "bought";
 
   }
 
