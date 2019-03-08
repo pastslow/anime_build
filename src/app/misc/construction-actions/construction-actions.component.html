@@ -23,7 +23,7 @@
     </div>
   </button>
 
-  <button (click)="updateEnergyReduction(
+  <button *ngIf="isSupportingEngUpgrade" (click)="updateEnergyReduction(
     energyUpgradeCost.innerText,
     energyUpgradeMaterials.innerText,
     engineers.innerText)" class="action-data">

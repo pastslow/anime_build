@@ -11,8 +11,10 @@ export class ConstructionActionsComponent implements OnInit {
 
   public slotNeedRepair;
 
-  public slotNumber;
+  public isSupportingEngUpgrade;
 
+  public slotNumber;
+  
   public topSlots;
   public midSlots;
   public bottomSlots;
