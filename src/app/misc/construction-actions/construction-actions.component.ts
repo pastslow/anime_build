@@ -90,14 +90,16 @@ export class ConstructionActionsComponent implements OnInit {
     }
 
     this.demolishAnimation(gameObject, currentHouse);
-
+    debugger
     this.gameValues.energy = this.gameValues.energy - gameObject.energy;
     this.gameValues.maxEnergy = this.gameValues.maxEnergy - gameObject.maxEnergy;
 
     // If you demolish the building and have less or more energy
     this.chanceStatusOfPowerToAllBuildings();
-
-    this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
+    
+    if(this.gameValues.energy < this.gameValues.maxEnergy){
+      this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
+    }
     this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
 
     this.gameValues.materials = this.gameValues.materials + parseInt(materials);
