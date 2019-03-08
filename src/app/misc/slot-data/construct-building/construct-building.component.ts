@@ -47,7 +47,7 @@ export class ConstructBuildingComponent implements OnChanges {
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
-    
+
   }
 
   ngOnChanges(changes: SimpleChanges) {
@@ -66,15 +66,24 @@ export class ConstructBuildingComponent implements OnChanges {
     }
   }
 
-  changeSlotEnergyBasedOnType(gameObject, requireObject){
+  changeSlotEnergyBasedOnType(gameObject, requireObject) {
     if (requireObject.buildType === "producer") {
+
       this.gameData.maxEnergy = this.gameData.maxEnergy + requireObject.buildEnergy;
+
+      this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
+      gameObject.appeal = requireObject.buildAppeal;
+      
       gameObject.energy = 0;
       gameObject.maxEnergy = requireObject.buildEnergy;
       gameObject.buildingType = "producer";
+
     } else {
       let bonusEnergyProcent = (
         this.gameData.reduceEnergyConsumption * requireObject.buildEnergy) / 100;
+
+        this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
+        gameObject.appeal = requireObject.buildAppeal;
 
       this.gameData.energy = (
         this.gameData.energy + requireObject.buildEnergy - bonusEnergyProcent);
@@ -84,7 +93,7 @@ export class ConstructBuildingComponent implements OnChanges {
     }
   }
 
-  changeGameAndSlotIncome(gameObject, requireObject){
+  changeGameAndSlotIncome(gameObject, requireObject) {
     let bonusIncomeProcent = (
       this.gameData.bonusIncome * requireObject.buildIncome) / 100;
 
@@ -136,7 +145,7 @@ export class ConstructBuildingComponent implements OnChanges {
     }
   }
 
-  buildValidation(requireObject){
+  buildValidation(requireObject) {
     if (this.gameData.money < requireObject.buildCost) {
       alert("You don't have enough Money !!")
       return true;
@@ -163,16 +172,17 @@ export class ConstructBuildingComponent implements OnChanges {
       buildEnergy: building.energy,
       buildIncome: building.income,
       buildImg: building.buildingId,
-      buildType: building.buildingType
+      buildType: building.buildingType,
+      buildAppeal: building.appeal
     }
 
     let slotId = this.slotIdNumber;
-    
+
 
     if (this.buildValidation(requireObject) === true) {
       return;
     }
-  
+
     // degresse resource
     this.gameData.money = this.gameData.money - requireObject.buildCost;
     this.gameData.workers = this.gameData.workers - requireObject.buildWorkers;
