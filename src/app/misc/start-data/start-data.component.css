@@ -1,0 +1,169 @@
+.btn-epic {
+    background: url(src/assets/bg/BTN.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 140px;
+    color: white;
+    padding: 13px;
+    margin-top: 4px;
+    border: 0px;
+}
+
+.btn-epic:hover {
+    opacity: 0.5;
+}
+
+.btn-container {
+    position: absolute;
+    left: 14%;
+    top: 30%;
+}
+
+.game-title {
+    position: absolute;
+    top: 14%;
+    color: white;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    font-size: 20px;
+}
+
+.description-game {
+    position: absolute;
+    top: 34%;
+    width: 285px;
+    color: white;
+    left: 45%;
+}
+
+.game-signature {
+    position: absolute;
+    bottom: 15%;
+    color: white;
+    right: 14%;
+}
+
+.carousel-mark{
+    width: 25px;
+    height: 3px;
+    background: white;
+    opacity: 0.5;
+}
+
+.indicators-container {
+    display: flex;
+    justify-content: space-around;
+    width: 100px;
+    position: absolute;
+    top: 30%;
+    left: 56%;
+}
+
+.text-1, .text-2 , .text-3 {
+    opacity: 0;
+}
+
+.bar-1 {
+    animation: anime-bar-1 25s infinite;
+}
+
+.bar-2 {
+    animation: anime-bar-2 25s infinite;
+}
+
+.bar-3 {
+    animation: anime-bar-3 25s infinite;
+}
+
+.text-1 {
+    animation: anime-text-1 25s infinite;
+}
+
+.text-2 {
+    animation: anime-text-2 25s infinite;
+}
+
+.text-3 {
+    animation: anime-text-3 25s infinite;
+}
+
+@keyframes anime-bar-1 {
+    0%{opacity: 0.5;}
+    10%{opacity: 0.5;}
+    10%{opacity: 1;}
+    25%{opacity: 1;}
+    33%{opacity: 0.5;}
+    100%{opacity: 0.5;}
+}
+  
+@keyframes anime-bar-2 {
+    0%{opacity: 0.5;}
+    33%{opacity: 0.5;}
+    45%{opacity: 1;}
+    60%{opacity: 1;}
+    66%{opacity: 0.5;}
+    100%{opacity: 0.5;}
+}
+  
+@keyframes anime-bar-3 {
+    0%{opacity: 0.5;}
+    66%{opacity: 0.5;}
+    75%{opacity: 1;}
+    90%{opacity: 1;}
+    99%{opacity: 0.5;}
+    100%{opacity: 0.5;}
+}
+
+@keyframes anime-text-1 {
+    0%{opacity: 0;}
+    10%{opacity: 0;}
+    10%{opacity: 1;}
+    25%{opacity: 1;}
+    33%{opacity: 0;}
+    100%{opacity: 0;}
+}
+  
+@keyframes anime-text-2 {
+    0%{opacity: 0;}
+    33%{opacity: 0;}
+    45%{opacity: 1;}
+    60%{opacity: 1;}
+    66%{opacity: 0;}
+    100%{opacity: 0;}
+}
+  
+@keyframes anime-text-3 {
+    0%{opacity: 0;}
+    66%{opacity: 0;}
+    75%{opacity: 1;}
+    90%{opacity: 1;}
+    99%{opacity: 0;}
+    100%{opacity: 0;}
+}
+
+@media only screen and (max-width:768px){
+
+    .btn-container {
+        top: 26%;
+    }
+
+    .btn-epic {
+        width: 100px;
+        padding: 5px;
+    }
+
+    .game-title {
+        top: 12%;
+    }
+
+    .description-game {
+        width: 210px;
+        left: 41%;
+        font-size: 13px;
+    }
+
+    .game-signature {
+        font-size: 13px;
+    }
+}

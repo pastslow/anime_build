@@ -18,6 +18,9 @@ import { LandBoughtComponent } from './misc/land-bought/land-bought.component';
 import { LandEmptyComponent } from './misc/land-empty/land-empty.component';
 import { ConstructionActionsComponent } from './misc/construction-actions/construction-actions.component';
 import { ConstructBuildingComponent } from './misc/slot-data/construct-building/construct-building.component';
+import { StartGameComponent } from './start-game/start-game.component';
+import { StartDataComponent } from './misc/start-data/start-data.component';
+import { SelectCharacterComponent } from './misc/select-character/select-character.component';
 
 import { LogicService } from './logic.service';
 
@@ -39,6 +42,9 @@ import { LogicService } from './logic.service';
     LandEmptyComponent,
     ConstructionActionsComponent,
     ConstructBuildingComponent,
+    StartGameComponent,
+    StartDataComponent,
+    SelectCharacterComponent,
   ],
   imports: [
     BrowserModule,

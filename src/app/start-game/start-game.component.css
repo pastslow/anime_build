@@ -1,0 +1,19 @@
+.start-section {
+    background: url(src/assets/bg/BG_START.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    max-width: 655px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 450px;
+    position: relative;
+}
+
+@media only screen and (max-width:768px){
+
+    .start-section {
+        height: 300px;
+        max-width: 410px;
+    }
+
+}
