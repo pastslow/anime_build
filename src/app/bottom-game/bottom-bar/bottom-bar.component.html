@@ -1,62 +1,42 @@
 <section class="bottom-section">
 
-  <div (click)="modalInfo(money.innerText)" data-toggle="modal" data-target="#myModal" class="top-container">
-    <div class="data-container bg-red">
-      <div class="title-container">
-        <span #money>Money</span>
-      </div>
+  <div (click)="modalInfo(money.dataset.info)" data-toggle="modal" data-target="#myModal" class="top-container">
+    <div class="data-container bg-money">
 
-      <div class="info-container">
-        <img class="icon" src="assets/icons/money.png" alt="">
-        <div class="appeal">
+        <div #money data-info="Money" class="appeal">
           <span>{{bottomValues.money}}</span>
         </div>
-      </div>
+
     </div>
   </div>
 
-  <div (click)="modalInfo(materials.innerText)" data-toggle="modal" data-target="#myModal" class="top-container">
-    <div class="data-container bg-blue">
-      <div class="title-container">
-        <span #materials>Materials</span>
-      </div>
-
-      <div class="info-container">
-        <img class="icon" src="assets/icons/materials.png" alt="">
-        <div class="appeal">
+  <div (click)="modalInfo(materials.dataset.info)" data-toggle="modal" data-target="#myModal" class="top-container">
+    <div class="data-container bg-materials">
+     
+        <div #materials data-info="Materials" class="appeal">
           <span>{{bottomValues.materials}}</span>
         </div>
-      </div>
+
     </div>
   </div>
 
-  <div (click)="modalInfo(workers.innerText)" data-toggle="modal" data-target="#myModal" class="top-container">
-    <div class="data-container bg-yellow">
-      <div class="title-container">
-        <span #workers>Workers</span>
-      </div>
+  <div (click)="modalInfo(workers.dataset.info)" data-toggle="modal" data-target="#myModal" class="top-container">
+    <div class="data-container bg-workers">
 
-      <div class="info-container">
-        <img class="icon" src="assets/icons/worker.png" alt="">
-        <div class="appeal">
+        <div #workers data-info="Workers" class="appeal">
           <span>{{bottomValues.workers}}</span>
         </div>
-      </div>
+
     </div>
   </div>
 
-  <div (click)="modalInfo(engineers.innerText)" data-toggle="modal" data-target="#myModal" class="top-container">
-    <div class="data-container bg-light-blue">
-      <div class="title-container">
-        <span #engineers>Engineers</span>
-      </div>
+  <div (click)="modalInfo(engineers.dataset.info)" data-toggle="modal" data-target="#myModal" class="top-container">
+    <div class="data-container bg-techs">
 
-      <div class="info-container">
-        <img class="icon" src="assets/icons/engineer.png" alt="">
-        <div class="appeal">
+        <div  #engineers data-info="Engineers" class="appeal">
           <span>{{bottomValues.engineers}}</span>
         </div>
-      </div>
+
     </div>
   </div>
 

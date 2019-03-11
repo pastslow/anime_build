@@ -42,9 +42,13 @@
       </div>
   
       <div class="info-container">
-        <img class="icon" src="assets/icons/HAPPY.PNG" alt="">
-        <div class="appeal green-bg-bar">
-          <span>{{topBarData.appeal}}</span>
+        <img *ngIf="!isAppealPositive" class="icon" src="assets/icons/SAD.PNG" alt="">
+        <img *ngIf="isAppealPositive" class="icon" src="assets/icons/HAPPY.PNG" alt="">
+        <div [ngClass]="{
+          'appeal':defaultClass,
+           'green-bg-bar':isAppealPositive,
+           'red-bg-bar':!isAppealPositive}">
+          <span [style.color]="changeAppeal(appeal.innerText)"  #appeal>{{topBarData.appeal}}</span>
         </div>
       </div>
   

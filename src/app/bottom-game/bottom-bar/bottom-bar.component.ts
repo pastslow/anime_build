@@ -34,28 +34,28 @@ export class BottomBarComponent implements OnInit {
     if (title == "Money") {
       this.modalName = "MONEY & GOALS";
       this.isMoneyPressed = true;
-      return
+      return;
     }
 
     if (title == "Materials") {
       this.modalName = "GET MATERIALS";
       this.btnValue = 0;
       this.isMaterialsPressed = true;
-      return
+      return;
     }
 
     if (title == "Workers") {
       this.modalName = "HIRE WORKERS";
       this.btnValue = 1;
       this.isMaterialsPressed = true;
-      return
+      return;
     }
 
     if (title == "Engineers") {
       this.modalName = "HIRE ENGINEERS";
       this.btnValue = 2;
       this.isMaterialsPressed = true;
-      return
+      return;
     }
 
   }

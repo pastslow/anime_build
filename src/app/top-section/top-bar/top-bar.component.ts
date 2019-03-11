@@ -9,14 +9,9 @@ import { LogicService } from 'src/app/logic.service';
 export class TopBarComponent implements OnInit {
 
   public topBarData;  
+  public defaultClass = true;
+  public isAppealPositive = true;
 
-  public maxEnergy = 100;
-
-  public curentEnergy = 0;
-
-  public energyConsumption = ((this.maxEnergy * this.curentEnergy) / 100);
-
-  public procentEnergy = this.energyConsumption.toString()+"%";
 
   getConsumption(curentEnergy, totalEnergy){
     
@@ -30,10 +25,21 @@ export class TopBarComponent implements OnInit {
 
   }
 
+  changeAppeal(appealValue){
+    
+    let appeal = parseInt(appealValue)
+    if(appeal < 0){
+      this.isAppealPositive = false;
+      return;
+    }
+    if(appeal >= 0){
+      this.isAppealPositive = true;
+      return;
+    }
+  }
+
   constructor(private _logicService:LogicService) { 
     this._logicService.cast.subscribe(gameValues => this.topBarData = gameValues);
-    this.maxEnergy = this.topBarData.maxEnergy;
-    this.curentEnergy = this.topBarData.energy;
   }
   
   ngOnInit() {

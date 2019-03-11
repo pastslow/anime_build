@@ -5,30 +5,43 @@
 
 .data-container {
     width: 100%;
-    border-radius: 40% 40% 0% 0%;
     cursor: pointer;
 }
 
-.bg-red {
-    background: rgba(244, 22, 33, 1);
+.bg-money {
+    background: url(src/assets/icons/MONEY_BOTTOM/MONEY.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.bg-blue {
-    background: rgba(22, 33, 255, 1);
+.bg-materials {
+    background: url(src/assets/icons/MATERIALS_BOTTOM/MATERIALS.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+
 }
 
-.bg-yellow {
-    background: rgba(146, 146, 0, 1);
+.bg-workers {
+    background: url(src/assets/icons/WORKERS_BOTTOM/WORKERS.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
-.bg-light-blue {
-    background: rgba(22, 128, 128, 1);
+.bg-techs {
+    background: url(src/assets/icons/TECHS_BOTTOM/TECHS.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 
 .top-container {
     display: flex;
     justify-content: space-between;
     width: 140px;
+    height: 45px;
 }
 
 .info-container {
@@ -37,22 +50,18 @@
     justify-content: space-between;
 }
 
-.icon {
-    width: 30px;
-    height: 30px;
-}
-
 .appeal {
-    width: 80%;
     text-align: center;
+    margin-top: 13px;
 }
 
 .bottom-section {
     position: absolute;
-    bottom: 0px;
+    bottom: -4px;
     display: flex;
     justify-content: space-between;
     color: white;
+    font-weight: bold;
 }
 
 
@@ -62,8 +71,7 @@
         font-size: 13px;
     }
 
-    .icon {
-        width: 25px;
-        height: 25px;
+    .bottom-section {
+        bottom: -9px;
     }
 }
