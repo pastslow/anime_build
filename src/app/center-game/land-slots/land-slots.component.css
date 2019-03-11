@@ -85,7 +85,11 @@
     }
     
     .bottom-slots {
-        top: 184px;
+        top: 170px;
+    }
+
+    .house {
+        width: 16%;
     }
 }
 

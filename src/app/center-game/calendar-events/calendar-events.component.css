@@ -1,15 +1,17 @@
 .calendar {
     text-align: center;
     color: white;
+    background: url(src/assets/bg/CALENDAR.PNG);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    position: relative;
+    height: 70%;
+    font-size: 14px;
 }
 
 .event-img {
-    max-width: 200px;
     width: 100%;
-}
-
-.event-description {
-    font-size: 14px;
 }
 
 .event-bonus-img {
@@ -17,7 +19,6 @@
 }
 
 .event-title {
-    font-size: 16px;
     font-weight: bold;
 }
 
@@ -33,21 +34,34 @@
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    font-size: 14px;
+}
+
+.title-container {
+    padding-top: 20px;
 }
 
 @media only screen and (max-width:768px) {
 
-    .event-title, .event-bonuses {
-        font-size: 11px
+   .calendar {
+       font-size: 10px;
+   }
+
+    .title-container {
+        padding-top: 6px;
     }
 
     .event-bonus-img {
         width: 20px;
         height: 20px;
     }
+}
 
-    .event-description {
-        font-size: 9px;
+@media only screen and (max-width:550px) {
+    .calendar {
+        font-size: 8px;
+    }
+
+    .title-container {
+        padding-top: 12px;
     }
 }

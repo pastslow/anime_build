@@ -1,6 +1,5 @@
 .center {
     width: 80%;
-    height: 500px;
     position: relative;
 }
 
@@ -11,29 +10,27 @@
 
 .main-view {
     display: flex;
+    height: 100%;
+    overflow: hidden;
 }
 
 .left-container {
-    width: 20%;
-    background: url(src/assets/bg/bg_right_f.png);
-    background-size: cover;
+    width: 22%;
+    background: url(src/assets/bg/BG.PNG);
     background-position: center;
-    height: 500px;
 }
 
 .center-section {
     position: relative;
     padding-left: 0px;
     padding-right: 0px;
+    height: 500px;
 }
 
 
 @media only screen and (max-width:768px) {
-    .center {
-        height: 300px;
-    }
-
-    .left-container {
-        height: 300px;
+    .center-section {
+        height: 284px;
+        overflow: hidden;
     }
 }
