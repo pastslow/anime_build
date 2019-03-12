@@ -1,0 +1,99 @@
+.character-img {
+    width: 60px;
+    margin-left: auto;
+    margin-right: auto;
+    height: 140px;
+}
+
+.img {
+    width: 100%;
+}
+
+.game-characters {
+    display: flex;
+    justify-content: space-around;
+    font-size: 12px;
+}
+
+.icon-bonus {
+    width: 25px;
+    height: 25px;
+}
+
+.hero-name {
+    text-align: center;
+    font-weight: bold;
+    color: white;
+    font-size: 16px;
+}
+
+.all-characters {
+    position: absolute;
+    top: 25%;
+    left: 17%;
+}
+.character {
+    margin-right: 10px;
+}
+
+.character-title {
+    position: absolute;
+    top: 14%;
+    font-size: 18px;
+    color: white;
+    text-align: center;
+    font-weight: bold;
+    width: 100%;
+}
+
+.btn-container {
+    text-align: center;
+}
+
+.character-btn {
+    background: url(src/assets/bg/BTN.PNG);
+    border: 0px;
+    color: white;
+    background-size: cover;
+    padding: 7px;
+    width: 90px;
+}
+
+.character-btn:hover {
+    opacity: 0.5;
+}
+
+
+@media only screen and (max-width:768px){
+    .character-title {
+        top: 13%;
+        font-size: 15px;
+    }
+
+    .hero-name {
+        font-size: 12px;
+    }
+
+    .character-img {
+        width: 40px;
+        height: 90px;
+    }
+
+    .game-characters {
+        font-size: 9px;
+    }
+
+    .icon-bonus {
+        width: 21px;
+        height: 21px;
+    }
+
+    .character {
+        margin-right: 0px;
+    }
+
+    .all-characters {
+        top: 22%;
+        left: 9%;
+    }
+}

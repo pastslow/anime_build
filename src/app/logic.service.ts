@@ -9,6 +9,11 @@ export class LogicService {
 
   constructor() { }
 
+  public selectedCharacterId = 0;
+  
+  private characterId = new BehaviorSubject<number>(this.selectedCharacterId);
+  castCharacterId = this.characterId.asObservable();
+
   public currentSlotId = 0;
 
   private slotId = new BehaviorSubject<number>(this.currentSlotId);
@@ -443,6 +448,135 @@ export class LogicService {
     ]
   }
 
+  public characters = [
+    {
+      name:"Natsu",
+      img:'natsu',
+      id:0,
+      bonuses:[
+        {
+          name:"Gold",
+          bonusImg:"money",
+          actionValue:"+",
+          value:10,
+          color:"green",
+          procent:"%"
+        },
+        {
+          name:"Power",
+          bonusImg:"power",
+          actionValue:"+",
+          color:"red",
+          value:10,
+          procent:"%"
+        },
+        {
+          name:"Materials",
+          bonusImg:"materials",
+          actionValue:"-",
+          color:"red",
+          value:10,
+          procent:"%"
+        },
+      ]
+    },
+    {
+      name:"Lucy",
+      img:'lucy',
+      id:1,
+      bonuses:[
+        {
+          name:"Gold",
+          bonusImg:"money",
+          actionValue:"+",
+          color:"green",
+          value:5,
+          procent:"%"
+        },
+        {
+          name:"Power",
+          bonusImg:"power",
+          actionValue:"-",
+          color:"green",
+          value:5,
+          procent:"%"
+        },
+        {
+          name:"Materials",
+          bonusImg:"materials",
+          actionValue:"-",
+          color:"red",
+          value:5,
+          procent:"%"
+        },
+      ]
+    },
+    {
+      name:"Gray",
+      img:'gray',
+      id:2,
+      bonuses:[
+        {
+          name:"Gold",
+          bonusImg:"money",
+          actionValue:"+",
+          color:"green",
+          value:5,
+          procent:"%"
+        },
+        {
+          name:"Power",
+          bonusImg:"power",
+          actionValue:"+",
+          color:"red",
+          value:10,
+          procent:"%"
+        },
+        {
+          name:"Materials",
+          bonusImg:"materials",
+          actionValue:"+",
+          color:"green",
+          value:10,
+          procent:"%"
+        },
+      ]
+    },
+    {
+      name:"Erza",
+      img:'erza',
+      id:3,
+      bonuses:[
+        {
+          name:"Gold",
+          bonusImg:"money",
+          actionValue:"-",
+          color:"red",
+          value:5,
+          procent:"%"
+        },
+        {
+          name:"Power",
+          bonusImg:"power",
+          actionValue:"+",
+          color:"red",
+          value:10,
+          procent:"%"
+        },
+        {
+          name:"Materials",
+          bonusImg:"materials",
+          actionValue:"+",
+          color:"green",
+          value:20,
+          procent:"%"
+        },
+      ]
+    }
+  ]
+  private gameCharacters = new BehaviorSubject<object>(this.characters);
+  castCharacters = this.gameCharacters.asObservable();
+
   // Game Land Slots
   public mapTopSlots = [
     {
@@ -662,7 +796,7 @@ export class LogicService {
   ]
 
   // Top slots
-  private gameTopSlots = new BehaviorSubject<object>(this.mapTopSlots)
+  private gameTopSlots = new BehaviorSubject<object>(this.mapTopSlots);
   castTopSlots = this.gameTopSlots.asObservable();
 
   getSlots(newObj) {

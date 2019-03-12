@@ -1,6 +1,38 @@
 <section class="characters-section">
-  <div>
-    <span>Hero Name</span>
+
+  <div class="character-title">
+    <span>Select your character</span>
+  </div>
+
+  <div class="all-characters">
+    <div class="game-characters">
+      <div class="character" *ngFor="let hero of characters; index as i">
+
+        <div class="hero-name">
+          <span #heroName>{{hero.name}}</span>
+        </div>
+
+        <div class="character-img">
+          <img class="img" src="assets/characters/{{hero.img}}.png" alt="">
+        </div>
+
+        <div>
+          <div *ngFor="let bonus of characters[i].bonuses">
+            <img class="icon-bonus" src="assets/icons/{{bonus.bonusImg}}.png" alt="">
+            <span [style.color]="bonus.color">{{bonus.name}}</span>
+            <span [style.color]="bonus.color">{{bonus.actionValue}}</span>
+            <span [style.color]="bonus.color">{{bonus.value}}</span>
+            <span [style.color]="bonus.color">{{bonus.procent}}</span>
+          </div>
+        </div>
+
+        <div class="btn-container">
+          <button (click)="selectHero(heroName.innerText)" class="character-btn">SELECT</button>
+        </div>
+
+      </div>
+
+    </div>
   </div>
 
 </section>
