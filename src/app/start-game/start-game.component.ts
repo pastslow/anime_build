@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { LogicService } from '../logic.service';
 
 @Component({
   selector: 'app-start-game',
@@ -6,8 +7,12 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./start-game.component.css']
 })
 export class StartGameComponent implements OnInit {
+  public displayState;
 
-  constructor() { }
+  constructor(private _logicService: LogicService) {
+    this._logicService.castDisplayState.subscribe(
+      displayStateObj => this.displayState = displayStateObj);
+  }
 
   ngOnInit() {
   }

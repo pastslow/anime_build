@@ -14,6 +14,7 @@ export class rightCharacterComponent implements OnInit {
 
   constructor(private _logicService:LogicService) {
     this._logicService.castCharacters.subscribe(gameCharacters => this.characters = gameCharacters);
+    this._logicService.castCharacterId.subscribe(characterId => this.characterSelected = characterId);
    }
 
   ngOnInit() {

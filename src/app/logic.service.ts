@@ -9,10 +9,28 @@ export class LogicService {
 
   constructor() { }
 
+  public displayState = {
+    isMenuDisplayed: true,
+    isGameDisplayed: false
+  }
+
+  private displayStateObj = new BehaviorSubject<object>(this.displayState);
+  castDisplayState = this.displayStateObj.asObservable();
+
+  getDisplayState(newObj){
+    this.displayStateObj.next(newObj);
+  }
+
+  //===========================SelectedCharacterId===========================//
   public selectedCharacterId = 0;
-  
+
   private characterId = new BehaviorSubject<number>(this.selectedCharacterId);
   castCharacterId = this.characterId.asObservable();
+
+  getSelectedCharacterId(newId){
+    this.characterId.next(newId);
+  }
+  //=========================================================================//
 
   public currentSlotId = 0;
 
@@ -37,8 +55,9 @@ export class LogicService {
     income: 0,
     incomeStopped: 0,
     incomeBeforeStopped: 0,
-    bonusIncome: 10,
+    bonusIncome: 0,
     reduceEnergyConsumption: 0,
+    bonusGameResources: 0,
     materials: 30000,
     workers: 100,
     engineers: 100,
@@ -456,7 +475,7 @@ export class LogicService {
       bonuses:[
         {
           name:"Gold",
-          bonusImg:"money",
+          bonusImg:"BONUS/MONEY",
           actionValue:"+",
           value:10,
           color:"green",
@@ -464,18 +483,18 @@ export class LogicService {
         },
         {
           name:"Power",
-          bonusImg:"power",
-          actionValue:"+",
+          bonusImg:"BONUS/POWER",
+          actionValue:"",
           color:"red",
-          value:10,
+          value:-10,
           procent:"%"
         },
         {
-          name:"Materials",
-          bonusImg:"materials",
-          actionValue:"-",
+          name:"Resources",
+          bonusImg:"BONUS/RESOURCE",
+          actionValue:"",
           color:"red",
-          value:10,
+          value:-10,
           procent:"%"
         },
       ]
@@ -487,7 +506,7 @@ export class LogicService {
       bonuses:[
         {
           name:"Gold",
-          bonusImg:"money",
+          bonusImg:"BONUS/MONEY",
           actionValue:"+",
           color:"green",
           value:5,
@@ -495,18 +514,18 @@ export class LogicService {
         },
         {
           name:"Power",
-          bonusImg:"power",
-          actionValue:"-",
+          bonusImg:"BONUS/POWER",
+          actionValue:"",
           color:"green",
           value:5,
           procent:"%"
         },
         {
-          name:"Materials",
-          bonusImg:"materials",
-          actionValue:"-",
+          name:"Resources",
+          bonusImg:"BONUS/RESOURCE",
+          actionValue:"",
           color:"red",
-          value:5,
+          value:-5,
           procent:"%"
         },
       ]
@@ -518,7 +537,7 @@ export class LogicService {
       bonuses:[
         {
           name:"Gold",
-          bonusImg:"money",
+          bonusImg:"BONUS/MONEY",
           actionValue:"+",
           color:"green",
           value:5,
@@ -526,15 +545,15 @@ export class LogicService {
         },
         {
           name:"Power",
-          bonusImg:"power",
-          actionValue:"+",
+          bonusImg:"BONUS/POWER",
+          actionValue:"",
           color:"red",
-          value:10,
+          value:-10,
           procent:"%"
         },
         {
-          name:"Materials",
-          bonusImg:"materials",
+          name:"Resources",
+          bonusImg:"BONUS/RESOURCE",
           actionValue:"+",
           color:"green",
           value:10,
@@ -549,23 +568,23 @@ export class LogicService {
       bonuses:[
         {
           name:"Gold",
-          bonusImg:"money",
-          actionValue:"-",
+          bonusImg:"BONUS/MONEY",
+          actionValue:"",
           color:"red",
-          value:5,
+          value:-5,
           procent:"%"
         },
         {
           name:"Power",
-          bonusImg:"power",
-          actionValue:"+",
+          bonusImg:"BONUS/POWER",
+          actionValue:"",
           color:"red",
-          value:10,
+          value:-10,
           procent:"%"
         },
         {
-          name:"Materials",
-          bonusImg:"materials",
+          name:"Resources",
+          bonusImg:"BONUS/RESOURCE",
           actionValue:"+",
           color:"green",
           value:20,

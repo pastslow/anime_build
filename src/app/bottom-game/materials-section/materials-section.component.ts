@@ -30,7 +30,8 @@ export class MaterialsSectionComponent implements OnInit {
   public isLoading = false;
 
   getPackFromShop(item, pack) {
-    this.bottomValues[item] = this.bottomValues[item] + pack;
+    let procent = Math.round((pack * this.bottomValues.bonusGameResources) / 100);
+    this.bottomValues[item] = this.bottomValues[item] + pack + procent;
   }
 
   buyItems(title, slotNumber) {
@@ -48,7 +49,7 @@ export class MaterialsSectionComponent implements OnInit {
     // Actualizing money
     let newMoney = this.bottomValues.money - (selectedItem.cost - (
       selectedItem.cost * (this.bottomValues.appeal / 10)) / 100);
-      
+
     this.bottomValues.money = newMoney;
 
     // Produce the change on the observable object

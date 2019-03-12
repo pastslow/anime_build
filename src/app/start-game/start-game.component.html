@@ -1,4 +1,4 @@
 <section class="start-section">
-<!-- <app-start-data></app-start-data> -->
-<app-select-character></app-select-character>
+<app-start-data *ngIf="displayState.isMenuDisplayed"></app-start-data>
+<app-select-character *ngIf="!displayState.isMenuDisplayed" ></app-select-character>
 </section>

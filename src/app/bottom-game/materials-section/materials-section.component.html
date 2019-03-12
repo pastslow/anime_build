@@ -36,14 +36,15 @@
          'shop-items':defaultClass,
          'disabled-btn':isDisabled
         }">
-        <img #shopId data-slot="{{pack.id}}" src="assets/icons/{{bottomDataValues[btnPressed].folderIcons}}/{{pack.icon}}.png" alt="">
+        <img #shopId data-slot="{{pack.id}}"
+          src="assets/icons/{{bottomDataValues[btnPressed].folderIcons}}/{{pack.icon}}.png" alt="">
         <div>
           <span>Cost:</span>
           <span>{{pack.cost - (pack.cost * (bottomValues.appeal / 10)) / 100}}</span>
         </div>
         <div>
           <span>Packs:</span>
-          <span>{{pack.number}}</span>
+          <span>{{pack.number +(pack.number * bottomValues.bonusGameResources)/100 | number:"1.0-0"}}</span>
         </div>
       </button>
 

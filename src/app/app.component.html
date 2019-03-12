@@ -1,4 +1,4 @@
-<!-- <app-top-bar></app-top-bar>
-<app-center-section></app-center-section> -->
+<app-top-bar *ngIf="displayState.isGameDisplayed"></app-top-bar>
+<app-center-section *ngIf="displayState.isGameDisplayed"></app-center-section>
 
- <app-start-game></app-start-game>
+ <app-start-game *ngIf="!displayState.isGameDisplayed"></app-start-game>
