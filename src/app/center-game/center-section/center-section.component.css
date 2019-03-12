@@ -27,7 +27,6 @@
     height: 500px;
 }
 
-
 @media only screen and (max-width:768px) {
     .center-section {
         height: 284px;

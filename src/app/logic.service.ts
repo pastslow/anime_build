@@ -51,18 +51,18 @@ export class LogicService {
   }
 
   public gameDataValues = {
-    money: 200000,
+    money: 30000,
     income: 0,
     incomeStopped: 0,
     incomeBeforeStopped: 0,
     bonusIncome: 0,
     reduceEnergyConsumption: 0,
     bonusGameResources: 0,
-    materials: 30000,
-    workers: 100,
-    engineers: 100,
+    materials: 300,
+    workers: 2,
+    engineers: 1,
     energy: 0,
-    maxEnergy: 100,
+    maxEnergy: 140,
     goal: 8000000,
     score: 0,
     appeal: 0,

@@ -13,21 +13,21 @@ export class CenterSectionComponent implements OnInit {
     this._logicService.cast.subscribe(gameValues => this.gameData = gameValues)
   }
 
-  sayHello() {
+  updateScoreAndRentalIncome() {
     this.gameData.money = this.gameData.money + this.gameData.income;
 
       this.gameData.score = (
         this.gameData.score + this.gameData.income / 100);
   };
 
-  public sampleMethodCall() {
+  public getRentalIncomeAndScore() {
     setInterval(() => {
-      this.sayHello();
-    }, 3000);
+      this.updateScoreAndRentalIncome();
+    }, 9000);
   }
 
   ngOnInit() {
-    this.sampleMethodCall();
+    this.getRentalIncomeAndScore();
   }
 
 

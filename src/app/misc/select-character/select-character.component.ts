@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
-import { triggerAsyncId } from 'async_hooks';
 
 @Component({
   selector: 'app-select-character',
