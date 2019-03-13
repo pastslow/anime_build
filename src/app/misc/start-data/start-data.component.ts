@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { TouchSequence } from 'selenium-webdriver';
+import {Howl, Howler} from 'howler';
+import{soundTheme, btnClick}from '../const';
+
 
 @Component({
   selector: 'app-start-data',
@@ -37,16 +40,19 @@ export class StartDataComponent implements OnInit {
   }
 
   ngOnInit() {
+    // soundTheme.play();
   }
 
   startGame() {
+    btnClick.play();
     this.displayState.isMenuDisplayed = false;
   }
 
   loadGame() {
-    
+    btnClick.play();
+
     let gameData = JSON.parse(localStorage.getItem("GAMEDATA"));
-    if(gameData === null){
+    if (gameData === null) {
       alert("You have nothing to load");
       return;
     }
@@ -63,9 +69,10 @@ export class StartDataComponent implements OnInit {
     let bottomSlots = JSON.parse(localStorage.getItem("BOTTOMSLOTS"));
     this._logicService.getBottomSlots(bottomSlots);
 
-    let characterId = JSON.parse(localStorage.getItem("CHARID"))
+    let characterId = JSON.parse(localStorage.getItem("CHARID"));
     this._logicService.getSelectedCharacterId(parseInt(characterId));
 
   }
+
 
 }

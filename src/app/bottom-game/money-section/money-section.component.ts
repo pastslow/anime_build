@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 
+
 @Component({
   selector: 'app-money-section',
   templateUrl: './money-section.component.html',

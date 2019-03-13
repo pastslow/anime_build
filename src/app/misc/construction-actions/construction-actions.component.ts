@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import { demolish, power_on } from '../const';
 
 @Component({
   selector: 'app-construction-actions',
@@ -90,6 +91,7 @@ export class ConstructionActionsComponent implements OnInit {
     }
 
     this.demolishAnimation(gameObject, currentHouse);
+    demolish.play();
     
     this.gameValues.energy = this.gameValues.energy - gameObject.energy;
     this.gameValues.maxEnergy = this.gameValues.maxEnergy - gameObject.maxEnergy;
@@ -245,6 +247,7 @@ export class ConstructionActionsComponent implements OnInit {
 
     this.updateEnergyConditions(gameObject);
     this.chanceStatusOfPowerToAllBuildings();
+    power_on.play();
 
     this.gameValues.money = this.gameValues.money - requirementObject.cost;
     this.gameValues.materials = this.gameValues.materials - requirementObject.materials;

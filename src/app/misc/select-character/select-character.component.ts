@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import {btnClick}from '../../misc/const';
 
 @Component({
   selector: 'app-select-character',
@@ -13,20 +14,21 @@ export class SelectCharacterComponent implements OnInit {
   public gameData;
   public displayState;
 
-  constructor(private _logicService:LogicService) {
+  constructor(private _logicService: LogicService) {
     this._logicService.castCharacters.subscribe(gameCharacters => this.characters = gameCharacters);
     this._logicService.castCharacterId.subscribe(characterId => this.characterId = characterId);
     this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
     this._logicService.castDisplayState.subscribe(
       displayStateObj => this.displayState = displayStateObj);
-   }
+  }
 
   ngOnInit() {
   }
 
-  selectHero(heroName){
+  selectHero(heroName) {
+    btnClick.play();
     let hero = this.characters.find(elem => elem.name == heroName);
-    
+
     let incomeBonus = hero.bonuses.find(elem => elem.name == "Gold");
     let powerBonus = hero.bonuses.find(elem => elem.name == "Power");
     let gameResoucers = hero.bonuses.find(elem => elem.name == "Resources");
@@ -38,7 +40,5 @@ export class SelectCharacterComponent implements OnInit {
     this.gameData.bonusGameResources = gameResoucers.value;
 
     this.displayState.isGameDisplayed = true;
-
   }
-
 }

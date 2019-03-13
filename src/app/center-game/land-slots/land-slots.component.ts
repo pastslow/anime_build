@@ -38,8 +38,7 @@ export class HouseBuildComponent implements OnInit {
   ngOnInit() {
   }
 
-  test(modalImg, event) {
-
+  performActionsOnSlot(modalImg, event) {
     this.slotIdNumber = parseInt(event.target.slot);
     this.slotNeedRepair = this.allGameSlots[this.slotIdNumber].needRepair;
     // Change the new value into the service

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { JsonPipe } from '@angular/common';
+import {btnClick}from '../../misc/const';
 
 @Component({
   selector: 'app-bottom-bar',
@@ -49,8 +50,8 @@ export class BottomBarComponent implements OnInit {
     this.saveGameOverInterval();
   }
 
-
   modalInfo(title) {
+    btnClick.play();
     this.isMoneyPressed = false;
     this.isMaterialsPressed = false;
 

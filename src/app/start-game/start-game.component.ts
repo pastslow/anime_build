@@ -16,5 +16,5 @@ export class StartGameComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  
 }

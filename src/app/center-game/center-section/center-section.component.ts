@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import { ambient } from '../../misc/const';
 
 @Component({
   selector: 'app-center-section',
@@ -16,8 +17,8 @@ export class CenterSectionComponent implements OnInit {
   updateScoreAndRentalIncome() {
     this.gameData.money = this.gameData.money + this.gameData.income;
 
-      this.gameData.score = (
-        this.gameData.score + this.gameData.income / 100);
+    this.gameData.score = (
+      this.gameData.score + this.gameData.income / 100);
   };
 
   public getRentalIncomeAndScore() {
@@ -28,6 +29,7 @@ export class CenterSectionComponent implements OnInit {
 
   ngOnInit() {
     this.getRentalIncomeAndScore();
+    ambient.play();
   }
 
 

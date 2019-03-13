@@ -61,6 +61,11 @@
     justify-content: center;
 }
 
+.slot-description {
+    font-size: 14px;
+    text-align: center;
+}
+
 @media only screen and (max-width:991px){
     .top-slots {
         top: 12px;
@@ -91,9 +96,13 @@
     .house {
         width: 16%;
     }
+
+    .update-container {
+        width: 16%;
+    }
+
+    .slot-update-img {
+        height: 13.16px;
+    }
 }
 
-.slot-description {
-    font-size: 14px;
-    text-align: center;
-}

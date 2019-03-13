@@ -1,5 +1,6 @@
 import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import { construct, power_off } from '../../const';
 
 @Component({
   selector: 'app-construct-building',
@@ -73,7 +74,7 @@ export class ConstructBuildingComponent implements OnChanges {
 
       this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
       gameObject.appeal = requireObject.buildAppeal;
-      
+
       gameObject.energy = 0;
       gameObject.maxEnergy = requireObject.buildEnergy;
       gameObject.buildingType = "producer";
@@ -82,8 +83,8 @@ export class ConstructBuildingComponent implements OnChanges {
       let bonusEnergyProcent = (
         this.gameData.reduceEnergyConsumption * requireObject.buildEnergy) / 100;
 
-        this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
-        gameObject.appeal = requireObject.buildAppeal;
+      this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
+      gameObject.appeal = requireObject.buildAppeal;
 
       this.gameData.energy = (
         this.gameData.energy + requireObject.buildEnergy - bonusEnergyProcent);
@@ -130,6 +131,7 @@ export class ConstructBuildingComponent implements OnChanges {
     if (this.gameData.energy > this.gameData.maxEnergy) {
       this.changePowerOfBuildings(this.allGameSlots, "NONE00");
       this.gameData.income = this.gameData.incomeStopped;
+      power_off.play();
       return;
     }
     this.changePowerOfBuildings(this.allGameSlots, "CONSTRUCT08");
@@ -183,6 +185,7 @@ export class ConstructBuildingComponent implements OnChanges {
       return;
     }
 
+    construct.play();
     // degresse resource
     this.gameData.money = this.gameData.money - requireObject.buildCost;
     this.gameData.workers = this.gameData.workers - requireObject.buildWorkers;

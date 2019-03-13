@@ -1,11 +1,13 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import {btnClick}from '../../misc/const';
 
 @Component({
   selector: 'app-buy-land',
   templateUrl: './buy-land.component.html',
   styleUrls: ['./buy-land.component.css']
 })
+
 export class BuyLandComponent implements OnInit {
   public isModalClosed = false;
   public topSlots;
@@ -32,7 +34,8 @@ export class BuyLandComponent implements OnInit {
   }
 
   buyLand() {
-    let landCost = (this.gameData.landCost - this.gameData.appeal*50);
+    btnClick.play();
+    let landCost = (this.gameData.landCost - this.gameData.appeal * 50);
     if (this.gameData.money < landCost) {
       alert("You don't have enough money");
       return;
@@ -43,10 +46,10 @@ export class BuyLandComponent implements OnInit {
     this.isModalClosed = true;
 
     let landNumber = this.slotNumberId;
-    
-      let obj = this.allGameSlots.find(elem => elem.number == landNumber);
-      obj.img = "HOUSE0/NONE1";
-      obj.condition = "bought";
+
+    let obj = this.allGameSlots.find(elem => elem.number == landNumber);
+    obj.img = "HOUSE0/NONE1";
+    obj.condition = "bought";
 
   }
 
