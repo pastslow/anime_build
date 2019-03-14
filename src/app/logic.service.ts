@@ -17,7 +17,7 @@ export class LogicService {
   private displayStateObj = new BehaviorSubject<object>(this.displayState);
   castDisplayState = this.displayStateObj.asObservable();
 
-  getDisplayState(newObj){
+  getDisplayState(newObj) {
     this.displayStateObj.next(newObj);
   }
 
@@ -27,7 +27,7 @@ export class LogicService {
   private characterId = new BehaviorSubject<number>(this.selectedCharacterId);
   castCharacterId = this.characterId.asObservable();
 
-  getSelectedCharacterId(newId){
+  getSelectedCharacterId(newId) {
     this.characterId.next(newId);
   }
   //=========================================================================//
@@ -89,21 +89,21 @@ export class LogicService {
             icon: 'material',
             cost: 5000,
             number: 100,
-            id:1
+            id: 1
           },
           {
             name: "medium pack of materials",
             icon: 'material2',
             cost: 24000,
             number: 500,
-            id:2
+            id: 2
           },
           {
             name: "huge pack of materials",
             icon: 'material3',
             cost: 45000,
             number: 1000,
-            id:3
+            id: 3
           },
         ]
       },
@@ -118,21 +118,21 @@ export class LogicService {
             icon: 'worker',
             cost: 30000,
             number: 1,
-            id:1
+            id: 1
           },
           {
             name: "Two Workers",
             icon: 'worker2',
             cost: 55000,
             number: 2,
-            id:2
+            id: 2
           },
           {
             name: "Three Workers",
             icon: 'worker3',
             cost: 80000,
             number: 3,
-            id:3
+            id: 3
           },
         ]
       },
@@ -147,21 +147,21 @@ export class LogicService {
             icon: 'engineer',
             cost: 35000,
             number: 1,
-            id:1
+            id: 1
           },
           {
             name: "Two Engineers",
             icon: 'engineer2',
             cost: 65000,
             number: 2,
-            id:2
+            id: 2
           },
           {
             name: "Three Engineers",
             icon: 'engineer3',
             cost: 90000,
             number: 3,
-            id:3
+            id: 3
           },
         ]
       }
@@ -182,7 +182,7 @@ export class LogicService {
             materials: 3000,
             energy: 440,
             income: 9000,
-            appeal:-10,
+            appeal: -10,
             buildingId: "HOUSE20",
             buildingType: "consumer"
           },
@@ -194,7 +194,7 @@ export class LogicService {
             materials: 5000,
             energy: 500,
             income: 12000,
-            appeal:-15,
+            appeal: -15,
             buildingId: "HOUSE20",
             buildingType: "consumer"
           },
@@ -206,7 +206,7 @@ export class LogicService {
             materials: 7000,
             energy: 550,
             income: 15000,
-            appeal:-15,
+            appeal: -15,
             buildingId: "HOUSE19",
             buildingType: "consumer"
           },
@@ -218,7 +218,7 @@ export class LogicService {
             materials: 9500,
             energy: 650,
             income: 18000,
-            appeal:-20,
+            appeal: -20,
             buildingId: "HOUSE22",
             buildingType: "consumer"
           },
@@ -230,7 +230,7 @@ export class LogicService {
             materials: 15000,
             energy: 740,
             income: 22000,
-            appeal:-20,
+            appeal: -20,
             buildingId: "HOUSE45",
             buildingType: "consumer"
           }
@@ -248,7 +248,7 @@ export class LogicService {
             materials: 100,
             energy: 40,
             income: 300,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE01",
             buildingType: "consumer"
           },
@@ -260,7 +260,7 @@ export class LogicService {
             materials: 200,
             energy: 70,
             income: 600,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE02",
             buildingType: "consumer"
           },
@@ -272,7 +272,7 @@ export class LogicService {
             materials: 450,
             energy: 145,
             income: 1400,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE03",
             buildingType: "consumer"
           },
@@ -284,7 +284,7 @@ export class LogicService {
             materials: 950,
             energy: 220,
             income: 3000,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE04",
             buildingType: "consumer"
           },
@@ -296,7 +296,7 @@ export class LogicService {
             materials: 1900,
             energy: 350,
             income: 6000,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE05",
             buildingType: "consumer"
           },
@@ -308,7 +308,7 @@ export class LogicService {
             materials: 2500,
             energy: 400,
             income: 8000,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE06",
             buildingType: "consumer"
           },
@@ -422,7 +422,7 @@ export class LogicService {
             materials: 17000,
             energy: 800,
             income: 24000,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE47",
             buildingType: "consumer"
           },
@@ -434,7 +434,7 @@ export class LogicService {
             materials: 22000,
             energy: 840,
             income: 30000,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE48",
             buildingType: "consumer"
           },
@@ -446,7 +446,7 @@ export class LogicService {
             materials: 27000,
             energy: 920,
             income: 36000,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE16",
             buildingType: "consumer"
           },
@@ -458,7 +458,7 @@ export class LogicService {
             materials: 31000,
             energy: 1250,
             income: 80000,
-            appeal:0,
+            appeal: 0,
             buildingId: "HOUSE46",
             buildingType: "consumer"
           }
@@ -469,126 +469,126 @@ export class LogicService {
 
   public characters = [
     {
-      name:"Natsu",
-      img:'natsu',
-      id:0,
-      bonuses:[
+      name: "Natsu",
+      img: 'natsu',
+      id: 0,
+      bonuses: [
         {
-          name:"Gold",
-          bonusImg:"BONUS/MONEY",
-          actionValue:"+",
-          value:10,
-          color:"green",
-          procent:"%"
+          name: "Gold",
+          bonusImg: "BONUS/INCOME",
+          actionValue: "+",
+          value: 10,
+          color: "green",
+          procent: "%"
         },
         {
-          name:"Power",
-          bonusImg:"BONUS/POWER",
-          actionValue:"",
-          color:"red",
-          value:-10,
-          procent:"%"
+          name: "Power",
+          bonusImg: "BONUS/POWER",
+          actionValue: "",
+          color: "red",
+          value: -10,
+          procent: "%"
         },
         {
-          name:"Resources",
-          bonusImg:"BONUS/RESOURCE",
-          actionValue:"",
-          color:"red",
-          value:-10,
-          procent:"%"
-        },
-      ]
-    },
-    {
-      name:"Lucy",
-      img:'lucy',
-      id:1,
-      bonuses:[
-        {
-          name:"Gold",
-          bonusImg:"BONUS/MONEY",
-          actionValue:"+",
-          color:"green",
-          value:5,
-          procent:"%"
-        },
-        {
-          name:"Power",
-          bonusImg:"BONUS/POWER",
-          actionValue:"",
-          color:"green",
-          value:5,
-          procent:"%"
-        },
-        {
-          name:"Resources",
-          bonusImg:"BONUS/RESOURCE",
-          actionValue:"",
-          color:"red",
-          value:-5,
-          procent:"%"
+          name: "Resources",
+          bonusImg: "BONUS/RESOURCE",
+          actionValue: "",
+          color: "red",
+          value: -10,
+          procent: "%"
         },
       ]
     },
     {
-      name:"Gray",
-      img:'gray',
-      id:2,
-      bonuses:[
+      name: "Lucy",
+      img: 'lucy',
+      id: 1,
+      bonuses: [
         {
-          name:"Gold",
-          bonusImg:"BONUS/MONEY",
-          actionValue:"+",
-          color:"green",
-          value:5,
-          procent:"%"
+          name: "Gold",
+          bonusImg: "BONUS/INCOME",
+          actionValue: "+",
+          color: "green",
+          value: 5,
+          procent: "%"
         },
         {
-          name:"Power",
-          bonusImg:"BONUS/POWER",
-          actionValue:"",
-          color:"red",
-          value:-10,
-          procent:"%"
+          name: "Power",
+          bonusImg: "BONUS/POWER",
+          actionValue: "",
+          color: "green",
+          value: 5,
+          procent: "%"
         },
         {
-          name:"Resources",
-          bonusImg:"BONUS/RESOURCE",
-          actionValue:"+",
-          color:"green",
-          value:10,
-          procent:"%"
+          name: "Resources",
+          bonusImg: "BONUS/RESOURCE",
+          actionValue: "",
+          color: "red",
+          value: -5,
+          procent: "%"
         },
       ]
     },
     {
-      name:"Erza",
-      img:'erza',
-      id:3,
-      bonuses:[
+      name: "Gray",
+      img: 'gray',
+      id: 2,
+      bonuses: [
         {
-          name:"Gold",
-          bonusImg:"BONUS/MONEY",
-          actionValue:"",
-          color:"red",
-          value:-5,
-          procent:"%"
+          name: "Gold",
+          bonusImg: "BONUS/INCOME",
+          actionValue: "+",
+          color: "green",
+          value: 5,
+          procent: "%"
         },
         {
-          name:"Power",
-          bonusImg:"BONUS/POWER",
-          actionValue:"",
-          color:"red",
-          value:-10,
-          procent:"%"
+          name: "Power",
+          bonusImg: "BONUS/POWER",
+          actionValue: "",
+          color: "red",
+          value: -10,
+          procent: "%"
         },
         {
-          name:"Resources",
-          bonusImg:"BONUS/RESOURCE",
-          actionValue:"+",
-          color:"green",
-          value:20,
-          procent:"%"
+          name: "Resources",
+          bonusImg: "BONUS/RESOURCE",
+          actionValue: "+",
+          color: "green",
+          value: 10,
+          procent: "%"
+        },
+      ]
+    },
+    {
+      name: "Erza",
+      img: 'erza',
+      id: 3,
+      bonuses: [
+        {
+          name: "Gold",
+          bonusImg: "BONUS/INCOME",
+          actionValue: "",
+          color: "red",
+          value: -5,
+          procent: "%"
+        },
+        {
+          name: "Power",
+          bonusImg: "BONUS/POWER",
+          actionValue: "",
+          color: "red",
+          value: -10,
+          procent: "%"
+        },
+        {
+          name: "Resources",
+          bonusImg: "BONUS/RESOURCE",
+          actionValue: "+",
+          color: "green",
+          value: 20,
+          procent: "%"
         },
       ]
     }
@@ -603,13 +603,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 0
     },
     {
@@ -617,13 +618,14 @@ export class LogicService {
       condition: "bought",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 1
     },
     {
@@ -631,13 +633,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 2
     },
     {
@@ -645,13 +648,14 @@ export class LogicService {
       condition: "bought",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 3
     },
     {
@@ -659,13 +663,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 4
     },
   ]
@@ -675,13 +680,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 5
     },
     {
@@ -689,13 +695,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 6
     },
     {
@@ -703,13 +710,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 7
     },
     {
@@ -717,13 +725,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 8
     },
     {
@@ -731,13 +740,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 9
     }
   ]
@@ -747,13 +757,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 10
     },
     {
@@ -761,13 +772,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 11
     },
     {
@@ -775,13 +787,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 12
     },
     {
@@ -789,13 +802,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 13
     },
     {
@@ -803,13 +817,14 @@ export class LogicService {
       condition: "empty",
       energyUpdateImg: "UPGRADE/NOUPDATE",
       starUpdateImg: "UPGRADE/NOUPDATE",
+      repairImg: "UPGRADE/NOUPDATE",
       needRepair: false,
       income: 0,
       energy: 0,
       maxEnergy: 0,
-      cost:0,
-      appeal:0,
-      buildingType:"consumer",
+      cost: 0,
+      appeal: 0,
+      buildingType: "consumer",
       number: 14
     }
   ]

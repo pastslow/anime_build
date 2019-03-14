@@ -1,6 +1,6 @@
 <div class="container-action">
 
-  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="updateStarRating(
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="upgradeStarRating(
     upgradeStarCost.innerText,
     upgradeStarMaterials.innerText,
     workers.innerText)" class="action-data">
@@ -23,7 +23,7 @@
     </div>
   </button>
 
-  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" *ngIf="isSupportingEngUpgrade" (click)="updateEnergyReduction(
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" *ngIf="isSupportingEngUpgrade" (click)="upgradeEnergyReduction(
     energyUpgradeCost.innerText,
     energyUpgradeMaterials.innerText,
     engineers.innerText)" class="action-data">
@@ -47,7 +47,8 @@
     </div>
   </button>
 
-  <button *ngIf="slotNeedRepair" class="action-data">
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="repairBuilding()" *ngIf="slotNeedRepair"
+    class="action-data">
     <span>Repair Construction</span>
     <div class="action-info">
       <img src="assets/icons/no_repair.png" alt="">

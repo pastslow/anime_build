@@ -53,6 +53,9 @@
     top: 88%;
 }
 
+.top-40 {
+    top: 40%;
+}
 
 .update-container {
     max-width: 146px;
@@ -64,6 +67,14 @@
 .slot-description {
     font-size: 14px;
     text-align: center;
+}
+
+.slot-repair-img {
+    width: 26px;
+}
+
+.justifty-left {
+    justify-content: left;
 }
 
 @media only screen and (max-width:991px){
@@ -103,6 +114,10 @@
 
     .slot-update-img {
         height: 13.16px;
+    }
+
+    .slot-repair-img {
+        width: 16px;
     }
 }
 

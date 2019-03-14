@@ -98,6 +98,7 @@ export class BottomBarComponent implements OnInit {
     if(this.saveValidation("underConstruction") === true){
       return;
     }
+    
     let gameData = JSON.stringify(this.bottomValues);
     localStorage.setItem("GAMEDATA", gameData);
 

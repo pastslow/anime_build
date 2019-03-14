@@ -23,6 +23,14 @@
       </div>
     </div>
 
+    <div class="slot-update top-40">
+      <div class="update-container justifty-left" *ngFor="let slot of topSlots">
+        <div>
+          <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="mid-slots container-slots">
@@ -48,6 +56,14 @@
       </div>
     </div>
 
+    <div class="slot-update top-40">
+      <div class="update-container justifty-left" *ngFor="let slot of midSlots">
+        <div>
+          <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <div class="bottom-slots container-slots">
@@ -69,6 +85,14 @@
       <div class="update-container" *ngFor="let slot of bottomSlots">
         <div>
           <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+        </div>
+      </div>
+    </div>
+
+    <div class="slot-update top-40">
+      <div class="update-container justifty-left" *ngFor="let slot of bottomSlots">
+        <div>
+          <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
         </div>
       </div>
     </div>

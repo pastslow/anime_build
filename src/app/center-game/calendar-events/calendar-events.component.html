@@ -4,19 +4,15 @@
   </div>
 
   <div>
-    <img class="event-img" src="assets/events/sasuke.png" alt="">
+    <img class="event-img" src="assets/events/{{calendarEvents[eventNumber].img}}.PNG" alt="">
   </div>
 
   <p class="event-description">{{calendarEvents[eventNumber].description}}</p>
 
   <div class="event-bonuses">
-    <div *ngFor="let bonus of calendarEvents[eventNumber].bonus" class="event-bonus">
-      <div>
-        <img class="event-bonus-img" src="assets/icons/{{bonus.bonusImg}}.png" alt="">
-      </div>
-      <span>+ </span>
-      <span>{{bonus.bonusValue}}</span>
-      <span>%</span>
+    <div *ngFor="let bonus of calendarEvents[eventNumber].bonuses">
+        <img class="icon-bonus" src="assets/icons/BONUS/{{bonus.img}}.PNG" alt="">
+        <span>{{bonus.sign}}{{bonus.value}}{{bonus.procent}}</span>
     </div>
   </div>
 </div>

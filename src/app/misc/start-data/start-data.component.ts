@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { TouchSequence } from 'selenium-webdriver';
-import {Howl, Howler} from 'howler';
-import{soundTheme, btnClick}from '../const';
+import { Howl, Howler } from 'howler';
+import { soundTheme, btnClick } from '../const';
 
 
 @Component({
@@ -18,6 +18,7 @@ export class StartDataComponent implements OnInit {
   public midSlots;
   public bottomSlots;
   public characterSelectedId;
+  public gameCharacters;
 
   constructor(private _logicService: LogicService) {
     this._logicService.castDisplayState.subscribe(
@@ -37,6 +38,9 @@ export class StartDataComponent implements OnInit {
 
     this._logicService.castCharacterId.subscribe(
       characterId => this.characterSelectedId = characterId);
+
+    this._logicService.castCharacters.subscribe(
+      gameCharacters => this.gameCharacters = gameCharacters);
   }
 
   ngOnInit() {
@@ -48,6 +52,7 @@ export class StartDataComponent implements OnInit {
     this.displayState.isMenuDisplayed = false;
   }
 
+
   loadGame() {
     btnClick.play();
 
@@ -56,6 +61,7 @@ export class StartDataComponent implements OnInit {
       alert("You have nothing to load");
       return;
     }
+
     this.displayState.isGameDisplayed = true;
 
     this._logicService.changeObject(gameData);
@@ -72,6 +78,16 @@ export class StartDataComponent implements OnInit {
     let characterId = JSON.parse(localStorage.getItem("CHARID"));
     this._logicService.getSelectedCharacterId(parseInt(characterId));
 
+    let bonusIncome = this.gameCharacters[characterId].bonuses.find(
+      elem => elem.name == "Gold");
+    let bonusPower = this.gameCharacters[characterId].bonuses.find(
+      elem => elem.name == "Power");
+    let bonusGameResource = this.gameCharacters[characterId].bonuses.find(
+      elem => elem.name == "Resources");
+
+    gameData.bonusIncome = bonusIncome.value;
+    gameData.reduceEnergyConsumption = bonusPower.value;
+    gameData.bonusGameResources = bonusGameResource.value;
   }
 
 

@@ -15,7 +15,7 @@ export class ConstructionActionsComponent implements OnInit {
   @Input() public isSupportingEngUpgrade;
 
   public slotNumber;
-  
+
   public topSlots;
   public midSlots;
   public bottomSlots;
@@ -92,16 +92,16 @@ export class ConstructionActionsComponent implements OnInit {
 
     this.demolishAnimation(gameObject, currentHouse);
     demolish.play();
-    
+
     this.gameValues.energy = this.gameValues.energy - gameObject.energy;
     this.gameValues.maxEnergy = this.gameValues.maxEnergy - gameObject.maxEnergy;
 
     this.gameValues.appeal = this.gameValues.appeal - gameObject.appeal;
-   
+
     // If you demolish the building and have less or more energy
     this.chanceStatusOfPowerToAllBuildings();
-    
-    if(this.gameValues.energy < this.gameValues.maxEnergy){
+
+    if (this.gameValues.energy < this.gameValues.maxEnergy) {
       this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
     }
     this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
@@ -122,6 +122,7 @@ export class ConstructionActionsComponent implements OnInit {
     slot.appeal = 0;
     slot.energyUpdateImg = "UPGRADE/NOUPDATE";
     slot.starUpdateImg = "UPGRADE/NOUPDATE";
+    slot.repairImg = "UPGRADE/NOUPDATE";
     slot.needRepair = false;
     slot.buildingType = "consumer";
   }
@@ -157,7 +158,7 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
-  updateValidation(gameObject, requirementObject) {
+  upgradeValidation(gameObject, requirementObject) {
 
     if (gameObject.condition === "underConstruction") {
       alert("This building is underconstruction you can not upgrade now");
@@ -226,10 +227,9 @@ export class ConstructionActionsComponent implements OnInit {
       this.updateEnergyStats(buildingObject, "UPGRADE/ENERGY/UPGRADE04");
       return;
     }
-
   }
 
-  updateEnergyReduction(cost, materials, engineers) {
+  upgradeEnergyReduction(cost, materials, engineers) {
     let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber);
 
     let requirementObject = {
@@ -241,7 +241,12 @@ export class ConstructionActionsComponent implements OnInit {
       upgradeFolder: "ENERGY"
     }
 
-    if (this.updateValidation(gameObject, requirementObject) == false) {
+    if (this.upgradeValidation(gameObject, requirementObject) == false) {
+      return;
+    }
+
+    if (gameObject.needRepair === true){
+      alert("You have to reapair it first!!!");
       return;
     }
 
@@ -293,8 +298,9 @@ export class ConstructionActionsComponent implements OnInit {
 
   }
 
-  updateStarRating(cost, materials, workers) {
-    let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber)
+  upgradeStarRating(cost, materials, workers) {
+    let gameObject = this.allGameSlots.find(
+      elem => elem.number == this.slotNumber);
 
     let requirementObject = {
       cost: parseInt(cost),
@@ -305,7 +311,12 @@ export class ConstructionActionsComponent implements OnInit {
       upgradeFolder: "STAR"
     }
 
-    if (this.updateValidation(gameObject, requirementObject) === false) {
+    if (this.upgradeValidation(gameObject, requirementObject) === false) {
+      return;
+    }
+
+    if (gameObject.needRepair === true){
+      alert("You have to reapair it first!!!");
       return;
     }
 
@@ -321,6 +332,25 @@ export class ConstructionActionsComponent implements OnInit {
 
     this.isModalClosed = true;
 
+  }
+
+  repairBuilding() {
+    if(this.gameValues.energy > this.gameValues.maxEnergy){
+      alert("You can not repair a building without power");
+      return;
+    }
+
+    let building = this.allGameSlots.find(
+      elem => elem.number == this.slotNumber);
+
+    building.needRepair = false;
+
+    this.gameValues.income = this.gameValues.income + building.income;
+    this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped + building.income;
+    building.repairImg = "UPGRADE/NOUPDATE";
+    this.isModalClosed = true;
+
+    building.income = building.income * 2;
   }
 
 
