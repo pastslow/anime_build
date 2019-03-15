@@ -3,19 +3,19 @@
   <div (click)="modalInfo(money.dataset.info)" data-toggle="modal" data-target="#myModal" class="top-container">
     <div class="data-container bg-money">
 
-        <div #money data-info="Money" class="appeal">
-          <span>{{bottomValues.money}}</span>
-        </div>
+      <div #money data-info="Money" class="appeal">
+        <span>{{bottomValues.money}}</span>
+      </div>
 
     </div>
   </div>
 
   <div (click)="modalInfo(materials.dataset.info)" data-toggle="modal" data-target="#myModal" class="top-container">
     <div class="data-container bg-materials">
-     
-        <div #materials data-info="Materials" class="appeal">
-          <span>{{bottomValues.materials}}</span>
-        </div>
+
+      <div #materials data-info="Materials" class="appeal">
+        <span>{{bottomValues.materials}}</span>
+      </div>
 
     </div>
   </div>
@@ -23,9 +23,9 @@
   <div (click)="modalInfo(workers.dataset.info)" data-toggle="modal" data-target="#myModal" class="top-container">
     <div class="data-container bg-workers">
 
-        <div #workers data-info="Workers" class="appeal">
-          <span>{{bottomValues.workers}}</span>
-        </div>
+      <div #workers data-info="Workers" class="appeal">
+        <span>{{bottomValues.workers}}</span>
+      </div>
 
     </div>
   </div>
@@ -33,10 +33,16 @@
   <div (click)="modalInfo(engineers.dataset.info)" data-toggle="modal" data-target="#myModal" class="top-container">
     <div class="data-container bg-techs">
 
-        <div  #engineers data-info="Engineers" class="appeal">
-          <span>{{bottomValues.engineers}}</span>
-        </div>
+      <div #engineers data-info="Engineers" class="appeal">
+        <span>{{bottomValues.engineers}}</span>
+      </div>
 
+    </div>
+  </div>
+
+  <div (click)="modalInfo(settings.dataset.info)" class="settings" data-toggle="modal" data-target="#myModal">
+    <div #settings data-info="Settings">
+      <img class="settings-img" src="assets/icons/SETTINGS.PNG" alt="">
     </div>
   </div>
 
@@ -60,6 +66,8 @@
 
         <app-materials-section [btnPressed]="btnValue" *ngIf="isMaterialsPressed">
         </app-materials-section>
+
+        <app-settings-section *ngIf="isSettingsPressed"></app-settings-section>
       </div>
 
       <!-- Modal footer -->

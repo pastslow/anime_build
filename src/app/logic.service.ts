@@ -67,6 +67,8 @@ export class LogicService {
     score: 0,
     appeal: 0,
     landCost: 25000,
+    fullScreen:false,
+    volume:"0,1",
   }
 
   private gameValues = new BehaviorSubject<object>(this.gameDataValues);

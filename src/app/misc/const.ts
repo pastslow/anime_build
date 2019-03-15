@@ -32,7 +32,6 @@ const power_on = new Howl({
 
 const ambient = new Howl({
     src: ['assets/AUDIO/AMBIENT.MP3'],
-    loop: true,
     volume: 0.1
 });
 
@@ -71,6 +70,11 @@ const madara = new Howl({
     volume: 0.1
 });
 
+const mikasa = new Howl({
+    src: ['assets/AUDIO/MIKASA.MP3'],
+    volume: 0.1
+});
+
 export{soundTheme};
 export{btnClick};
 export{construct};
@@ -85,6 +89,8 @@ export{kaneki};
 export{akatsuki};
 export{kaguya};
 export{madara};
+export{mikasa};
+
 
 
 

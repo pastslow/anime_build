@@ -21,6 +21,7 @@ import { ConstructBuildingComponent } from './misc/slot-data/construct-building/
 import { StartGameComponent } from './start-game/start-game.component';
 import { StartDataComponent } from './misc/start-data/start-data.component';
 import { SelectCharacterComponent } from './misc/select-character/select-character.component';
+import { SettingsSectionComponent } from './bottom-game/settings-section/settings-section.component';
 
 import { LogicService } from './logic.service';
 
@@ -45,6 +46,7 @@ import { LogicService } from './logic.service';
     StartGameComponent,
     StartDataComponent,
     SelectCharacterComponent,
+    SettingsSectionComponent,
   ],
   imports: [
     BrowserModule,

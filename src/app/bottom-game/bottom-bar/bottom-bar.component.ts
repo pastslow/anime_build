@@ -16,6 +16,8 @@ export class BottomBarComponent implements OnInit {
   public modalName;
   public isMoneyPressed = false;
   public isMaterialsPressed = false;
+  public isSettingsPressed = false;
+
   public isGameSaving = false;
 
   public bottomValues;
@@ -54,6 +56,7 @@ export class BottomBarComponent implements OnInit {
     btnClick.play();
     this.isMoneyPressed = false;
     this.isMaterialsPressed = false;
+    this.isSettingsPressed = false;
 
     if (title == "Money") {
       this.modalName = "MONEY & GOALS";
@@ -79,6 +82,12 @@ export class BottomBarComponent implements OnInit {
       this.modalName = "HIRE ENGINEERS";
       this.btnValue = 2;
       this.isMaterialsPressed = true;
+      return;
+    }
+
+    if (title == "Settings") {
+      this.modalName = "GAME SETTINGS";
+      this.isSettingsPressed = true;
       return;
     }
 

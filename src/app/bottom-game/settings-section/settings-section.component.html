@@ -1,0 +1,41 @@
+<section>
+  <div class="settings-container">
+
+    <div>
+      <div>
+        <span>GAME VOLUME</span>
+      </div>
+
+      <div>
+        <div class="volume-container">
+          <div>
+            <img class="volume-img" src="assets/icons/VOLUME_UP.PNG" alt="">
+          </div>
+
+          <div>
+            <input class="slider" type="range" min="0" max="1" value="{{volume}}" step="0.1" (change)="changeVolume($event)">
+          </div>
+        </div>
+      </div>
+    </div>
+
+
+    <div>
+      <div>
+        <span>FULL SCREEN</span>
+      </div>
+
+      <div>
+        <button (click)="changeToFullScreen()" *ngIf="!isGameOnFullScreen" class="screen-btn">
+          <img class="volume-img" src="assets/icons/FULL_SCREEN.PNG" alt="">
+          <img class="volume-img" src="assets/icons/CHECKBOX05.PNG" alt="">
+        </button>
+
+        <button (click)="changeScreenToNormal()" *ngIf="isGameOnFullScreen" class="screen-btn">
+            <img class="volume-img" src="assets/icons/FULL_SCREEN.PNG" alt="">
+            <img class="volume-img" src="assets/icons/CHECKMARK06.PNG" alt="">
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

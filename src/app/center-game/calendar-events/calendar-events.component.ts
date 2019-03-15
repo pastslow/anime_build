@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
-import { sasuke, kakashi, itachi, kaneki, akatsuki, kaguya, madara } from '../../misc/const';
+import { ambient, sasuke, kakashi, itachi, kaneki, akatsuki, kaguya, madara, mikasa } from '../../misc/const';
 
 @Component({
   selector: 'app-calendar-events',
@@ -23,7 +23,20 @@ export class CalendarEventsComponent implements OnInit {
     {
       name: "No visitator",
       img: "EMPTY",
-      description: `Currently there are not any visitors in your village`,
+      description: `Currently there are not any visitors in your village.`,
+      bonuses: [
+        {
+          img: "EMPTY",
+          value: "",
+          sign: "",
+          procent: ""
+        }
+      ]
+    },
+    {
+      name: "No visitator",
+      img: "EMPTY2",
+      description: `Currently there are not any visitors in your village.`,
       bonuses: [
         {
           img: "EMPTY",
@@ -71,7 +84,7 @@ export class CalendarEventsComponent implements OnInit {
           img: "MONEY",
           value: 10,
           sign: "+",
-          procent: ""
+          procent: "%"
         }
       ]
     },
@@ -110,13 +123,13 @@ export class CalendarEventsComponent implements OnInit {
       bonuses: [
         {
           img: "MONEY",
-          value: -10,
+          value: -40,
           sign: "",
           procent: "%"
         },
         {
           img: "MATERIALS",
-          value: -10,
+          value: -20,
           sign: "",
           procent: "%"
         }]
@@ -241,6 +254,10 @@ export class CalendarEventsComponent implements OnInit {
       this.changeBonusesInGame('bonusIncome', 10);
       return;
     }
+    if (visitatorName === "No visitator") {
+      ambient.play();
+      return;
+    }
     if (visitatorName === "Kakashi") {
       this.changeResourcesInGameByProcent("materials", 10);
       kakashi.play();
@@ -248,6 +265,7 @@ export class CalendarEventsComponent implements OnInit {
     }
     if (visitatorName === "Mikasa") {
       this.changeResourcesInGameByProcent("money", 10);
+      mikasa.play();
       return;
     }
     if (visitatorName === "Itachi") {
@@ -260,14 +278,12 @@ export class CalendarEventsComponent implements OnInit {
       kaneki.play();
       return;
     }
-
     if (visitatorName === "Akatsuki") {
-      this.changeResourcesInGameByProcent("money", -10);
-      this.changeResourcesInGameByProcent("materials", -10);
+      this.changeResourcesInGameByProcent("money", -40);
+      this.changeResourcesInGameByProcent("materials", -20);
       akatsuki.play();
       return;
     }
-
     if (visitatorName === "Kaguya") {
       this.changeBonusesInGame('bonusIncome', -10);
       this.changeBonusesInGame('bonusGameResources', -20);
@@ -275,7 +291,6 @@ export class CalendarEventsComponent implements OnInit {
       kaguya.play();
       return;
     }
-
     if (visitatorName === "Madara") {
       this.breakSomethingInConstruction();
       madara.play();
