@@ -1,9 +1,6 @@
 <div class="container-action">
 
-  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="upgradeStarRating(
-    upgradeStarCost.innerText,
-    upgradeStarMaterials.innerText,
-    workers.innerText)" class="action-data">
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="upgradeStarRating()" class="action-data">
     <span>Upgrade Star</span>
     <div class="action-info">
       <img src="assets/icons/upgrade_star.png" alt="">
@@ -12,22 +9,19 @@
         <span>+ 10%</span>
         <br />
         <span>Cost: </span>
-        <span #upgradeStarCost>{{allGameSlots[slotNumber].cost / 2}}</span><span>$</span>
+        <span>{{allGameSlots[slotNumber].cost / 2 | number:'1.0-0'}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span #upgradeStarMaterials>{{allGameSlots[slotNumber].cost / 100}}</span>
+        <span>{{allGameSlots[slotNumber].cost / 100 | number:'1.0-0'}}</span>
         <br />
         <span>Workers: </span>
-        <span #workers>{{(allGameSlots[slotNumber].cost / 4000) | number:'1.0-0'}}</span>
+        <span>{{(allGameSlots[slotNumber].cost / 4000) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
 
-  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" *ngIf="isSupportingEngUpgrade" (click)="upgradeEnergyReduction(
-    energyUpgradeCost.innerText,
-    energyUpgradeMaterials.innerText,
-    engineers.innerText)" class="action-data">
-
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" *ngIf="isSupportingEngUpgrade"
+    (click)="upgradeEnergyReduction()" class="action-data">
     <span>Upgrade Energy</span>
     <div class="action-info">
       <img src="assets/icons/upgrade_energy.png" alt="">
@@ -36,13 +30,13 @@
         <span>10%</span>
         <br />
         <span>Cost: </span>
-        <span #energyUpgradeCost>{{allGameSlots[slotNumber].cost / 2}}</span><span>$</span>
+        <span>{{allGameSlots[slotNumber].cost / 2 | number:'1.0-0'}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span #energyUpgradeMaterials>{{allGameSlots[slotNumber].cost / 80}}</span>
+        <span >{{allGameSlots[slotNumber].cost / 80 | number:'1.0-0'}}</span>
         <br />
         <span>Engineers: </span>
-        <span #engineers>{{(allGameSlots[slotNumber].cost / 6000) | number:'1.0-0'}}</span>
+        <span>{{(allGameSlots[slotNumber].cost / 6000) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
@@ -60,20 +54,20 @@
         <span>{{allGameSlots[slotNumber].income * 5}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>{{allGameSlots[slotNumber].income / 100}}</span>
+        <span>{{allGameSlots[slotNumber].income / 50}}</span>
       </div>
     </div>
   </button>
 
   <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'"
-    (click)="demolishBuilding(demolishMaterials.innerText)" class="action-data">
+    (click)="demolishBuilding()" class="action-data">
     <span>Demolish Construction</span>
     <div class="action-info">
       <img src="assets/icons/demolish.png" alt="" />
       <div>
         <span>Return Materials: </span>
         <br />
-        <span #demolishMaterials>{{allGameSlots[slotNumber].cost / 250 | number:'1.2-2'}}</span>
+        <span>{{allGameSlots[slotNumber].cost / 150 | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>

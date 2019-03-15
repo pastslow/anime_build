@@ -58,6 +58,7 @@
 }
 
 .update-container {
+    height: 1px;
     max-width: 146px;
     width: 20%;
     display: flex;

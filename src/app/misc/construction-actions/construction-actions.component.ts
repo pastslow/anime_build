@@ -70,9 +70,10 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
-  performDemolishBuilding(gameSlot, materials) {
+  performDemolishBuilding() {
 
-    let gameObject = gameSlot.find(elem => elem.number == this.slotNumber);
+    let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber);
+
     let currentHouse = gameObject.img.slice(0, 7);
 
     if (gameObject.condition === "underConstruction") {
@@ -106,7 +107,7 @@ export class ConstructionActionsComponent implements OnInit {
     }
     this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
 
-    this.gameValues.materials = this.gameValues.materials + parseInt(materials);
+    this.gameValues.materials = this.gameValues.materials + Math.round(gameObject.cost/150);
     this._logicService.changeObject(this.gameValues);
 
     this.isModalClosed = true;
@@ -143,19 +144,8 @@ export class ConstructionActionsComponent implements OnInit {
     }, 4850);
   }
 
-  demolishBuilding(materials) {
-    if (this.slotNumber <= 4) {
-      this.performDemolishBuilding(this.topSlots, materials);
-      return;
-    }
-    if (this.slotNumber <= 9) {
-      this.performDemolishBuilding(this.midSlots, materials);
-      return;
-    }
-    if (this.slotNumber <= 14) {
-      this.performDemolishBuilding(this.bottomSlots, materials);
-      return;
-    }
+  demolishBuilding() {
+      this.performDemolishBuilding();
   }
 
   upgradeValidation(gameObject, requirementObject) {
@@ -229,13 +219,13 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
-  upgradeEnergyReduction(cost, materials, engineers) {
+  upgradeEnergyReduction() {
     let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber);
 
     let requirementObject = {
-      cost: parseInt(cost),
-      materials: parseInt(materials),
-      tehniciansNumber: parseInt(engineers),
+      cost: gameObject.cost / 2,
+      materials: gameObject.cost / 80,
+      tehniciansNumber: Math.round(gameObject.cost / 6000),
       tehniciansName: "engineers",
       objectImage: "energyUpdateImg",
       upgradeFolder: "ENERGY"
@@ -245,7 +235,7 @@ export class ConstructionActionsComponent implements OnInit {
       return;
     }
 
-    if (gameObject.needRepair === true){
+    if (gameObject.needRepair === true) {
       alert("You have to reapair it first!!!");
       return;
     }
@@ -298,14 +288,14 @@ export class ConstructionActionsComponent implements OnInit {
 
   }
 
-  upgradeStarRating(cost, materials, workers) {
+  upgradeStarRating() {
     let gameObject = this.allGameSlots.find(
       elem => elem.number == this.slotNumber);
 
     let requirementObject = {
-      cost: parseInt(cost),
-      materials: parseInt(materials),
-      tehniciansNumber: parseInt(workers),
+      cost: gameObject.cost / 2,
+      materials: gameObject.cost / 100,
+      tehniciansNumber: Math.round(gameObject.cost / 4000),
       tehniciansName: "workers",
       objectImage: "starUpdateImg",
       upgradeFolder: "STAR"
@@ -315,7 +305,7 @@ export class ConstructionActionsComponent implements OnInit {
       return;
     }
 
-    if (gameObject.needRepair === true){
+    if (gameObject.needRepair === true) {
       alert("You have to reapair it first!!!");
       return;
     }
@@ -335,7 +325,7 @@ export class ConstructionActionsComponent implements OnInit {
   }
 
   repairBuilding() {
-    if(this.gameValues.energy > this.gameValues.maxEnergy){
+    if (this.gameValues.energy > this.gameValues.maxEnergy) {
       alert("You can not repair a building without power");
       return;
     }

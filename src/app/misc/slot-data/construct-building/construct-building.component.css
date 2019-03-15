@@ -8,13 +8,14 @@
 }
 
 .img-slot {
-    max-width: 85px;
+    max-width: 75px;
     width: 100%;
 }
 
 .house-info {
     display: flex;
     align-items: center;
+    text-align: left;
 }
 
 .back-btn {
@@ -34,14 +35,14 @@
 }
 
 .img-back {
-    max-width: 85px;
+    max-width: 75px;
 }
 
 .construct-container {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-around;
-    font-size: 13px;
+    font-size: 12px;
 }
 
 .slot-info {

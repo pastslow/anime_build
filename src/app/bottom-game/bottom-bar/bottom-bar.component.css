@@ -74,6 +74,10 @@
     align-items: center;
 }
 
+.settings:hover {
+    cursor: pointer;
+}
+
 .settings-img {
     width: 30px;
 }
