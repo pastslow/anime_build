@@ -5,12 +5,16 @@ import { ambient } from '../../misc/const';
 @Component({
   selector: 'app-center-section',
   templateUrl: './center-section.component.html',
-  styleUrls: ['./center-section.component.css']
+  styleUrls: ['./center-section.component.css'],
+  host: {
+    '(window:resize)': 'onResize($event)'
+  }
 })
 export class CenterSectionComponent implements OnInit {
   public gameData;
   public popUpError;
 
+  public defaultClass = true;
 
   constructor(private _logicService: LogicService) {
     this._logicService.cast.subscribe
@@ -18,6 +22,7 @@ export class CenterSectionComponent implements OnInit {
 
     this._logicService.castPopUpError.subscribe(
       popUpErrorObj => this.popUpError = popUpErrorObj);
+      
   }
 
   updateScoreAndRentalIncome() {
@@ -36,10 +41,19 @@ export class CenterSectionComponent implements OnInit {
   ngOnInit() {
     this.getRentalIncomeAndScore();
     ambient.play();
+    
   }
+
+  onResize(event){
+    event.target.innerWidth; // window width
+  }
+
+  
+
 
   hideError() {
     this._logicService.hideError();
   }
+
 
 }

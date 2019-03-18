@@ -1,0 +1,23 @@
+.responsive-message {
+    text-align: center;
+    color: white;
+    font-size: 25px;
+    position: relative;
+}
+
+.responsive-img {
+    margin-left: auto;
+    width: 136px;
+    margin-right: auto;
+    height: 280px;
+    background: url(src/assets/bg/MOBILE.PNG);
+    background-size: contain;
+    background-repeat: no-repeat;
+    animation: rotatePhone 3s infinite;
+}
+
+@keyframes rotatePhone {
+    0%   {transform: rotate(0deg)}
+    100%  {transform: rotate(90deg); background-image: url(src/assets/bg/RESPONSIVE.PNG); }
+}
+

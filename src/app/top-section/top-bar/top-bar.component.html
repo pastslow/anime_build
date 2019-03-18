@@ -1,4 +1,6 @@
-<section class="container top-bar">
+<section [ngClass]="{
+  'container': !topBarData.fullScreen,
+   'top-bar': defaultClass}">
   <div class="top-container">
 
     <div class="data-container">

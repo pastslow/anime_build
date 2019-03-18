@@ -10,8 +10,8 @@
 
 .main-view {
     display: flex;
-    height: 100%;
     overflow: hidden;
+    height: 100%;
 }
 
 .left-container {
@@ -21,10 +21,10 @@
 }
 
 .center-section {
+    height: 550px;
     position: relative;
     padding-left: 0px;
     padding-right: 0px;
-    height: 500px;
 }
 
 .pop-error {
@@ -34,9 +34,21 @@
     display: flex;
 }
 
+@media only screen and (max-width:992px) {
+    .center-section {
+        height: 500px;
+        overflow: hidden;
+    }
+}
+
 @media only screen and (max-width:768px) {
     .center-section {
+        height: 300px;
+    }
+}
+
+@media only screen and (max-width:576px) {
+    .center-section {
         height: 284px;
-        overflow: hidden;
     }
 }

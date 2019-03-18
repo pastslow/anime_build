@@ -1,3 +1,4 @@
-<app-top-bar *ngIf="displayState.isGameDisplayed"></app-top-bar>
-<app-center-section *ngIf="displayState.isGameDisplayed"></app-center-section>
-<app-start-game *ngIf="!displayState.isGameDisplayed"></app-start-game>
+<app-top-bar class="game" *ngIf="displayState.isGameDisplayed"></app-top-bar>
+<app-center-section class="game" *ngIf="displayState.isGameDisplayed"></app-center-section>
+<app-start-game class="game" *ngIf="!displayState.isGameDisplayed"></app-start-game>
+<app-responsive-message class="rotate-device"></app-responsive-message>

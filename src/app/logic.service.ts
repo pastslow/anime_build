@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs/';
+import { $ } from 'protractor';
 
 @Injectable({
   providedIn: 'root'
@@ -73,6 +74,10 @@ export class LogicService {
 
   getSlotDetails(newCondition) {
     this.slotDetails.next(newCondition);
+  }
+
+  getHeight(){
+   return window.innerHeight;
   }
 
   public gameDataValues = {

@@ -1,4 +1,6 @@
-<section class="container center-section">
+<section [ngClass]="{
+  'container': !gameData.fullScreen,
+  'center-section':defaultClass}">
 
   <div class="main-view">
     <div class="center">

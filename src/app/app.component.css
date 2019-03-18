@@ -1,0 +1,14 @@
+.rotate-device {
+    display: none;
+}
+
+
+@media only screen and (max-width: 500px){
+    .game {
+        display: none;
+    }
+
+    .rotate-device {
+        display: block;
+    }
+}

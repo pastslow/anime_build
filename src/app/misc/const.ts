@@ -1,10 +1,5 @@
 import {Howl, Howler} from 'howler';
 
-const soundTheme = new Howl({
-    src: ['assets/AUDIO/FAIRY_THEME.MP3'],
-    volume: 1
-});
-
 const btnClick = new Howl({
     src: ['assets/AUDIO/BTN_CLICK.MP3'],
     volume: 1
@@ -75,7 +70,6 @@ const mikasa = new Howl({
     volume: 1
 });
 
-export{soundTheme};
 export{btnClick};
 export{construct};
 export{demolish};
