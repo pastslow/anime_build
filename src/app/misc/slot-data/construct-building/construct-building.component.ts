@@ -70,7 +70,8 @@ export class ConstructBuildingComponent implements OnChanges {
   changeSlotEnergyBasedOnType(gameObject, requireObject) {
     if (requireObject.buildType === "producer") {
 
-      this.gameData.maxEnergy = this.gameData.maxEnergy + requireObject.buildEnergy;
+      this.gameData.maxEnergy = (
+        this.gameData.maxEnergy + requireObject.buildEnergy);
 
       this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
       gameObject.appeal = requireObject.buildAppeal;
@@ -81,9 +82,12 @@ export class ConstructBuildingComponent implements OnChanges {
 
     } else {
       let bonusEnergyProcent = (
-        this.gameData.reduceEnergyConsumption * requireObject.buildEnergy) / 100;
+        (this.gameData.reduceEnergyConsumption *
+        requireObject.buildEnergy) / 100);
 
-      this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
+      this.gameData.appeal = (
+        this.gameData.appeal + requireObject.buildAppeal);
+
       gameObject.appeal = requireObject.buildAppeal;
 
       this.gameData.energy = (
@@ -117,7 +121,8 @@ export class ConstructBuildingComponent implements OnChanges {
     this.changeImageOfSlot(gameObject, requireObject);
 
     setTimeout(() => {
-      this.gameData.workers = this.gameData.workers + requireObject.buildWorkers;
+      this.gameData.workers = (
+        this.gameData.workers + requireObject.buildWorkers);
 
       this.changeSlotEnergyBasedOnType(gameObject, requireObject);
 
@@ -149,15 +154,15 @@ export class ConstructBuildingComponent implements OnChanges {
 
   buildValidation(requireObject) {
     if (this.gameData.money < requireObject.buildCost) {
-      alert("You don't have enough Money !!")
+      this._logicService.displayError("You don't have enough Money!");
       return true;
     }
     if (this.gameData.workers < requireObject.buildWorkers) {
-      alert("You don't have enough Workers !!")
+      this._logicService.displayError("You don't have enough Workers!");
       return true;
     }
     if (this.gameData.materials < requireObject.buildMaterials) {
-      alert("You don't have enough Materials !!")
+      this._logicService.displayError("You don't have enough Materials!");
       return true;
     }
   }
@@ -165,7 +170,8 @@ export class ConstructBuildingComponent implements OnChanges {
   buildPurchasedBuilding(buildingName) {
     this.isModalClosed = false;
 
-    let building = this.constructArr.construct.find(elem => elem.name == buildingName);
+    let building = (
+      this.constructArr.construct.find(elem => elem.name == buildingName));
 
     let requireObject = {
       buildCost: building.cost,
@@ -189,7 +195,8 @@ export class ConstructBuildingComponent implements OnChanges {
     // degresse resource
     this.gameData.money = this.gameData.money - requireObject.buildCost;
     this.gameData.workers = this.gameData.workers - requireObject.buildWorkers;
-    this.gameData.materials = this.gameData.materials - requireObject.buildMaterials;
+    this.gameData.materials = (
+      this.gameData.materials - requireObject.buildMaterials);
 
 
     let newObj = this.allGameSlots.find(elem => elem.number == slotId);

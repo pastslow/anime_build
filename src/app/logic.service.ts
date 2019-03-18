@@ -21,6 +21,31 @@ export class LogicService {
     this.displayStateObj.next(newObj);
   }
 
+  public popUpError = {
+    isPopUpDisplayed:false,
+    popUpMessage:""
+  }
+
+  private popUpErrorObj = new BehaviorSubject<object>(this.popUpError);
+  castPopUpError = this.popUpErrorObj.asObservable();
+
+  getPopUpError(newObj){
+    this.popUpErrorObj.next(newObj);
+  }
+
+  displayError(message){
+    this.popUpError.isPopUpDisplayed = true;
+    this.popUpError.popUpMessage = message;
+
+    setTimeout(() => {
+    this.popUpError.isPopUpDisplayed = false;      
+    }, 3000);
+  }
+
+  hideError(){
+    this.popUpError.isPopUpDisplayed = false;          
+  }
+
   //===========================SelectedCharacterId===========================//
   public selectedCharacterId = 0;
 

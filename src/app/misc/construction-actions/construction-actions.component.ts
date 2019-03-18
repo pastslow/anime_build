@@ -28,21 +28,27 @@ export class ConstructionActionsComponent implements OnInit {
 
 
   constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(slotId => this.slotNumber = slotId);
+    this._logicService.castSlotId.subscribe(
+      slotId => this.slotNumber = slotId);
 
-    this._logicService.castTopSlots.subscribe(gameTopSlots => this.topSlots = gameTopSlots);
+    this._logicService.castTopSlots.subscribe(
+      gameTopSlots => this.topSlots = gameTopSlots);
 
-    this._logicService.castMidSlots.subscribe(gameMidSlots => this.midSlots = gameMidSlots);
+    this._logicService.castMidSlots.subscribe(
+      gameMidSlots => this.midSlots = gameMidSlots);
 
-    this._logicService.castBottomSlots.subscribe(gameBottomSlots => this.bottomSlots = gameBottomSlots);
+    this._logicService.castBottomSlots.subscribe(
+      gameBottomSlots => this.bottomSlots = gameBottomSlots);
 
-    this._logicService.cast.subscribe(gameDataValues => this.gameValues = gameDataValues);
+    this._logicService.cast.subscribe(
+      gameDataValues => this.gameValues = gameDataValues);
 
     this.slotActions = this._logicService.slotActions();
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
 
-    this._logicService.castSlotDetails.subscribe(slotDetails => this.slotNeedRepair = slotDetails);
+    this._logicService.castSlotDetails.subscribe(
+      slotDetails => this.slotNeedRepair = slotDetails);
   }
 
   ngOnInit() {
@@ -72,22 +78,26 @@ export class ConstructionActionsComponent implements OnInit {
 
   performDemolishBuilding() {
 
-    let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber);
+    let gameObject = this.allGameSlots.find(
+      elem => elem.number == this.slotNumber);
 
     let currentHouse = gameObject.img.slice(0, 7);
 
     if (gameObject.condition === "underConstruction") {
-      alert("This building is under construction. You can not demolis yet")
+      this._logicService.displayError(
+        "This building is under construction. You can not demolis yet");
       return;
     }
 
     if (gameObject.condition === "underDemolishing") {
-      alert("This building is already under demolishing")
+      this._logicService.displayError(
+        "This building is already under demolishing");
       return;
     }
 
     if (gameObject.condition === "bought") {
-      alert("You can not demolish a empty land")
+      this._logicService.displayError(
+        "You can not demolish a empty land");
       return;
     }
 
@@ -95,7 +105,8 @@ export class ConstructionActionsComponent implements OnInit {
     demolish.play();
 
     this.gameValues.energy = this.gameValues.energy - gameObject.energy;
-    this.gameValues.maxEnergy = this.gameValues.maxEnergy - gameObject.maxEnergy;
+    this.gameValues.maxEnergy = (
+      this.gameValues.maxEnergy - gameObject.maxEnergy);
 
     this.gameValues.appeal = this.gameValues.appeal - gameObject.appeal;
 
@@ -103,11 +114,14 @@ export class ConstructionActionsComponent implements OnInit {
     this.chanceStatusOfPowerToAllBuildings();
 
     if (this.gameValues.energy < this.gameValues.maxEnergy) {
-      this.gameValues.income = this.gameValues.incomeBeforeStopped - gameObject.income;
+      this.gameValues.income = (
+        this.gameValues.incomeBeforeStopped - gameObject.income);
     }
-    this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped - gameObject.income;
+    this.gameValues.incomeBeforeStopped = (
+      this.gameValues.incomeBeforeStopped - gameObject.income);
 
-    this.gameValues.materials = this.gameValues.materials + Math.round(gameObject.cost/150);
+    this.gameValues.materials = (
+      this.gameValues.materials + Math.round(gameObject.cost / 150));
     this._logicService.changeObject(this.gameValues);
 
     this.isModalClosed = true;
@@ -145,48 +159,58 @@ export class ConstructionActionsComponent implements OnInit {
   }
 
   demolishBuilding() {
-      this.performDemolishBuilding();
+    this.performDemolishBuilding();
   }
 
   upgradeValidation(gameObject, requirementObject) {
 
     if (gameObject.condition === "underConstruction") {
-      alert("This building is underconstruction you can not upgrade now");
+      this._logicService.displayError(
+      "This building is under construction you can not upgrade now!");
       return false;
     }
 
     if (gameObject.condition === "underDemolishing") {
-      alert("This building is demolishing. You can not upgrade it");
+      this._logicService.displayError(
+        "This building is demolishing. You can not upgrade it!");
       return false;
     }
 
     if (gameObject.condition === "bought") {
-      alert("You can not upgrade an empty land");
+      this._logicService.displayError(
+        "You can not upgrade an empty land!");
       return false;
     }
 
-    if (gameObject.buildingType === "producer" && requirementObject.upgradeFolder === "ENERGY") {
-      alert("You can not upgrade a producer building");
+    if (gameObject.buildingType === "producer" &&
+      requirementObject.upgradeFolder === "ENERGY") {
+      this._logicService.displayError(
+        "You can not upgrade a producer building!");
       return false;
     }
 
-    if (gameObject[requirementObject.objectImage] === `UPGRADE/${requirementObject.upgradeFolder}/UPGRADE04`) {
-      alert("This building have already maximum update.")
+    if (gameObject[requirementObject.objectImage] ===
+      `UPGRADE/${requirementObject.upgradeFolder}/UPGRADE04`) {
+      this._logicService.displayError(
+        "This building have already maximum update.");
       return false;
     }
 
     if (this.gameValues.money < requirementObject.cost) {
-      alert("You don't have enough money");
+      this._logicService.displayError(
+        "You don't have enough money!");
       return false;
     }
 
     if (this.gameValues.materials < requirementObject.materials) {
-      alert("You don't have enough materials");
+      this._logicService.displayError("You don't have enough materials!");
       return false;
     }
 
-    if (this.gameValues[requirementObject.tehniciansName] < requirementObject.tehniciansNumber) {
-      alert(`You don't have enough ${requirementObject.tehniciansName}`);
+    if (this.gameValues[requirementObject.tehniciansName] <
+      requirementObject.tehniciansNumber) {
+      this._logicService.displayError(
+        `You don't have enough ${requirementObject.tehniciansName}!`);
       return false;
     }
   }
@@ -195,7 +219,8 @@ export class ConstructionActionsComponent implements OnInit {
     gameObject.energyUpdateImg = image;
     let newEnergyReduction = Math.round((gameObject.energy * 10) / 100)
     gameObject.energy = gameObject.energy - newEnergyReduction;
-    gameObject.cost = gameObject.cost + Math.round((gameObject.cost * 15) / 100);
+    gameObject.cost = (
+      gameObject.cost + Math.round((gameObject.cost * 15) / 100));
     this.gameValues.energy = this.gameValues.energy - newEnergyReduction;
 
   }
@@ -220,7 +245,8 @@ export class ConstructionActionsComponent implements OnInit {
   }
 
   upgradeEnergyReduction() {
-    let gameObject = this.allGameSlots.find(elem => elem.number == this.slotNumber);
+    let gameObject = (
+      this.allGameSlots.find(elem => elem.number == this.slotNumber));
 
     let requirementObject = {
       cost: gameObject.cost / 2,
@@ -236,7 +262,7 @@ export class ConstructionActionsComponent implements OnInit {
     }
 
     if (gameObject.needRepair === true) {
-      alert("You have to reapair it first!!!");
+      this._logicService.displayError("You have to reapair it first !");
       return;
     }
 
@@ -244,8 +270,10 @@ export class ConstructionActionsComponent implements OnInit {
     this.chanceStatusOfPowerToAllBuildings();
     power_on.play();
 
-    this.gameValues.money = this.gameValues.money - requirementObject.cost;
-    this.gameValues.materials = this.gameValues.materials - requirementObject.materials;
+    this.gameValues.money = (
+      this.gameValues.money - requirementObject.cost);
+    this.gameValues.materials = (
+      this.gameValues.materials - requirementObject.materials);
 
     if (this.gameValues.energy <= this.gameValues.maxEnergy) {
 
@@ -262,10 +290,12 @@ export class ConstructionActionsComponent implements OnInit {
     gameObject.income = gameObject.income + newIncome;
 
 
-    gameObject.cost = gameObject.cost + Math.round((gameObject.cost * 10) / 100);
+    gameObject.cost = (
+      gameObject.cost + Math.round((gameObject.cost * 10) / 100));
 
     this.gameValues.income = this.gameValues.income + newIncome;
-    this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped + newIncome;
+    this.gameValues.incomeBeforeStopped = (
+      this.gameValues.incomeBeforeStopped + newIncome);
   }
 
   starRatingConditions(buildingObject) {
@@ -306,14 +336,15 @@ export class ConstructionActionsComponent implements OnInit {
     }
 
     if (gameObject.needRepair === true) {
-      alert("You have to reapair it first!!!");
+      this._logicService.displayError("You have to reapair it first !");
       return;
     }
 
     this.starRatingConditions(gameObject);
 
     this.gameValues.money = this.gameValues.money - requirementObject.cost;
-    this.gameValues.materials = this.gameValues.materials - requirementObject.materials;
+    this.gameValues.materials = (
+      this.gameValues.materials - requirementObject.materials);
 
     if (this.gameValues.energy > this.gameValues.maxEnergy) {
 
@@ -326,7 +357,8 @@ export class ConstructionActionsComponent implements OnInit {
 
   repairBuilding() {
     if (this.gameValues.energy > this.gameValues.maxEnergy) {
-      alert("You can not repair a building without power");
+      this._logicService.displayError(
+        "You can not repair a building without power");
       return;
     }
 
@@ -336,7 +368,8 @@ export class ConstructionActionsComponent implements OnInit {
     building.needRepair = false;
 
     this.gameValues.income = this.gameValues.income + building.income;
-    this.gameValues.incomeBeforeStopped = this.gameValues.incomeBeforeStopped + building.income;
+    this.gameValues.incomeBeforeStopped = (
+      this.gameValues.incomeBeforeStopped + building.income);
     building.repairImg = "UPGRADE/NOUPDATE";
     this.isModalClosed = true;
 

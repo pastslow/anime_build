@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
-import {btnClick}from '../../misc/const';
+import { btnClick} from '../../misc/const';
 
 @Component({
   selector: 'app-buy-land',
@@ -16,28 +16,36 @@ export class BuyLandComponent implements OnInit {
   public allGameSlots;
   public gameData;
   public slotNumberId;
-
+  
   constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(slotId => this.slotNumberId = slotId);
+    this._logicService.castSlotId.subscribe(
+      slotId => this.slotNumberId = slotId);
 
-    this._logicService.castTopSlots.subscribe(mapTopSlots => this.topSlots = mapTopSlots);
+    this._logicService.castTopSlots.subscribe(
+      mapTopSlots => this.topSlots = mapTopSlots);
 
-    this._logicService.castMidSlots.subscribe(mapMidSlots => this.midSlots = mapMidSlots);
+    this._logicService.castMidSlots.subscribe(
+      mapMidSlots => this.midSlots = mapMidSlots);
 
-    this._logicService.castBottomSlots.subscribe(mapBottomSlots => this.bottomSlots = mapBottomSlots);
+    this._logicService.castBottomSlots.subscribe(
+      mapBottomSlots => this.bottomSlots = mapBottomSlots);
 
-    this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
+    this.allGameSlots = this.topSlots.concat(
+      this.midSlots, this.bottomSlots);
   }
 
   ngOnInit() {
-    this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
+    this._logicService.cast.subscribe(
+      gameValues => this.gameData = gameValues);
   }
 
   buyLand() {
     btnClick.play();
     let landCost = (this.gameData.landCost - this.gameData.appeal * 50);
+
     if (this.gameData.money < landCost) {
-      alert("You don't have enough money");
+      this._logicService.displayError("You don't have enough money!")
+      this.isModalClosed = true;
       return;
     }
 

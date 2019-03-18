@@ -22,6 +22,7 @@ import { StartGameComponent } from './start-game/start-game.component';
 import { StartDataComponent } from './misc/start-data/start-data.component';
 import { SelectCharacterComponent } from './misc/select-character/select-character.component';
 import { SettingsSectionComponent } from './bottom-game/settings-section/settings-section.component';
+import { PopAlertComponent } from './misc/pop-alert/pop-alert.component';
 
 import { LogicService } from './logic.service';
 
@@ -47,6 +48,7 @@ import { LogicService } from './logic.service';
     StartDataComponent,
     SelectCharacterComponent,
     SettingsSectionComponent,
+    PopAlertComponent,
   ],
   imports: [
     BrowserModule,

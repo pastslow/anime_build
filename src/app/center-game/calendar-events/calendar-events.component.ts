@@ -176,15 +176,14 @@ export class CalendarEventsComponent implements OnInit {
   ]
 
   constructor(private _logicService: LogicService) {
-    this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
-
+    this._logicService.cast.subscribe(
+      gameValues => this.gameData = gameValues);
     this._logicService.castTopSlots.subscribe(
       gameTopSlots => this.topSlots = gameTopSlots);
     this._logicService.castMidSlots.subscribe(
       gameMidSlots => this.midSlots = gameMidSlots);
     this._logicService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
-
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
   }
 
@@ -200,7 +199,8 @@ export class CalendarEventsComponent implements OnInit {
   }
 
   changeResourcesInGameByProcent(resource, procent) {
-    let newResourceValue = Math.round((this.gameData[resource] * procent) / 100);
+    let newResourceValue = (
+      Math.round((this.gameData[resource] * procent) / 100));
     this.gameData[resource] = this.gameData[resource] + newResourceValue;
   }
 
@@ -209,7 +209,8 @@ export class CalendarEventsComponent implements OnInit {
   }
 
   breakSomethingInConstruction() {
-    let allBuildings = this.allGameSlots.filter(elem => elem.condition == "build");
+    let allBuildings = (
+      this.allGameSlots.filter(elem => elem.condition == "build"));
 
     if (allBuildings === undefined || allBuildings.length == 0) {
       return;
@@ -231,7 +232,9 @@ export class CalendarEventsComponent implements OnInit {
       allBuildings[constructionId].income = afectedIncome;
       allBuildings[constructionId].repairImg = "UPGRADE/REPAIR/REPAIR_KEY";
       this.gameData.income = this.gameData.income - afectedIncome;
-      this.gameData.incomeBeforeStopped = this.gameData.incomeBeforeStopped - afectedIncome;
+      
+      this.gameData.incomeBeforeStopped = (
+        this.gameData.incomeBeforeStopped - afectedIncome);
     }
 
   }

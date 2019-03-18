@@ -9,6 +9,12 @@
     position: relative;
 }
 
+.pop-error {
+    position: absolute;
+    width: 100%;
+    top: 20%;
+}
+
 @media only screen and (max-width:768px){
 
     .start-section {

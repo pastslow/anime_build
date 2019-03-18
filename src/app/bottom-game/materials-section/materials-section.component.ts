@@ -18,7 +18,8 @@ export class MaterialsSectionComponent implements OnInit {
   constructor(private _logicService: LogicService) { }
 
   ngOnInit() {
-    this._logicService.cast.subscribe(gameValues => this.bottomValues = gameValues);
+    this._logicService.cast.subscribe(
+      gameValues => this.bottomValues = gameValues);
 
     this.bottomDataValues = this._logicService.bottomLogicData();
 
@@ -30,7 +31,8 @@ export class MaterialsSectionComponent implements OnInit {
   public isLoading = false;
 
   getPackFromShop(item, pack) {
-    let procent = Math.round((pack * this.bottomValues.bonusGameResources) / 100);
+    let procent = (
+      Math.round((pack * this.bottomValues.bonusGameResources) / 100));
     this.bottomValues[item] = this.bottomValues[item] + pack + procent;
   }
 
@@ -42,7 +44,7 @@ export class MaterialsSectionComponent implements OnInit {
     let newPack = selectedItem.number;
 
     if (selectedItem.cost > this.bottomValues.money) {
-      alert(" You don't have enough money!!!");
+      this._logicService.displayError(" You don't have enough money!");
       return;
     }
 

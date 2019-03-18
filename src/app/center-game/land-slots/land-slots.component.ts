@@ -22,17 +22,18 @@ export class HouseBuildComponent implements OnInit {
 
   public isSupportingEngUpgrade;
   constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(slotId => this.slotIdNumber = slotId);
-
-    this._logicService.castTopSlots.subscribe(mapTopSlots => this.topSlots = mapTopSlots);
-
-    this._logicService.castMidSlots.subscribe(mapMidSlots => this.midSlots = mapMidSlots);
-
-    this._logicService.castBottomSlots.subscribe(mapBottomSlots => this.bottomSlots = mapBottomSlots);
-
-    this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
-
-    this._logicService.castSlotDetails.subscribe(slotDetails => this.slotNeedRepair = slotDetails);
+    this._logicService.castSlotId.subscribe(
+      slotId => this.slotIdNumber = slotId);
+    this._logicService.castTopSlots.subscribe(
+      mapTopSlots => this.topSlots = mapTopSlots);
+    this._logicService.castMidSlots.subscribe(
+      mapMidSlots => this.midSlots = mapMidSlots);
+    this._logicService.castBottomSlots.subscribe(
+      mapBottomSlots => this.bottomSlots = mapBottomSlots);
+    this.allGameSlots = this.topSlots.concat(
+      this.midSlots, this.bottomSlots);
+    this._logicService.castSlotDetails.subscribe(
+      slotDetails => this.slotNeedRepair = slotDetails);
   }
 
   ngOnInit() {

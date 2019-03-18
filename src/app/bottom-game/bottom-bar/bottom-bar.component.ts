@@ -94,7 +94,8 @@ export class BottomBarComponent implements OnInit {
   }
 
   saveValidation(condition) {
-    let conditionState = this.allGameSlots.find(elem => elem.condition == condition);
+    let conditionState = (
+      this.allGameSlots.find(elem => elem.condition == condition));
     if (conditionState !== undefined){
       return true;
     }

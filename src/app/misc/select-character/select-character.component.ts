@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
-import {btnClick}from '../../misc/const';
+import { btnClick } from '../../misc/const';
 
 @Component({
   selector: 'app-select-character',
@@ -15,9 +15,12 @@ export class SelectCharacterComponent implements OnInit {
   public displayState;
 
   constructor(private _logicService: LogicService) {
-    this._logicService.castCharacters.subscribe(gameCharacters => this.characters = gameCharacters);
-    this._logicService.castCharacterId.subscribe(characterId => this.characterId = characterId);
-    this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
+    this._logicService.castCharacters.subscribe(
+      gameCharacters => this.characters = gameCharacters);
+    this._logicService.castCharacterId.subscribe(
+      characterId => this.characterId = characterId);
+    this._logicService.cast.subscribe(
+      gameValues => this.gameData = gameValues);
     this._logicService.castDisplayState.subscribe(
       displayStateObj => this.displayState = displayStateObj);
   }

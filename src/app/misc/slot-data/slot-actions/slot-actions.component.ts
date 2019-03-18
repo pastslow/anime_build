@@ -1,11 +1,11 @@
-import { Component, OnInit, OnChanges, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-slot-actions',
   templateUrl: './slot-actions.component.html',
   styleUrls: ['./slot-actions.component.css']
 })
-export class SlotActionsComponent implements OnInit,OnChanges {
+export class SlotActionsComponent implements OnInit {
 
 
   public parentData = {
@@ -55,10 +55,6 @@ export class SlotActionsComponent implements OnInit,OnChanges {
   constructor() { }
 
   ngOnInit() {
-
-  }
-
-  ngOnChanges(changes:SimpleChanges){
 
   }
 

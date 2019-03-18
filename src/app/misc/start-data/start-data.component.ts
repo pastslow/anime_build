@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
-import { TouchSequence } from 'selenium-webdriver';
-import { Howl, Howler } from 'howler';
-import { soundTheme, btnClick } from '../const';
+import { btnClick } from '../const';
 
 
 @Component({
@@ -44,7 +42,6 @@ export class StartDataComponent implements OnInit {
   }
 
   ngOnInit() {
-    // soundTheme.play();
   }
 
   startGame() {
@@ -58,7 +55,7 @@ export class StartDataComponent implements OnInit {
 
     let gameData = JSON.parse(localStorage.getItem("GAMEDATA"));
     if (gameData === null) {
-      alert("You have nothing to load");
+      this._logicService.displayError("You have nothing to load!");
       return;
     }
 

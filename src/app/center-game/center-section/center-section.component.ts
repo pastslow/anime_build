@@ -9,9 +9,15 @@ import { ambient } from '../../misc/const';
 })
 export class CenterSectionComponent implements OnInit {
   public gameData;
+  public popUpError;
+
 
   constructor(private _logicService: LogicService) {
-    this._logicService.cast.subscribe(gameValues => this.gameData = gameValues)
+    this._logicService.cast.subscribe
+      (gameValues => this.gameData = gameValues);
+
+    this._logicService.castPopUpError.subscribe(
+      popUpErrorObj => this.popUpError = popUpErrorObj);
   }
 
   updateScoreAndRentalIncome() {
@@ -32,5 +38,8 @@ export class CenterSectionComponent implements OnInit {
     ambient.play();
   }
 
+  hideError() {
+    this._logicService.hideError();
+  }
 
 }

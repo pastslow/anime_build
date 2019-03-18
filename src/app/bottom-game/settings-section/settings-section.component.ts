@@ -15,7 +15,8 @@ export class SettingsSectionComponent implements OnInit {
 
 
   constructor(private _logicService:LogicService) {
-    this._logicService.cast.subscribe(gameValues => this.gameData = gameValues);
+    this._logicService.cast.subscribe(
+      gameValues => this.gameData = gameValues);
     this.isGameOnFullScreen = this.gameData.fullScreen;
     this.volume = this.gameData.volume;
    }

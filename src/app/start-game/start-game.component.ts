@@ -8,13 +8,22 @@ import { LogicService } from '../logic.service';
 })
 export class StartGameComponent implements OnInit {
   public displayState;
+  public popUpError;
 
   constructor(private _logicService: LogicService) {
     this._logicService.castDisplayState.subscribe(
       displayStateObj => this.displayState = displayStateObj);
+
+    this._logicService.castPopUpError.subscribe(
+      popUpError => this.popUpError = popUpError
+    );
   }
 
   ngOnInit() {
   }
-  
+
+  hideError(){
+    this._logicService.hideError();
+  }
+
 }

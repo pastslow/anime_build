@@ -1,0 +1,19 @@
+.pop-up {
+    padding: 4px;
+    border-radius: 5px;
+    z-index: 1112;
+    width: 50%;
+    text-align: center;
+}
+
+.pop-up:hover {
+    cursor: pointer;
+    opacity: 0.6;
+}
+
+.pop-message{
+    background-color: rgb(190, 75, 73);
+    padding: 4px;
+    border-radius: 5px;
+    color: white;
+}

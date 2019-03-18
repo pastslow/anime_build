@@ -15,14 +15,14 @@ export class ConstructionDetailsComponent implements OnInit {
   public allGameSlots;
 
   constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(slotId => this.slotIdNumber = slotId);
-
-    this._logicService.castTopSlots.subscribe(gameTopSlots => this.topSlots = gameTopSlots);
-
-    this._logicService.castMidSlots.subscribe(gameMidSlots => this.midSlots = gameMidSlots);
-
-    this._logicService.castBottomSlots.subscribe(gameBottomSlots => this.bottomSlots = gameBottomSlots);
-
+    this._logicService.castSlotId.subscribe(
+      slotId => this.slotIdNumber = slotId);
+    this._logicService.castTopSlots.subscribe(
+      gameTopSlots => this.topSlots = gameTopSlots);
+    this._logicService.castMidSlots.subscribe(
+      gameMidSlots => this.midSlots = gameMidSlots);
+    this._logicService.castBottomSlots.subscribe(
+      gameBottomSlots => this.bottomSlots = gameBottomSlots);
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
   }
   

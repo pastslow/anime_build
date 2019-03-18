@@ -39,7 +39,8 @@ export class TopBarComponent implements OnInit {
   }
 
   constructor(private _logicService:LogicService) { 
-    this._logicService.cast.subscribe(gameValues => this.topBarData = gameValues);
+    this._logicService.cast.subscribe(
+      gameValues => this.topBarData = gameValues);
   }
   
   ngOnInit() {
