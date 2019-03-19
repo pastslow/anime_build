@@ -4,16 +4,18 @@
 
   <div class="main-view">
     <div class="center">
-      <img class="bg-game" src="assets/bg/bg2.png" alt="">
+      <img [ngClass]="{
+        'bg-game': defaultClass,
+        'cursed': gameCharacters[selectedCharacterId].cursed}" src="assets/bg/bg2.png" alt="">
       <app-land-slots></app-land-slots>
     </div>
-    
+
     <div class="left-container">
       <app-right-character></app-right-character>
       <app-calendar-events></app-calendar-events>
     </div>
   </div>
-  
+
   <app-pop-alert class="pop-error" (click)="hideError()" *ngIf="popUpError.isPopUpDisplayed"></app-pop-alert>
   <app-bottom-bar></app-bottom-bar>
 </section>

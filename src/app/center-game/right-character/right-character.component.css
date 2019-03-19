@@ -1,4 +1,4 @@
-.character-img {
+.character-img, .character-img-modal {
     max-width: 80px;
     width: 100%;
 }
@@ -19,10 +19,36 @@
 .character-name {
     width: 100%;
     text-align: center;
+    justify-content: center;
+    display: flex;
+    align-items: center;
 }
 
 .icon-bonus {
     width: 24px;
+}
+
+.character-details {
+    font-size: 14px;
+    margin-left: auto;
+    max-width: 300px;
+}
+
+.cursed-img {
+    width: 25px;
+    height: 25px;
+    margin-left: 10px;
+    animation: activeCurse 5s infinite;
+    background-image: url(src/assets/icons/BONUS/CURSE.PNG);
+    background-size: contain;
+}
+
+@keyframes activeCurse {
+    0%{transform:rotate(0deg) }
+    25%{transform:rotate(30deg) }
+    50%{transform:rotate(60deg) }
+    75%{transform:rotate(90deg) }
+    100%{transform:rotate(120deg); background-image: url(src/assets/icons/BONUS/CURSE_RED.PNG) }
 }
 
 @media only screen and (max-width: 992px){
@@ -45,5 +71,18 @@
 
     .icon-bonus {
         width: 20px;
+    }
+
+    .character-details {
+        font-size: 13px;
+    }
+
+    .character-img-modal {
+        max-width: 60px;
+    }
+
+    .cursed-img {
+        width: 20px;
+        height: 20px;
     }
 }

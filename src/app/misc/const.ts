@@ -70,6 +70,16 @@ const mikasa = new Howl({
     volume: 1
 });
 
+const orochimaru = new Howl({
+    src: ['assets/AUDIO/OROCHIMARU.MP3'],
+    volume: 1
+});
+
+const tsunade = new Howl({
+    src: ['assets/AUDIO/TSUNADE.MP3'],
+    volume: 1
+});
+
 export{btnClick};
 export{construct};
 export{demolish};
@@ -84,6 +94,9 @@ export{akatsuki};
 export{kaguya};
 export{madara};
 export{mikasa};
+export{orochimaru};
+export{tsunade};
+
 
 
 

@@ -1,0 +1,22 @@
+.cursed-img {
+    width: 20px;
+    height: 20px;
+}
+
+.cursed-btn {
+    background: url(src/assets/bg/BTN.PNG);
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 105px;
+    color: white;
+    padding: 6px;
+    margin-top: 4px;
+    border: 0px;
+}
+
+.text-container {
+    font-size: 15px;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}

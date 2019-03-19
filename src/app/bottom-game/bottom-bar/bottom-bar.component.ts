@@ -26,6 +26,7 @@ export class BottomBarComponent implements OnInit {
   public midSlots;
   public bottomSlots;
   public characterId;
+  public gameCharacters;
 
   public allGameSlots;
 
@@ -46,6 +47,9 @@ export class BottomBarComponent implements OnInit {
       characterId => this.characterId = characterId);
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
+
+    this._logicService.castCharacters.subscribe(
+      gameCharacters => this.gameCharacters = gameCharacters);
   }
 
   ngOnInit() {
@@ -123,6 +127,10 @@ export class BottomBarComponent implements OnInit {
 
     localStorage.setItem("CHARID", this.characterId);
     console.log("game saved");
+
+    let characters = JSON.stringify(this.gameCharacters);
+    localStorage.setItem("CHARACTERS", characters);
+
     this.isGameSaving = true;
     setTimeout(() => {
       this.isGameSaving = false;

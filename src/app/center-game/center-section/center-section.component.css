@@ -34,6 +34,10 @@
     display: flex;
 }
 
+.cursed {
+    filter: hue-rotate(171deg);
+}
+
 @media only screen and (max-width:992px) {
     .center-section {
         height: 500px;

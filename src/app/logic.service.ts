@@ -7,7 +7,6 @@ import { $ } from 'protractor';
 })
 export class LogicService {
 
-
   constructor() { }
 
   public displayState = {
@@ -23,28 +22,28 @@ export class LogicService {
   }
 
   public popUpError = {
-    isPopUpDisplayed:false,
-    popUpMessage:""
+    isPopUpDisplayed: false,
+    popUpMessage: ""
   }
 
   private popUpErrorObj = new BehaviorSubject<object>(this.popUpError);
   castPopUpError = this.popUpErrorObj.asObservable();
 
-  getPopUpError(newObj){
+  getPopUpError(newObj) {
     this.popUpErrorObj.next(newObj);
   }
 
-  displayError(message){
+  displayError(message) {
     this.popUpError.isPopUpDisplayed = true;
     this.popUpError.popUpMessage = message;
 
     setTimeout(() => {
-    this.popUpError.isPopUpDisplayed = false;      
+      this.popUpError.isPopUpDisplayed = false;
     }, 3000);
   }
 
-  hideError(){
-    this.popUpError.isPopUpDisplayed = false;          
+  hideError() {
+    this.popUpError.isPopUpDisplayed = false;
   }
 
   //===========================SelectedCharacterId===========================//
@@ -76,8 +75,8 @@ export class LogicService {
     this.slotDetails.next(newCondition);
   }
 
-  getHeight(){
-   return window.innerHeight;
+  getHeight() {
+    return window.innerHeight;
   }
 
   public gameDataValues = {
@@ -97,8 +96,8 @@ export class LogicService {
     score: 0,
     appeal: 0,
     landCost: 25000,
-    fullScreen:false,
-    volume:"0,1",
+    fullScreen: false,
+    volume: "0,1",
   }
 
   private gameValues = new BehaviorSubject<object>(this.gameDataValues);
@@ -504,28 +503,33 @@ export class LogicService {
       name: "Natsu",
       img: 'natsu',
       id: 0,
+      cursed:false,
+      info: `
+      Using my power you will obtain less materials, workers and engineers
+      but you will construct buildings which produce
+      greater income and use greater energy.`,
       bonuses: [
         {
           name: "Gold",
           bonusImg: "BONUS/INCOME",
-          actionValue: "+",
           value: 10,
           color: "green",
+          description: "Construction income ",
           procent: "%"
         },
         {
           name: "Power",
           bonusImg: "BONUS/POWER",
-          actionValue: "",
           color: "red",
+          description: "Construction energy consumption ",
           value: -10,
           procent: "%"
         },
         {
           name: "Resources",
           bonusImg: "BONUS/RESOURCE",
-          actionValue: "",
           color: "red",
+          description: "Materials/Workers/Engineers ",
           value: -10,
           procent: "%"
         },
@@ -534,29 +538,34 @@ export class LogicService {
     {
       name: "Lucy",
       img: 'lucy',
+      cursed:false,
       id: 1,
+      info: `
+      Using my power you will obtain less materials, workers and engineers
+      but you will construct buildings which produce greater income
+      and use less energy.`,
       bonuses: [
         {
           name: "Gold",
           bonusImg: "BONUS/INCOME",
-          actionValue: "+",
           color: "green",
+          description: "Construction income ",
           value: 5,
           procent: "%"
         },
         {
           name: "Power",
           bonusImg: "BONUS/POWER",
-          actionValue: "",
           color: "green",
+          description: "Construction energy consumption ",
           value: 5,
           procent: "%"
         },
         {
           name: "Resources",
           bonusImg: "BONUS/RESOURCE",
-          actionValue: "",
           color: "red",
+          description: "Materials/Workers/Engineers ",
           value: -5,
           procent: "%"
         },
@@ -565,29 +574,34 @@ export class LogicService {
     {
       name: "Gray",
       img: 'gray',
+      cursed:false,
       id: 2,
+      info: `
+      Using my power you will obtain more materials, workers and engineers
+      and all new construction will produce greater income
+      but also will use greater energy.`,
       bonuses: [
         {
           name: "Gold",
           bonusImg: "BONUS/INCOME",
-          actionValue: "+",
           color: "green",
+          description: "Construction income ",
           value: 5,
           procent: "%"
         },
         {
           name: "Power",
           bonusImg: "BONUS/POWER",
-          actionValue: "",
           color: "red",
+          description: "Construction energy consumption ",
           value: -10,
           procent: "%"
         },
         {
           name: "Resources",
           bonusImg: "BONUS/RESOURCE",
-          actionValue: "+",
           color: "green",
+          description: "Materials/Workers/Engineers ",
           value: 10,
           procent: "%"
         },
@@ -596,29 +610,34 @@ export class LogicService {
     {
       name: "Erza",
       img: 'erza',
+      cursed:false,
       id: 3,
+      info: `
+      Using my power you will obtain more materials, workers and engineers,
+      but you will construct buildings which produce less income
+      and use greater energy.`,
       bonuses: [
         {
           name: "Gold",
           bonusImg: "BONUS/INCOME",
-          actionValue: "",
           color: "red",
+          description: "Construction income ",
           value: -5,
           procent: "%"
         },
         {
           name: "Power",
           bonusImg: "BONUS/POWER",
-          actionValue: "",
           color: "red",
+          description: "Construction energy consumption ",
           value: -10,
           procent: "%"
         },
         {
           name: "Resources",
           bonusImg: "BONUS/RESOURCE",
-          actionValue: "+",
           color: "green",
+          description: "Materials/Workers/Engineers ",
           value: 20,
           procent: "%"
         },
@@ -627,6 +646,10 @@ export class LogicService {
   ]
   private gameCharacters = new BehaviorSubject<object>(this.characters);
   castCharacters = this.gameCharacters.asObservable();
+
+  getCharacters(newObj){
+    this.gameCharacters.next(newObj);
+  }
 
   // Game Land Slots
   public mapTopSlots = [

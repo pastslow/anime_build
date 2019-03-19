@@ -85,19 +85,19 @@ export class ConstructionActionsComponent implements OnInit {
 
     if (gameObject.condition === "underConstruction") {
       this._logicService.displayError(
-        "This building is under construction. You can not demolis yet");
+        "This building is under construction. You can not demolis yet!");
       return;
     }
 
     if (gameObject.condition === "underDemolishing") {
       this._logicService.displayError(
-        "This building is already under demolishing");
+        "This building is already under demolishing!");
       return;
     }
 
     if (gameObject.condition === "bought") {
       this._logicService.displayError(
-        "You can not demolish a empty land");
+        "You can not demolish an empty land!");
       return;
     }
 
@@ -166,7 +166,7 @@ export class ConstructionActionsComponent implements OnInit {
 
     if (gameObject.condition === "underConstruction") {
       this._logicService.displayError(
-      "This building is under construction you can not upgrade now!");
+      "This building is under construction you can not upgrade it now!");
       return false;
     }
 
@@ -262,7 +262,7 @@ export class ConstructionActionsComponent implements OnInit {
     }
 
     if (gameObject.needRepair === true) {
-      this._logicService.displayError("You have to reapair it first !");
+      this._logicService.displayError("You have to reapair it first!");
       return;
     }
 
@@ -336,7 +336,7 @@ export class ConstructionActionsComponent implements OnInit {
     }
 
     if (gameObject.needRepair === true) {
-      this._logicService.displayError("You have to reapair it first !");
+      this._logicService.displayError("You have to reapair it first!");
       return;
     }
 
@@ -358,7 +358,7 @@ export class ConstructionActionsComponent implements OnInit {
   repairBuilding() {
     if (this.gameValues.energy > this.gameValues.maxEnergy) {
       this._logicService.displayError(
-        "You can not repair a building without power");
+        "You can not repair a building without power!");
       return;
     }
 

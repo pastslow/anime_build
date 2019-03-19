@@ -1,7 +1,9 @@
-<div class="selected-character">
+<div class="selected-character" data-toggle="modal" data-target="#modalCharacter">
 
   <div class="character-name">
     <span>{{characters[characterSelected].name}}</span>
+    <div *ngIf="characters[characterSelected].cursed" class="cursed-img">
+    </div>
   </div>
 
   <div>
@@ -11,11 +13,48 @@
   <div>
     <div *ngFor="let bonus of characters[characterSelected].bonuses">
       <img class="icon-bonus" src="assets/icons/{{bonus.bonusImg}}.PNG" alt="">
-      <span [style.color]="bonus.color">{{bonus.actionValue}}</span>
       <span [style.color]="bonus.color">{{bonus.value}}</span>
       <span [style.color]="bonus.color">{{bonus.procent}}</span>
     </div>
 
   </div>
 
+</div>
+
+<!------------------------------- Modal Character ---------------------------->
+<div class="modal" id="modalCharacter">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-------------------------- Modal Header ------------------------------>
+      <div class="modal-header">
+        <div>
+          <img class="character-img-modal" src="assets/characters/{{characters[characterSelected].img}}.png" alt="">
+        </div>
+        <div class="character-details">
+          <span>{{characters[characterSelected].name}}</span>
+          <br />
+          <span>
+            <span>{{characters[characterSelected].info}}</span>
+          </span>
+        </div>
+        <!-- <h5 class="modal-title"></h5> -->
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+      </div>
+      <!--------------------------- Modal body ------------------------------->
+      <div class="modal-body">
+        <div *ngFor="let bonus of characters[characterSelected].bonuses">
+          <span [style.color]="bonus.color">{{bonus.description}}</span>
+          <img class="icon-bonus" src="assets/icons/{{bonus.bonusImg}}.PNG" alt="">
+          <span [style.color]="bonus.color">{{bonus.value}}</span>
+          <span [style.color]="bonus.color">{{bonus.procent}}</span>
+        </div>
+        <app-character-curse *ngIf="characters[characterSelected].cursed"></app-character-curse>
+      </div>
+      <!------------------------- Modal footer ------------------------------->
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+      </div>
+
+    </div>
+  </div>
 </div>

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
-import { ambient, sasuke, kakashi, itachi, kaneki, akatsuki, kaguya, madara, mikasa } from '../../misc/const';
+import { ambient, sasuke, kakashi, itachi, kaneki, akatsuki,
+   kaguya, madara, mikasa, orochimaru, tsunade } from '../../misc/const';
 
 @Component({
   selector: 'app-calendar-events',
@@ -16,6 +17,9 @@ export class CalendarEventsComponent implements OnInit {
   public topSlots;
   public midSlots;
   public bottomSlots;
+
+  public characterSelectedId;
+  public gameCharacters;
 
   public allGameSlots;
 
@@ -50,7 +54,7 @@ export class CalendarEventsComponent implements OnInit {
       name: "Sasuke",
       img: "SASUKE",
       description: `I'm one of the most powerful man in the world,
-       and I will help you to build at lower price.`,
+       and I will help you to construct buildings with greater income.`,
       bonuses: [
         {
           img: "INCOME",
@@ -173,18 +177,59 @@ export class CalendarEventsComponent implements OnInit {
         }
       ]
     },
+    {
+      name: "Orochimaru",
+      img: "OROCHIMARU",
+      description: `This visitaor has cast a curse on you that
+       make you see different, this is why all new construction
+        will produce less income and use greater energy.
+      `,
+      bonuses: [
+        {
+          img: "CURSE",
+          value: "",
+          sign: "",
+          procent: ""
+        }
+      ]
+    },
+    {
+      name: "Tsunade",
+      img: "TSUNADE",
+      description: `As a medic hokage if you have a curse
+       I will help you to get rid of it for free.
+      `,
+      bonuses: [
+        {
+          img: "HAPPY",
+          value: "",
+          sign: "",
+          procent: ""
+        }
+      ]
+    },
   ]
 
   constructor(private _logicService: LogicService) {
     this._logicService.cast.subscribe(
       gameValues => this.gameData = gameValues);
+
     this._logicService.castTopSlots.subscribe(
       gameTopSlots => this.topSlots = gameTopSlots);
+
     this._logicService.castMidSlots.subscribe(
       gameMidSlots => this.midSlots = gameMidSlots);
+
     this._logicService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
+
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
+
+    this._logicService.castCharacters.subscribe(
+      gameCharacters => this.gameCharacters = gameCharacters);
+
+    this._logicService.castCharacterId.subscribe(
+      characterId => this.characterSelectedId = characterId);
   }
 
   ngOnInit() {
@@ -206,6 +251,59 @@ export class CalendarEventsComponent implements OnInit {
 
   changeResourcesInGameByValue(value) {
     this.gameData.money = this.gameData.money + value;
+  }
+
+  castCurseOnCharacter(curseValue) {
+    let selectedCharacter = this.gameCharacters[this.characterSelectedId];
+
+    if (selectedCharacter.cursed === true) {
+      return;
+    }
+    selectedCharacter.cursed = true;
+
+    let characterIncomeBonus = (
+      selectedCharacter.bonuses.find(
+        elem => elem.name === "Gold"
+      ));
+
+    let characterEnergyBonus = (
+      selectedCharacter.bonuses.find(
+        elem => elem.name === "Power"
+      ))
+
+    characterIncomeBonus.value = characterIncomeBonus.value - curseValue;
+    characterEnergyBonus.value = characterEnergyBonus.value - curseValue;
+
+    this.gameData.bonusIncome = this.gameData.bonusIncome - curseValue;
+    this.gameData.reduceEnergyConsumption = (
+      this.gameData.reduceEnergyConsumption - curseValue);
+  }
+
+  getRidOfTheCurse(cureValue) {
+    let selectedCharacter = this.gameCharacters[this.characterSelectedId];
+
+    if (selectedCharacter.cursed === false) {
+      return;
+    }
+
+    selectedCharacter.cursed = false;
+
+    let characterIncomeBonus = (
+      selectedCharacter.bonuses.find(
+        elem => elem.name === "Gold"
+      ));
+
+    let characterEnergyBonus = (
+      selectedCharacter.bonuses.find(
+        elem => elem.name === "Power"
+      ))
+
+    characterIncomeBonus.value = characterIncomeBonus.value + cureValue;
+    characterEnergyBonus.value = characterEnergyBonus.value + cureValue;
+
+    this.gameData.bonusIncome = this.gameData.bonusIncome + cureValue;
+    this.gameData.reduceEnergyConsumption = (
+    this.gameData.reduceEnergyConsumption + cureValue);
   }
 
   breakSomethingInConstruction() {
@@ -232,7 +330,7 @@ export class CalendarEventsComponent implements OnInit {
       allBuildings[constructionId].income = afectedIncome;
       allBuildings[constructionId].repairImg = "UPGRADE/REPAIR/REPAIR_KEY";
       this.gameData.income = this.gameData.income - afectedIncome;
-      
+
       this.gameData.incomeBeforeStopped = (
         this.gameData.incomeBeforeStopped - afectedIncome);
     }
@@ -297,6 +395,16 @@ export class CalendarEventsComponent implements OnInit {
     if (visitatorName === "Madara") {
       this.breakSomethingInConstruction();
       madara.play();
+      return;
+    }
+    if (visitatorName === "Orochimaru") {
+      this.castCurseOnCharacter(5);
+      orochimaru.play()
+      return;
+    }
+    if (visitatorName === "Tsunade") {
+      this.getRidOfTheCurse(5);
+      tsunade.play;
       return;
     }
 

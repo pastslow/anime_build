@@ -72,6 +72,9 @@ export class StartDataComponent implements OnInit {
     let bottomSlots = JSON.parse(localStorage.getItem("BOTTOMSLOTS"));
     this._logicService.getBottomSlots(bottomSlots);
 
+    let characters = JSON.parse(localStorage.getItem("CHARACTERS"));
+    this._logicService.getCharacters(characters);
+
     let characterId = JSON.parse(localStorage.getItem("CHARID"));
     this._logicService.getSelectedCharacterId(parseInt(characterId));
 

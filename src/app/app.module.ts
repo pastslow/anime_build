@@ -24,6 +24,7 @@ import { SelectCharacterComponent } from './misc/select-character/select-charact
 import { SettingsSectionComponent } from './bottom-game/settings-section/settings-section.component';
 import { PopAlertComponent } from './misc/pop-alert/pop-alert.component';
 import { ResponsiveMessageComponent } from './misc/responsive-message/responsive-message.component';
+import { CharacterCurseComponent } from './misc/character-curse/character-curse.component';
 
 import { LogicService } from './logic.service';
 
@@ -51,6 +52,7 @@ import { LogicService } from './logic.service';
     SettingsSectionComponent,
     PopAlertComponent,
     ResponsiveMessageComponent,
+    CharacterCurseComponent,
   ],
   imports: [
     BrowserModule,
