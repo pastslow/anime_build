@@ -39,8 +39,8 @@ export class HouseBuildComponent implements OnInit {
   ngOnInit() {
   }
 
-  performActionsOnSlot(modalImg, event) {
-    this.slotIdNumber = parseInt(event.target.slot);
+  performActionsOnSlot(modalImg, landImg) {
+    this.slotIdNumber = parseInt(landImg.slot);
     this.slotNeedRepair = this.allGameSlots[this.slotIdNumber].needRepair;
     // Change the new value into the service
     this._logicService.getSlotId(this.slotIdNumber);
@@ -52,19 +52,19 @@ export class HouseBuildComponent implements OnInit {
       this.isSupportingEngUpgrade = true;
     }
 
-    if (event.target.alt === "empty") {
+    if (landImg.alt === "empty") {
       this.isLandBought = false;
       this.hasConstruction = false;
-      modalImg.src = event.target.src;
+      modalImg.src = landImg.src;
       return;
     }
-    if (event.target.alt === "bought") {
+    if (landImg.alt === "bought") {
       this.isLandBought = true;
       this.hasConstruction = false;
-      modalImg.src = event.target.src;
+      modalImg.src = landImg.src;
       return;
     }
-    modalImg.src = event.target.src;
+    modalImg.src = landImg.src;
     this.isLandBought = false;
     this.hasConstruction = true;
   }

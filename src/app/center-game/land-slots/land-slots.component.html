@@ -1,32 +1,32 @@
 <section>
   <div class="top-slots container-slots">
 
-    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, $event)"
+    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, slotImg)"
       *ngFor="let slot of topSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
+      <img #slotImg data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
         src="assets/buildings/{{slot.img}}.PNG" />
-    </div>
 
-    <div class="slot-update top-8">
-      <div class="update-container" *ngFor="let slot of topSlots">
-        <div>
-          <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
+      <div class="slot-update top-8">
+        <div class="update-container">
+          <div>
+            <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="slot-update top-88">
-      <div class="update-container" *ngFor="let slot of topSlots">
-        <div>
-          <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+      <div class="slot-update top-88">
+        <div class="update-container">
+          <div>
+            <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+          </div>
         </div>
       </div>
-    </div>
 
-    <div class="slot-update top-40">
-      <div class="update-container justifty-left" *ngFor="let slot of topSlots">
-        <div>
-          <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
+      <div class="slot-update top-40">
+        <div class="update-container justifty-left">
+          <div>
+            <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
+          </div>
         </div>
       </div>
     </div>
@@ -34,71 +34,75 @@
   </div>
 
   <div class="mid-slots container-slots">
-    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, $event)"
+    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, midSlot)"
       *ngFor="let slot of midSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
+      <img #midSlot data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
         src="assets/buildings/{{slot.img}}.PNG" />
+
+        <div class="slot-update top-8">
+          <div class="update-container" >
+            <div>
+              <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="slot-update top-88">
+          <div class="update-container">
+            <div>
+              <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+            </div>
+          </div>
+        </div>
+
+        <div class="slot-update top-40">
+          <div class="update-container justifty-left">
+            <div>
+              <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
+            </div>
+          </div>
+        </div>
+
     </div>
 
-    <div class="slot-update top-8">
-      <div class="update-container" *ngFor="let slot of midSlots">
-        <div>
-          <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
-        </div>
-      </div>
-    </div>
 
-    <div class="slot-update top-88">
-      <div class="update-container" *ngFor="let slot of midSlots">
-        <div>
-          <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
-        </div>
-      </div>
-    </div>
 
-    <div class="slot-update top-40">
-      <div class="update-container justifty-left" *ngFor="let slot of midSlots">
-        <div>
-          <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
-        </div>
-      </div>
-    </div>
 
   </div>
 
   <div class="bottom-slots container-slots">
-    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, $event)"
+    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, botSlot)"
       *ngFor="let slot of bottomSlots" class="house">
-      <img data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
+      <img #botSlot data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
         src="assets/buildings/{{slot.img}}.PNG" />
-    </div>
 
-    <div class="slot-update top-8">
-      <div class="update-container" *ngFor="let slot of bottomSlots">
-        <div>
-          <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
+        <div class="slot-update top-8">
+          <div class="update-container">
+            <div>
+              <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="slot-update top-88">
-      <div class="update-container" *ngFor="let slot of bottomSlots">
-        <div>
-          <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+        <div class="slot-update top-88">
+          <div class="update-container">
+            <div>
+              <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+            </div>
+          </div>
         </div>
-      </div>
-    </div>
 
-    <div class="slot-update top-40">
-      <div class="update-container justifty-left" *ngFor="let slot of bottomSlots">
-        <div>
-          <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
+        <div class="slot-update top-40">
+          <div class="update-container justifty-left">
+            <div>
+              <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
+            </div>
+          </div>
         </div>
-      </div>
+
     </div>
 
   </div>
-
 </section>
 
 <!-- The Modal -->

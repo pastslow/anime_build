@@ -13,7 +13,7 @@
   <div>
     <div *ngFor="let bonus of characters[characterSelected].bonuses">
       <img class="icon-bonus" src="assets/icons/{{bonus.bonusImg}}.PNG" alt="">
-      <span [style.color]="bonus.color">{{bonus.value}}</span>
+      <span [style.color]="bonus.color"> {{bonus.value}}</span>
       <span [style.color]="bonus.color">{{bonus.procent}}</span>
     </div>
 
@@ -31,11 +31,13 @@
           <img class="character-img-modal" src="assets/characters/{{characters[characterSelected].img}}.png" alt="">
         </div>
         <div class="character-details">
-          <span>{{characters[characterSelected].name}}</span>
-          <br />
-          <span>
+          <div class="name-container">
+            <span>{{characters[characterSelected].name}}</span>
+          </div>
+
+          <div>
             <span>{{characters[characterSelected].info}}</span>
-          </span>
+          </div>
         </div>
         <!-- <h5 class="modal-title"></h5> -->
         <button type="button" class="close" data-dismiss="modal">&times;</button>
