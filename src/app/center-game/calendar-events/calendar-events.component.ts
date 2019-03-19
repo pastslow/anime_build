@@ -360,51 +360,51 @@ export class CalendarEventsComponent implements OnInit {
       return;
     }
     if (visitatorName === "Kakashi") {
-      this.changeResourcesInGameByProcent("materials", 10);
       kakashi.play();
+      this.changeResourcesInGameByProcent("materials", 10);
       return;
     }
     if (visitatorName === "Mikasa") {
-      this.changeResourcesInGameByProcent("money", 10);
       mikasa.play();
+      this.changeResourcesInGameByProcent("money", 10);
       return;
     }
     if (visitatorName === "Itachi") {
-      this.changeBonusesInGame('bonusGameResources', 15);
       itachi.play();
+      this.changeBonusesInGame('bonusGameResources', 15);
       return;
     }
     if (visitatorName === "Kaneki") {
-      this.changeBonusesInGame('reduceEnergyConsumption', 10);
       kaneki.play();
+      this.changeBonusesInGame('reduceEnergyConsumption', 10);
       return;
     }
     if (visitatorName === "Akatsuki") {
+      akatsuki.play();
       this.changeResourcesInGameByProcent("money", -40);
       this.changeResourcesInGameByProcent("materials", -20);
-      akatsuki.play();
       return;
     }
     if (visitatorName === "Kaguya") {
+      kaguya.play();
       this.changeBonusesInGame('bonusIncome', -10);
       this.changeBonusesInGame('bonusGameResources', -20);
       this.changeBonusesInGame('reduceEnergyConsumption', -10);
-      kaguya.play();
       return;
     }
     if (visitatorName === "Madara") {
-      this.breakSomethingInConstruction();
       madara.play();
+      this.breakSomethingInConstruction();
       return;
     }
     if (visitatorName === "Orochimaru") {
-      this.castCurseOnCharacter(5);
       orochimaru.play()
+      this.castCurseOnCharacter(5);
       return;
     }
     if (visitatorName === "Tsunade") {
+      tsunade.play();
       this.getRidOfTheCurse(5);
-      tsunade.play;
       return;
     }
 
