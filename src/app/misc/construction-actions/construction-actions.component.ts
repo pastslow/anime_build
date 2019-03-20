@@ -167,7 +167,7 @@ export class ConstructionActionsComponent implements OnInit {
 
     if (gameObject.condition === "underConstruction") {
       this._logicService.displayError(
-      "This building is under construction you can not upgrade it now!");
+        "This building is under construction you can not upgrade it now!");
       return false;
     }
 
@@ -365,6 +365,32 @@ export class ConstructionActionsComponent implements OnInit {
 
     let building = this.allGameSlots.find(
       elem => elem.number == this.slotNumber);
+
+    let buildingRepairCost = Math.round(building.income * 10);
+    let buildingWorkersRequired = Math.round(building.income / 300);
+    let buildingMaterialsRequired = Math.round(building.income / 2);
+
+    if (this.gameValues.money < buildingRepairCost) {
+      this._logicService.displayError(
+        "You don't have enough money!");
+      return;
+    }
+
+    if (this.gameValues.workers < buildingWorkersRequired) {
+      this._logicService.displayError(
+        "You don't have enough workers!");
+      return;
+    }
+
+    if (this.gameValues.materials < buildingMaterialsRequired) {
+      this._logicService.displayError(
+        "You don't have enough materials!");
+      return;
+    }
+
+    this.gameValues.money = this.gameValues.money - buildingRepairCost;
+    this.gameValues.materials = (
+      this.gameValues.materials - buildingMaterialsRequired);
 
     building.needRepair = false;
 

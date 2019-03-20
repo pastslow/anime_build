@@ -48,13 +48,13 @@
       <img src="assets/ICONS/NO_REPAIR.PNG" alt="">
       <div>
         <span>Workers: </span>
-        <span>{{(allGameSlots[slotNumber].income / 500) | number:'1.0-0'}}</span>
+        <span>{{(allGameSlots[slotNumber].income / 300) | number:'1.0-0'}}</span>
         <br />
         <span>Cost: </span>
-        <span>{{allGameSlots[slotNumber].income * 5}}</span><span>$</span>
+        <span>{{allGameSlots[slotNumber].income * 10 | number:'1.0-0'}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>{{allGameSlots[slotNumber].income / 50}}</span>
+        <span>{{allGameSlots[slotNumber].income / 2 | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
