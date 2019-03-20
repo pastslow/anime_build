@@ -3,7 +3,7 @@
   <div class="shop-item-container">
 
     <div>
-      <img class="shop-left-img" src="assets/icons/{{bottomDataValues[btnPressed].primaryIcon}}.png" alt="">
+      <img class="shop-left-img" src="assets/ICONS/{{bottomDataValues[btnPressed].primaryIcon}}.PNG" alt="">
     </div>
 
     <span #title>{{bottomDataValues[btnPressed].title}}</span>
@@ -19,7 +19,7 @@
       </div>
 
       <div class="materials-img-container shop-img">
-        <img class="shop-bar-img" src="assets/icons/{{bottomDataValues[btnPressed].secondaryIcon}}.png" alt="">
+        <img class="shop-bar-img" src="assets/ICONS/{{bottomDataValues[btnPressed].secondaryIcon}}.PNG" alt="">
       </div>
 
     </div>
@@ -34,7 +34,7 @@
          'disabled-btn':isDisabled
         }">
         <img #shopId data-slot="{{pack.id}}"
-          src="assets/icons/{{bottomDataValues[btnPressed].folderIcons}}/{{pack.icon}}.png" alt="">
+          src="assets/ICONS/{{bottomDataValues[btnPressed].folderIcons}}/{{pack.icon}}.PNG" alt="">
         <div>
           <span>Cost:</span>
           <span>{{pack.cost - (pack.cost * (bottomValues.appeal / 10)) / 100}}</span>

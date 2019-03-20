@@ -12,7 +12,7 @@
     font-size: 20px;
     margin: 1px;
     color: white;
-    background: url(src/assets/bg/bg_c.png);
+    background: url(src/assets/BG/BG_C.PNG);
     cursor: pointer;
 }
 
@@ -39,7 +39,7 @@
     height: 25px;
     margin-left: 10px;
     animation: activeCurse 5s infinite;
-    background-image: url(src/assets/icons/BONUS/CURSE.PNG);
+    background-image: url(src/assets/ICONS/BONUS/CURSE.PNG);
     background-size: contain;
 }
 
@@ -54,7 +54,7 @@
     25%{transform:rotate(30deg) }
     50%{transform:rotate(60deg) }
     75%{transform:rotate(90deg) }
-    100%{transform:rotate(120deg); background-image: url(src/assets/icons/BONUS/CURSE_RED.PNG) }
+    100%{transform:rotate(120deg); background-image: url(src/assets/ICONS/BONUS/CURSE_RED.PNG) }
 }
 
 @media only screen and (max-width: 992px){

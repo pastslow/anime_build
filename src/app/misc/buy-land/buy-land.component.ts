@@ -44,7 +44,7 @@ export class BuyLandComponent implements OnInit {
     let landCost = (this.gameData.landCost - this.gameData.appeal * 50);
 
     if (this.gameData.money < landCost) {
-      this._logicService.displayError("You don't have enough money!")
+      this._logicService.displayError("You don't have enough money!");
       this.isModalClosed = true;
       return;
     }

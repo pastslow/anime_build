@@ -9,14 +9,14 @@
 }
 
 .bg-money {
-    background: url(src/assets/icons/MONEY_BOTTOM/MONEY.PNG);
+    background: url(src/assets/ICONS/MONEY_BOTTOM/MONEY.PNG);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .bg-materials {
-    background: url(src/assets/icons/MATERIALS_BOTTOM/MATERIALS.PNG);
+    background: url(src/assets/ICONS/MATERIALS_BOTTOM/MATERIALS.PNG);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
@@ -24,14 +24,14 @@
 }
 
 .bg-workers {
-    background: url(src/assets/icons/WORKERS_BOTTOM/WORKERS.PNG);
+    background: url(src/assets/ICONS/WORKERS_BOTTOM/WORKERS.PNG);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 .bg-techs {
-    background: url(src/assets/icons/TECHS_BOTTOM/TECHS.PNG);
+    background: url(src/assets/ICONS/TECHS_BOTTOM/TECHS.PNG);
     background-size: contain;
     background-repeat: no-repeat;
     background-position: center;

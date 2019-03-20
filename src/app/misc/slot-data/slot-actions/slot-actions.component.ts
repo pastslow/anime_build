@@ -27,27 +27,27 @@ export class SlotActionsComponent implements OnInit {
   public slotActions = [
     {
       name: "House",
-      icon: "construct_house",
+      icon: "CONSTRUCT_HOUSE",
       btnMethod: () => this.constructBuilding("Houses")
     },
     {
       name: "Building",
-      icon: "construct_building",
+      icon: "CONSTRUCT_BUILDING",
       btnMethod: () => this.constructBuilding("Buildings")
     },
     {
       name: "Shop",
-      icon: "construct_shop",
+      icon: "CONSTRUCT_SHOP",
       btnMethod: () => this.constructBuilding("Shops")
     },
     {
       name: "Mark",
-      icon: "construct_mark",
+      icon: "CONSTRUCT_MARK",
       btnMethod: () => this.constructBuilding("Marks")
     },
     {
       name: "Service",
-      icon: "construct_service",
+      icon: "CONSTRUCT_SERVICE",
       btnMethod: () => this.constructBuilding("Services")
     },
   ]

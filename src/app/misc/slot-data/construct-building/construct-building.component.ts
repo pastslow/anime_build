@@ -10,6 +10,7 @@ import { construct, power_off } from '../../const';
 export class ConstructBuildingComponent implements OnChanges {
 
   @Input() public btnPressed;
+
   @Output() public getBack = new EventEmitter();
 
   getBackToMenu() {
@@ -75,7 +76,8 @@ export class ConstructBuildingComponent implements OnChanges {
 
       this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
       gameObject.appeal = requireObject.buildAppeal;
-
+      gameObject.appealImg = requireObject.buildAppealImg;
+      
       gameObject.energy = 0;
       gameObject.maxEnergy = requireObject.buildEnergy;
       gameObject.buildingType = "producer";
@@ -89,6 +91,7 @@ export class ConstructBuildingComponent implements OnChanges {
         this.gameData.appeal + requireObject.buildAppeal);
 
       gameObject.appeal = requireObject.buildAppeal;
+      gameObject.appealImg = requireObject.buildAppealImg;
 
       this.gameData.energy = (
         this.gameData.energy + requireObject.buildEnergy - bonusEnergyProcent);
@@ -180,6 +183,7 @@ export class ConstructBuildingComponent implements OnChanges {
       buildEnergy: building.energy,
       buildIncome: building.income,
       buildImg: building.buildingId,
+      buildAppealImg: building.appealImg,
       buildType: building.buildingType,
       buildAppeal: building.appeal
     }

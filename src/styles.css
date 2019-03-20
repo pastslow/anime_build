@@ -6,7 +6,7 @@
 }
 
 body {
-    background: url(src/assets/bg/MAIN.PNG);
+    background: url(src/assets/BG/MAIN.PNG);
     background-size: auto;
     background-repeat: repeat;
 }
@@ -66,7 +66,7 @@ body {
 }
 
 .modal-body, .modal-header, .modal-footer {
-    background: url(src/assets/bg/bg_c.png);
+    background: url(src/assets/BG/BG_C.PNG);
     color: white;
 }
 

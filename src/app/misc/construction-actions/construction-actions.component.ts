@@ -138,6 +138,7 @@ export class ConstructionActionsComponent implements OnInit {
     slot.energyUpdateImg = "UPGRADE/NOUPDATE";
     slot.starUpdateImg = "UPGRADE/NOUPDATE";
     slot.repairImg = "UPGRADE/NOUPDATE";
+    slot.appealImg = "UPGRADE/NOUPDATE";
     slot.needRepair = false;
     slot.buildingType = "consumer";
   }

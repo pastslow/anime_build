@@ -4,12 +4,12 @@
     <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, slotImg)"
       *ngFor="let slot of topSlots" class="house">
       <img #slotImg data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
-        src="assets/buildings/{{slot.img}}.PNG" />
+        src="assets/BUILDINGS/{{slot.img}}.PNG" />
 
       <div class="slot-update top-8">
         <div class="update-container">
           <div>
-            <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
+            <img class="slot-update-img" src="assets/ICONS/{{slot.starUpdateImg}}.PNG" alt="">
           </div>
         </div>
       </div>
@@ -17,7 +17,7 @@
       <div class="slot-update top-88">
         <div class="update-container">
           <div>
-            <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
+            <img class="slot-update-img" src="assets/ICONS/{{slot.energyUpdateImg}}.PNG" alt="">
           </div>
         </div>
       </div>
@@ -25,10 +25,19 @@
       <div class="slot-update top-40">
         <div class="update-container justifty-left">
           <div>
-            <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
+            <img class="slot-repair-img" src="assets/ICONS/{{slot.repairImg}}.PNG" alt="">
           </div>
         </div>
       </div>
+
+      <div class="slot-update top-26">
+        <div class="update-container">
+          <div class="left-auto">
+            <img class="img-appeal" src="assets/ICONS/{{slot.appealImg}}.PNG" alt="">
+          </div>
+        </div>
+      </div>
+
     </div>
 
   </div>
@@ -37,68 +46,80 @@
     <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, midSlot)"
       *ngFor="let slot of midSlots" class="house">
       <img #midSlot data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
-        src="assets/buildings/{{slot.img}}.PNG" />
+        src="assets/BUILDINGS/{{slot.img}}.PNG" />
 
-        <div class="slot-update top-8">
-          <div class="update-container" >
-            <div>
-              <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
-            </div>
+      <div class="slot-update top-8">
+        <div class="update-container">
+          <div>
+            <img class="slot-update-img" src="assets/ICONS/{{slot.starUpdateImg}}.PNG" alt="">
           </div>
         </div>
+      </div>
 
-        <div class="slot-update top-88">
-          <div class="update-container">
-            <div>
-              <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
-            </div>
+      <div class="slot-update top-88">
+        <div class="update-container">
+          <div>
+            <img class="slot-update-img" src="assets/ICONS/{{slot.energyUpdateImg}}.PNG" alt="">
           </div>
         </div>
+      </div>
 
-        <div class="slot-update top-40">
-          <div class="update-container justifty-left">
-            <div>
-              <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
-            </div>
+      <div class="slot-update top-40">
+        <div class="update-container justifty-left">
+          <div>
+            <img class="slot-repair-img" src="assets/ICONS/{{slot.repairImg}}.PNG" alt="">
           </div>
         </div>
+      </div>
+
+      <div class="slot-update top-26">
+        <div class="update-container">
+          <div class="left-auto">
+            <img class="img-appeal" src="assets/ICONS/{{slot.appealImg}}.PNG" alt="">
+          </div>
+        </div>
+      </div>
 
     </div>
-
-
-
-
   </div>
 
   <div class="bottom-slots container-slots">
     <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, botSlot)"
       *ngFor="let slot of bottomSlots" class="house">
       <img #botSlot data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
-        src="assets/buildings/{{slot.img}}.PNG" />
+        src="assets/BUILDINGS/{{slot.img}}.PNG" />
 
-        <div class="slot-update top-8">
-          <div class="update-container">
-            <div>
-              <img class="slot-update-img" src="assets/icons/{{slot.starUpdateImg}}.PNG" alt="">
-            </div>
+      <div class="slot-update top-8">
+        <div class="update-container">
+          <div>
+            <img class="slot-update-img" src="assets/ICONS/{{slot.starUpdateImg}}.PNG" alt="">
           </div>
         </div>
+      </div>
 
-        <div class="slot-update top-88">
-          <div class="update-container">
-            <div>
-              <img class="slot-update-img" src="assets/icons/{{slot.energyUpdateImg}}.PNG" alt="">
-            </div>
+      <div class="slot-update top-88">
+        <div class="update-container">
+          <div>
+            <img class="slot-update-img" src="assets/ICONS/{{slot.energyUpdateImg}}.PNG" alt="">
           </div>
         </div>
+      </div>
 
-        <div class="slot-update top-40">
-          <div class="update-container justifty-left">
-            <div>
-              <img class="slot-repair-img" src="assets/icons/{{slot.repairImg}}.PNG" alt="">
-            </div>
+      <div class="slot-update top-40">
+        <div class="update-container justifty-left">
+          <div>
+            <img class="slot-repair-img" src="assets/ICONS/{{slot.repairImg}}.PNG" alt="">
           </div>
         </div>
+      </div>
+
+      <div class="slot-update top-26">
+        <div class="update-container">
+          <div class="left-auto">
+            <img class="img-appeal" src="assets/ICONS/{{slot.appealImg}}.PNG" alt="">
+          </div>
+        </div>
+      </div>
 
     </div>
 
@@ -114,7 +135,7 @@
       <div class="modal-header">
 
         <div class="house">
-          <img #modalImg class="img-slot" src="assets/buildings/HOUSE0/NONE0.PNG" />
+          <img #modalImg class="img-slot" src="assets/BUILDINGS/HOUSE0/NONE0.PNG" />
         </div>
 
         <app-land-bought *ngIf="isLandBought" class="slot-description"></app-land-bought>

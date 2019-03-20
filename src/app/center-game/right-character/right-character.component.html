@@ -7,12 +7,12 @@
   </div>
 
   <div>
-    <img class="character-img" src="assets/characters/{{characters[characterSelected].img}}.png" alt="">
+    <img class="character-img" src="assets/CHARACTERS/{{characters[characterSelected].img}}.PNG" alt="">
   </div>
 
   <div>
     <div *ngFor="let bonus of characters[characterSelected].bonuses">
-      <img class="icon-bonus" src="assets/icons/{{bonus.bonusImg}}.PNG" alt="">
+      <img class="icon-bonus" src="assets/ICONS/{{bonus.bonusImg}}.PNG" alt="">
       <span [style.color]="bonus.color"> {{bonus.value}}</span>
       <span [style.color]="bonus.color">{{bonus.procent}}</span>
     </div>
@@ -28,7 +28,7 @@
       <!-------------------------- Modal Header ------------------------------>
       <div class="modal-header">
         <div>
-          <img class="character-img-modal" src="assets/characters/{{characters[characterSelected].img}}.png" alt="">
+          <img class="character-img-modal" src="assets/CHARACTERS/{{characters[characterSelected].img}}.PNG" alt="">
         </div>
         <div class="character-details">
           <div class="name-container">
@@ -46,7 +46,7 @@
       <div class="modal-body">
         <div *ngFor="let bonus of characters[characterSelected].bonuses">
           <span [style.color]="bonus.color">{{bonus.description}}</span>
-          <img class="icon-bonus" src="assets/icons/{{bonus.bonusImg}}.PNG" alt="">
+          <img class="icon-bonus" src="assets/ICONS/{{bonus.bonusImg}}.PNG" alt="">
           <span [style.color]="bonus.color">{{bonus.value}}</span>
           <span [style.color]="bonus.color">{{bonus.procent}}</span>
         </div>

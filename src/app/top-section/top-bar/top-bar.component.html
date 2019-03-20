@@ -11,7 +11,7 @@
   
       <div class="info-container">
   
-        <img class="icon" src="assets/icons/WATCH07.PNG" alt="">
+        <img class="icon" src="assets/ICONS/WATCH07.PNG" alt="">
         <div class="appeal blue-bg-bar"> 
           <span>10:00:00</span>
         </div>
@@ -25,7 +25,7 @@
       </div>
   
       <div class="info-container">
-        <img class="icon" src="assets/icons/power.png" alt="">
+        <img class="icon" src="assets/ICONS/POWER.PNG" alt="">
         <div class="energy-border">
           <span #eng>{{topBarData.energy}}</span>
           <span>/</span>
@@ -44,8 +44,8 @@
       </div>
   
       <div class="info-container">
-        <img *ngIf="!isAppealPositive" class="icon" src="assets/icons/SAD.PNG" alt="">
-        <img *ngIf="isAppealPositive" class="icon" src="assets/icons/HAPPY.PNG" alt="">
+        <img *ngIf="!isAppealPositive" class="icon" src="assets/ICONS/BONUS/SAD.PNG" alt="">
+        <img *ngIf="isAppealPositive" class="icon" src="assets/ICONS/BONUS/HAPPY.PNG" alt="">
         <div [ngClass]="{
           'appeal':defaultClass,
            'green-bg-bar':isAppealPositive,
@@ -64,7 +64,7 @@
   
       <div class="info-container">
   
-        <img class="icon" src="assets/icons/score.png" alt="">
+        <img class="icon" src="assets/ICONS/SCORE.PNG" alt="">
         <div class="appeal red-bg-bar">
           <span>{{topBarData.score | number:'1.0-0'}}</span>
         </div>
@@ -79,7 +79,7 @@
       </div>
   
       <div class="info-container">
-        <img class="icon" src="assets/icons/GOALS09.PNG" alt="">
+        <img class="icon" src="assets/ICONS/GOALS09.PNG" alt="">
         <div class="appeal yellow-bg-bar">
           <span>{{topBarData.goal | currency}}</span>
         </div>

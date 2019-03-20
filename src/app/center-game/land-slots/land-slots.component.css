@@ -57,6 +57,10 @@
     top: 40%;
 }
 
+.top-26 {
+    top: 26%;
+}
+
 .update-container {
     height: 1px;
     max-width: 146px;
@@ -78,6 +82,14 @@
     justify-content: left;
 }
 
+.img-appeal {
+    width: 45px;
+}
+
+.left-auto {
+    margin-left: auto;
+}
+
 @media only screen and (max-width:991px){
     .house {
         max-width: 115px;
@@ -97,6 +109,10 @@
     
     .bottom-slots {
         top: 63%;
+    }
+
+    .img-appeal {
+        width: 40px;
     }
 
 }
@@ -129,6 +145,10 @@
 
     .slot-repair-img {
         width: 16px;
+    }
+
+    .img-appeal {
+        width: 35px;
     }
 }
 
