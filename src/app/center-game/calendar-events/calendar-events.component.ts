@@ -180,7 +180,7 @@ export class CalendarEventsComponent implements OnInit {
     {
       name: "Orochimaru",
       img: "OROCHIMARU",
-      description: `This visitaor has cast a curse on you that
+      description: `This visitator has cast a curse on you that
        make you see different, this is why all new construction
         will produce less income and use greater energy.
       `,
