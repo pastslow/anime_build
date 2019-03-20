@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { JsonPipe } from '@angular/common';
-import {btnClick}from '../../misc/const';
+import { btnClick } from '../../misc/const';
 
 @Component({
   selector: 'app-bottom-bar',
@@ -29,6 +29,7 @@ export class BottomBarComponent implements OnInit {
   public gameCharacters;
 
   public allGameSlots;
+  public gameTime;
 
   constructor(private _logicService: LogicService) {
     this._logicService.cast.subscribe(
@@ -50,6 +51,9 @@ export class BottomBarComponent implements OnInit {
 
     this._logicService.castCharacters.subscribe(
       gameCharacters => this.gameCharacters = gameCharacters);
+
+    this._logicService.castGameTime.subscribe(
+      stopWatchObj => this.gameTime = stopWatchObj);
   }
 
   ngOnInit() {
@@ -100,19 +104,19 @@ export class BottomBarComponent implements OnInit {
   saveValidation(condition) {
     let conditionState = (
       this.allGameSlots.find(elem => elem.condition == condition));
-    if (conditionState !== undefined){
+    if (conditionState !== undefined) {
       return true;
     }
   }
 
   saveGame() {
-    if(this.saveValidation("underDemolishing") === true){
+    if (this.saveValidation("underDemolishing") === true) {
       return;
     }
-    if(this.saveValidation("underConstruction") === true){
+    if (this.saveValidation("underConstruction") === true) {
       return;
     }
-    
+
     let gameData = JSON.stringify(this.bottomValues);
     localStorage.setItem("GAMEDATA", gameData);
 
@@ -130,6 +134,9 @@ export class BottomBarComponent implements OnInit {
 
     let characters = JSON.stringify(this.gameCharacters);
     localStorage.setItem("CHARACTERS", characters);
+
+    let gameTimes = JSON.stringify(this.gameTime);
+    localStorage.setItem("GAMETIME", gameTimes);
 
     this.isGameSaving = true;
     setTimeout(() => {

@@ -17,6 +17,7 @@ export class StartDataComponent implements OnInit {
   public bottomSlots;
   public characterSelectedId;
   public gameCharacters;
+  public gameTime;
 
   constructor(private _logicService: LogicService) {
     this._logicService.castDisplayState.subscribe(
@@ -39,6 +40,9 @@ export class StartDataComponent implements OnInit {
 
     this._logicService.castCharacters.subscribe(
       gameCharacters => this.gameCharacters = gameCharacters);
+
+      this._logicService.castGameTime.subscribe(
+        stopWatchObj => this.gameTime = stopWatchObj);
   }
 
   ngOnInit() {
@@ -77,6 +81,9 @@ export class StartDataComponent implements OnInit {
 
     let characterId = JSON.parse(localStorage.getItem("CHARID"));
     this._logicService.getSelectedCharacterId(parseInt(characterId));
+
+    let gameTimes = JSON.parse(localStorage.getItem("GAMETIME"));
+    this._logicService.getStopWatchTime(gameTimes);
 
     let bonusIncome = this.gameCharacters[characterId].bonuses.find(
       elem => elem.name == "Gold");

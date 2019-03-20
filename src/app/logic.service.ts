@@ -8,6 +8,20 @@ import { $ } from 'protractor';
 export class LogicService {
 
   constructor() { }
+  //------------------------------- Stopwatch -------------------------------//
+  public gameTime = {
+    seconds:0,
+    minutes:0,
+    hours:0
+  }
+
+  private stopWatchObj = new BehaviorSubject<object>(this.gameTime);
+  castGameTime = this.stopWatchObj.asObservable();
+
+  getStopWatchTime(newObj){
+    this.stopWatchObj.next(newObj);
+  }
+  //---------------------------- Stopwatch end ------------------------------//
 
   public displayState = {
     isMenuDisplayed: true,
@@ -21,6 +35,7 @@ export class LogicService {
     this.displayStateObj.next(newObj);
   }
 
+  //---------------------------- Pop Up Error ------------------------------ //
   public popUpError = {
     isPopUpDisplayed: false,
     popUpMessage: ""
@@ -45,8 +60,9 @@ export class LogicService {
   hideError() {
     this.popUpError.isPopUpDisplayed = false;
   }
+  //------------------------- End of Pop Up Error -------------------------- //
 
-  //===========================SelectedCharacterId===========================//
+  //--------------------- User selected character id ----------------------- //
   public selectedCharacterId = 0;
 
   private characterId = new BehaviorSubject<number>(this.selectedCharacterId);
@@ -55,7 +71,8 @@ export class LogicService {
   getSelectedCharacterId(newId) {
     this.characterId.next(newId);
   }
-  //=========================================================================//
+  //----------------- End of user selected character id ---------------------//
+
 
   public currentSlotId = 0;
 
