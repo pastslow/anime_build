@@ -26,18 +26,18 @@
   </div>
 
   <div>
-    <div class="d-flex">
+    <div class="container-shop">
 
       <button [disabled]="isDisabled" (click)="buyItems(title.innerText, shopId)"
         *ngFor="let pack of bottomDataValues[btnPressed].shopItems" [ngClass]="{
          'shop-items':defaultClass,
          'disabled-btn':isDisabled
         }">
-        <img #shopId data-slot="{{pack.id}}"
+        <img #shopId data-slot="{{pack.id}}" class="shop-product"
           src="assets/ICONS/{{bottomDataValues[btnPressed].folderIcons}}/{{pack.icon}}.PNG" alt="">
         <div>
           <span>Cost:</span>
-          <span>{{pack.cost - (pack.cost * (bottomValues.appeal / 10)) / 100}}</span>
+          <span>{{pack.cost - (pack.cost * (bottomValues.appeal / 10)) / 100 | number:"1.0-0"}}</span>
         </div>
         <div>
           <span>Packs:</span>

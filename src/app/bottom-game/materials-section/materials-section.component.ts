@@ -43,15 +43,15 @@ export class MaterialsSectionComponent implements OnInit {
     let selectedItem = slotObject.shopItems.find(elem => elem.id == slotId);
     let newPack = selectedItem.number;
 
-    if (selectedItem.cost > this.bottomValues.money) {
+    let selectedPackCost =(selectedItem.cost - (selectedItem.cost * 
+      (this.bottomValues.appeal / 10)) / 100);
+
+    if (selectedPackCost > this.bottomValues.money) {
       this._logicService.displayError(" You don't have enough money!");
       return;
     }
-
     // Actualizing money
-    let newMoney = this.bottomValues.money - (selectedItem.cost - (
-      selectedItem.cost * (this.bottomValues.appeal / 10)) / 100);
-    this.bottomValues.money = newMoney;
+    this.bottomValues.money = this.bottomValues.money  - selectedPackCost;
 
     // Produce the change on the observable object
     this._logicService.changeObject(this.bottomValues);

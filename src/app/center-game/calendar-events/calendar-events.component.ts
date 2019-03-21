@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
-import { ambient, sasuke, kakashi, itachi, kaneki, akatsuki,
-   kaguya, madara, mikasa, orochimaru, tsunade } from '../../misc/const';
+import {
+  ambient, sasuke, kakashi, itachi, kaneki, akatsuki,
+  kaguya, madara, mikasa, orochimaru, tsunade
+} from '../../misc/const';
 
 @Component({
   selector: 'app-calendar-events',
@@ -22,6 +24,8 @@ export class CalendarEventsComponent implements OnInit {
   public gameCharacters;
 
   public allGameSlots;
+
+  public gameTime;
 
   public calendarEvents = [
     {
@@ -68,7 +72,7 @@ export class CalendarEventsComponent implements OnInit {
       name: "Kakashi",
       img: "KAKASHI",
       description: `I'm one of Konoha's most talented person
-      and I will help you to buy more materials at the same price.`,
+      and this is why I brought you some materials.`,
       bonuses: [
         {
           img: "MATERIALS",
@@ -230,6 +234,9 @@ export class CalendarEventsComponent implements OnInit {
 
     this._logicService.castCharacterId.subscribe(
       characterId => this.characterSelectedId = characterId);
+
+    this._logicService.castGameTime.subscribe(
+      stopWatchObj => this.gameTime = stopWatchObj);
   }
 
   ngOnInit() {
@@ -303,7 +310,7 @@ export class CalendarEventsComponent implements OnInit {
 
     this.gameData.bonusIncome = this.gameData.bonusIncome + cureValue;
     this.gameData.reduceEnergyConsumption = (
-    this.gameData.reduceEnergyConsumption + cureValue);
+      this.gameData.reduceEnergyConsumption + cureValue);
   }
 
   breakSomethingInConstruction() {
@@ -336,13 +343,37 @@ export class CalendarEventsComponent implements OnInit {
     }
 
   }
-
+  changeNumberOfEventByName(eventName) {
+    this.eventNumber = this.calendarEvents.findIndex(
+      elem => elem.name === eventName);
+  }
   changeEvent() {
 
     setInterval(() => {
       let event = Math.floor(Math.random() * this.calendarEvents.length);
       this.eventNumber = event;
       let eventName = this.calendarEvents[event].name;
+
+      if (this.gameTime.minutes < 15 && (eventName === "Orochimaru" ||
+        eventName === "Tsunade")) {
+        eventName = "Mikasa";
+        this.changeNumberOfEventByName("Mikasa");
+      }
+
+      if (this.gameData.appeal < -100 && eventName === "Mikasa") {
+        eventName = "Orochimaru";
+        this.changeNumberOfEventByName("Orochimaru");
+      }
+
+      if (this.gameData.appeal < -200 && eventName === "Kakashi") {
+        eventName = "Madara";
+        this.changeNumberOfEventByName("Madara");
+      }
+
+      if (this.gameData.appeal < -250 && eventName === "No visitator") {
+        eventName = "Akatsuki";
+        this.changeNumberOfEventByName("Akatsuki");
+      }
 
       this.currentVisitatorBonus(eventName);
 

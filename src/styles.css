@@ -50,14 +50,16 @@ body {
 .bottom-shop-data {
     display: flex;
     justify-content: space-around;
+    align-items: center;
 }
 
 .shop-items {
     text-align: center;
-    font-size: 14px;
+    font-size: 13px;
     background: transparent;
     color: white;
     border: 0px;
+    margin: 3px;
 }
 
 .shop-items:hover {

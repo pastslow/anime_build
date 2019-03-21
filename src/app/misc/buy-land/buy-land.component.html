@@ -8,7 +8,7 @@
   <div class="text-center">
     <span>You can buy this land for: </span>
     <br />
-    <span #landPrice>{{gameData.landCost - gameData.appeal*50}}</span>
+    <span #landPrice>{{gameData.landCost - gameData.appeal*100 | number:'1.0-0'}}</span>
     <span>$</span>
   </div>
 

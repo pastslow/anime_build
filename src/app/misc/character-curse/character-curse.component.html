@@ -2,10 +2,10 @@
   <div class="text-container">
     <span>Do you want to get rid of the curse for </span>
     <img class="cursed-img" src="assets/ICONS/BONUS/MONEY.PNG" alt="">
-    <span>{{gameData.money}} </span>
+    <span>{{gameData.money | number:"1.0-0"}} </span>
     <span>and </span>
     <img class="cursed-img" src="assets/ICONS/BONUS/MATERIALS.PNG" alt="">
-    <span>{{gameData.materials}}</span>
+    <span>{{gameData.materials | number:"1.0-0"}}</span>
     <span> ?</span>
   </div>
   <div class="text-center">
