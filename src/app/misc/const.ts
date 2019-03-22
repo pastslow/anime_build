@@ -80,24 +80,6 @@ const tsunade = new Howl({
     volume: 1
 });
 
-export{btnClick};
-export{construct};
-export{demolish};
-export{power_off};
-export{power_on};
-export{ambient};
-export{sasuke};
-export{kakashi};
-export{itachi};
-export{kaneki};
-export{akatsuki};
-export{kaguya};
-export{madara};
-export{mikasa};
-export{orochimaru};
-export{tsunade};
-
-
 const erzaSounds = new Howl({
     src: ['assets/AUDIO/ERZA_SOUNDS.MP3'],
     sprite: {
@@ -134,9 +116,25 @@ const erzaSounds = new Howl({
     }
   });
 
-  export {erzaSounds};
-  export {natsuSounds};
-  export {lucySounds};
-  export {graySounds};
+export{btnClick};
+export{construct};
+export{demolish};
+export{power_off};
+export{power_on};
+export{ambient};
+export{sasuke};
+export{kakashi};
+export{itachi};
+export{kaneki};
+export{akatsuki};
+export{kaguya};
+export{madara};
+export{mikasa};
+export{orochimaru};
+export{tsunade};
+export {erzaSounds};
+export {natsuSounds};
+export {lucySounds};
+export {graySounds};
 
 

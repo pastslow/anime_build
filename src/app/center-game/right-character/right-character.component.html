@@ -33,6 +33,9 @@
         <div class="character-details">
           <div class="name-container">
             <span>{{characters[characterSelected].name}}</span>
+            <span *ngIf="characters[characterSelected].cursed" class="cursed-name"> (CURSED)</span>
+            <div *ngIf="characters[characterSelected].cursed" class="cursed-img">
+            </div>
           </div>
 
           <div>

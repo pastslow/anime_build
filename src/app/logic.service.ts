@@ -134,21 +134,21 @@ export class LogicService {
         shopItems: [
           {
             name: "few materials",
-            icon: 'MATERIAL_01',
+            icon: 'MATERIAL_00',
             cost: 5000,
             number: 100,
             id: 1
           },
           {
             name: "medium pack of materials",
-            icon: 'MATERIAL_02',
+            icon: 'MATERIAL_01',
             cost: 24000,
             number: 500,
             id: 2
           },
           {
             name: "huge pack of materials",
-            icon: 'MATERIAL_03',
+            icon: 'MATERIAL_02',
             cost: 48000,
             number: 1000,
             id: 3
@@ -156,28 +156,28 @@ export class LogicService {
           {
             name: "huge pack of materials",
             icon: 'MATERIAL_03',
-            cost: 110000,
+            cost: 118000,
             number: 2500,
             id: 4
           },
           {
             name: "huge pack of materials",
-            icon: 'MATERIAL_03',
-            cost: 210000,
+            icon: 'MATERIAL_04',
+            cost: 235000,
             number: 5000,
             id: 5
           },
           {
             name: "huge pack of materials",
-            icon: 'MATERIAL_03',
-            cost: 400000,
+            icon: 'MATERIAL_05',
+            cost: 460000,
             number: 10000,
             id: 6
           },
           {
             name: "huge pack of materials",
-            icon: 'MATERIAL_03',
-            cost: 750000,
+            icon: 'MATERIAL_06',
+            cost: 910000,
             number: 20000,
             id: 7
           },
@@ -624,14 +624,14 @@ export class LogicService {
           bonusImg: "BONUS/INCOME",
           value: 10,
           color: "green",
-          description: "Construction income ",
+          description: "New constructions income ",
           procent: "%"
         },
         {
           name: "Power",
           bonusImg: "BONUS/POWER",
           color: "red",
-          description: "Construction energy consumption ",
+          description: "New constructions energy consumption ",
           value: -10,
           procent: "%"
         },
@@ -660,7 +660,7 @@ export class LogicService {
           name: "Gold",
           bonusImg: "BONUS/INCOME",
           color: "green",
-          description: "Construction income ",
+          description: "New constructions income ",
           value: 5,
           procent: "%"
         },
@@ -668,7 +668,7 @@ export class LogicService {
           name: "Power",
           bonusImg: "BONUS/POWER",
           color: "green",
-          description: "Construction energy consumption ",
+          description: "New constructions energy consumption ",
           value: 5,
           procent: "%"
         },
@@ -677,7 +677,7 @@ export class LogicService {
           bonusImg: "BONUS/RESOURCE",
           color: "red",
           description: "Materials/Workers/Engineers ",
-          value: -5,
+          value: -10,
           procent: "%"
         },
       ]
@@ -697,7 +697,7 @@ export class LogicService {
           name: "Gold",
           bonusImg: "BONUS/INCOME",
           color: "green",
-          description: "Construction income ",
+          description: "New constructions income ",
           value: 5,
           procent: "%"
         },
@@ -705,7 +705,7 @@ export class LogicService {
           name: "Power",
           bonusImg: "BONUS/POWER",
           color: "red",
-          description: "Construction energy consumption ",
+          description: "New constructions energy consumption ",
           value: -10,
           procent: "%"
         },
@@ -734,7 +734,7 @@ export class LogicService {
           name: "Gold",
           bonusImg: "BONUS/INCOME",
           color: "red",
-          description: "Construction income ",
+          description: "New constructions income ",
           value: -5,
           procent: "%"
         },
@@ -742,7 +742,7 @@ export class LogicService {
           name: "Power",
           bonusImg: "BONUS/POWER",
           color: "red",
-          description: "Construction energy consumption ",
+          description: "New constructions energy consumption ",
           value: -10,
           procent: "%"
         },
