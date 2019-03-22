@@ -405,7 +405,7 @@ export class LogicService {
           {
             name: "Condo",
             icon: "HOUSE_04",
-            cost: 240000,
+            cost: 24000,
             workers: 6,
             materials: 800,
             energy: 220,
@@ -611,8 +611,9 @@ export class LogicService {
     {
       name: "Natsu",
       img: 'NATSU',
-      id: 0,
       cursed:false,
+      id: 0,
+      audio:["NATSU_01","NATSU_02","NATSU_03"],
       info: `
       Using my power you will obtain less materials, workers and engineers
       but you will construct buildings which produce
@@ -649,6 +650,7 @@ export class LogicService {
       img: 'LUCY',
       cursed:false,
       id: 1,
+      audio:["LUCY_01","LUCY_02","LUCY_03"],
       info: `
       Using my power you will obtain less materials, workers and engineers
       but you will construct buildings which produce greater income
@@ -685,6 +687,7 @@ export class LogicService {
       img: 'GRAY',
       cursed:false,
       id: 2,
+      audio:["GRAY_01","GRAY_02","GRAY_03"],
       info: `
       Using my power you will obtain more materials, workers and engineers
       and all new construction will produce greater income
@@ -721,6 +724,7 @@ export class LogicService {
       img: 'ERZA',
       cursed:false,
       id: 3,
+      audio:["ERZA_01","ERZA_02","ERZA_03"],
       info: `
       Using my power you will obtain more materials, workers and engineers,
       but you will construct buildings which produce less income

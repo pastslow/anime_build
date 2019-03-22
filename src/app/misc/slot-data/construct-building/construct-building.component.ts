@@ -194,7 +194,7 @@ export class ConstructBuildingComponent implements OnChanges {
     if (this.buildValidation(requireObject) === true) {
       return;
     }
-
+    construct.stop();
     construct.play();
     // degresse resource
     this.gameData.money = this.gameData.money - requireObject.buildCost;

@@ -98,5 +98,45 @@ export{orochimaru};
 export{tsunade};
 
 
+const erzaSounds = new Howl({
+    src: ['assets/AUDIO/ERZA_SOUNDS.MP3'],
+    sprite: {
+      ERZA_01: [0, 1000],
+      ERZA_02: [1000, 3000],
+      ERZA_03: [4000, 6000],
+    }
+  });
+
+  const natsuSounds = new Howl({
+    src: ['assets/AUDIO/NATSU_SOUNDS.MP3'],
+    sprite: {
+      NATSU_01: [0, 1000],
+      NATSU_02: [1000, 1700],
+      NATSU_03: [2000, 5000],
+    }
+  });
+
+  const lucySounds = new Howl({
+    src: ['assets/AUDIO/LUCY_SOUNDS.MP3'],
+    sprite: {
+      LUCY_01: [0, 1700],
+      LUCY_02: [2000, 2800],
+      LUCY_03: [4000, 7000],
+    }
+  });
+
+  const graySounds = new Howl({
+    src: ['assets/AUDIO/GRAY_SOUNDS.MP3'],
+    sprite: {
+      GRAY_01: [0, 1000],
+      GRAY_02: [1000, 1020],
+      GRAY_03: [2000, 4000],
+    }
+  });
+
+  export {erzaSounds};
+  export {natsuSounds};
+  export {lucySounds};
+  export {graySounds};
 
 
