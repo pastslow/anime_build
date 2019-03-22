@@ -9,13 +9,13 @@
         <span>+ 10%</span>
         <br />
         <span>Cost: </span>
-        <span>{{allGameSlots[slotNumber].cost / 2 | number:'1.0-0'}}</span><span>$</span>
+        <span>{{actionCost('cost', 2) | number:'1.0-0'}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>{{allGameSlots[slotNumber].cost / 100 | number:'1.0-0'}}</span>
+        <span>{{actionCost('cost', 100) | number:'1.0-0'}}</span>
         <br />
         <span>Workers: </span>
-        <span>{{(allGameSlots[slotNumber].cost / 4000) | number:'1.0-0'}}</span>
+        <span>{{actionCost('cost', 4000) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
@@ -30,13 +30,13 @@
         <span>10%</span>
         <br />
         <span>Cost: </span>
-        <span>{{allGameSlots[slotNumber].cost / 2 | number:'1.0-0'}}</span><span>$</span>
+        <span>{{actionCost('cost', 2) | number:'1.0-0'}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span >{{allGameSlots[slotNumber].cost / 80 | number:'1.0-0'}}</span>
+        <span>{{actionCost('cost', 80) | number:'1.0-0'}}</span>
         <br />
         <span>Engineers: </span>
-        <span>{{(allGameSlots[slotNumber].cost / 6000) | number:'1.0-0'}}</span>
+        <span>{{actionCost('cost', 6000) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
@@ -48,26 +48,25 @@
       <img src="assets/ICONS/NO_REPAIR.PNG" alt="">
       <div>
         <span>Workers: </span>
-        <span>{{(allGameSlots[slotNumber].income / 300) | number:'1.0-0'}}</span>
+        <span>{{actionCost('income', 300) | number:'1.0-0'}}</span>
         <br />
         <span>Cost: </span>
         <span>{{allGameSlots[slotNumber].income * 10 | number:'1.0-0'}}</span><span>$</span>
         <br />
         <span>Materials: </span>
-        <span>{{allGameSlots[slotNumber].income / 2 | number:'1.0-0'}}</span>
+        <span>{{actionCost('income', 2) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>
 
-  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'"
-    (click)="demolishBuilding()" class="action-data">
+  <button [attr.data-dismiss]="isModalClosed ? 'modal': 'noModal'" (click)="demolishBuilding()" class="action-data">
     <span>Demolish Construction</span>
     <div class="action-info">
       <img src="assets/ICONS/DEMOLISH.PNG" alt="" />
       <div>
         <span>Return Materials: </span>
         <br />
-        <span>{{allGameSlots[slotNumber].cost / 150 | number:'1.0-0'}}</span>
+        <span>{{actionCost('cost', 150) | number:'1.0-0'}}</span>
       </div>
     </div>
   </button>

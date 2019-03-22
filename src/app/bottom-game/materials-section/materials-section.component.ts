@@ -43,7 +43,7 @@ export class MaterialsSectionComponent implements OnInit {
     let selectedItem = slotObject.shopItems.find(elem => elem.id == slotId);
     let newPack = selectedItem.number;
 
-    let selectedPackCost =(selectedItem.cost - (selectedItem.cost * 
+    let selectedPackCost = (selectedItem.cost - (selectedItem.cost *
       (this.bottomValues.appeal / 10)) / 100);
 
     if (selectedPackCost > this.bottomValues.money) {
@@ -51,7 +51,7 @@ export class MaterialsSectionComponent implements OnInit {
       return;
     }
     // Actualizing money
-    this.bottomValues.money = this.bottomValues.money  - selectedPackCost;
+    this.bottomValues.money = this.bottomValues.money - selectedPackCost;
 
     // Produce the change on the observable object
     this._logicService.changeObject(this.bottomValues);
@@ -77,6 +77,18 @@ export class MaterialsSectionComponent implements OnInit {
       this.isDisabled = false;
     }, 2100);
 
+  }
+
+  materialsCost(pack) {
+    let packCost = pack.cost - (
+      pack.cost * (this.bottomValues.appeal / 10)) / 100;
+    return packCost;
+  }
+
+  materialsPcs(pack) {
+    let materialPcs = pack.number + (
+      pack.number * this.bottomValues.bonusGameResources) / 100;
+    return materialPcs;
   }
 
 

@@ -404,5 +404,9 @@ export class ConstructionActionsComponent implements OnInit {
   }
 
 
+  actionCost(cost, number){
+   let actionCost =  this.allGameSlots[this.slotNumber][cost] / number;
+   return actionCost;
+  }
 
 }

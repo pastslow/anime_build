@@ -37,13 +37,12 @@
           </div>
 
           <div>
-            <span>Energy:</span>
-            <span>{{building.energy}}</span>
+            <span>{{buildingEnergy(building)}}</span>
           </div>
 
           <div>
             <span>Income:</span>
-            <span>{{building.income + (building.income * gameData.bonusIncome)/100}}</span>
+            <span>{{buildingIncome(building)}}</span>
           </div>
 
         </div>

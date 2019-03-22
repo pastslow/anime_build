@@ -77,7 +77,7 @@ export class ConstructBuildingComponent implements OnChanges {
       this.gameData.appeal = this.gameData.appeal + requireObject.buildAppeal;
       gameObject.appeal = requireObject.buildAppeal;
       gameObject.appealImg = requireObject.buildAppealImg;
-      
+
       gameObject.energy = 0;
       gameObject.maxEnergy = requireObject.buildEnergy;
       gameObject.buildingType = "producer";
@@ -85,7 +85,7 @@ export class ConstructBuildingComponent implements OnChanges {
     } else {
       let bonusEnergyProcent = (
         (this.gameData.reduceEnergyConsumption *
-        requireObject.buildEnergy) / 100);
+          requireObject.buildEnergy) / 100);
 
       this.gameData.appeal = (
         this.gameData.appeal + requireObject.buildAppeal);
@@ -196,7 +196,7 @@ export class ConstructBuildingComponent implements OnChanges {
     }
     construct.stop();
     construct.play();
-    // degresse resource
+    // decrease resource
     this.gameData.money = this.gameData.money - requireObject.buildCost;
     this.gameData.workers = this.gameData.workers - requireObject.buildWorkers;
     this.gameData.materials = (
@@ -207,6 +207,22 @@ export class ConstructBuildingComponent implements OnChanges {
     this.constructBuildingOverTime(newObj, requireObject);
 
     this.isModalClosed = true;
+  }
+
+  buildingEnergy(building) {
+    if (building.buildingType === "consumer") {
+      let buildEnergy = building.energy -
+        (building.energy * this.gameData.reduceEnergyConsumption) / 100;
+        return "Energy + " +  buildEnergy;
+    } else {
+      return "Total eng + " + building.energy;
+    }
+  }
+
+  buildingIncome(building) {
+    let buildIncome = building.income + (
+      building.income * this.gameData.bonusIncome)/100;
+      return buildIncome;
   }
 
 

@@ -303,7 +303,7 @@ export class CalendarEventsComponent implements OnInit {
     let characterEnergyBonus = (
       selectedCharacter.bonuses.find(
         elem => elem.name === "Power"
-      ))
+      ));
 
     characterIncomeBonus.value = characterIncomeBonus.value + cureValue;
     characterEnergyBonus.value = characterEnergyBonus.value + cureValue;
@@ -429,7 +429,7 @@ export class CalendarEventsComponent implements OnInit {
       return;
     }
     if (visitatorName === "Orochimaru") {
-      orochimaru.play()
+      orochimaru.play();
       this.castCurseOnCharacter(5);
       return;
     }

@@ -92,10 +92,6 @@ export class LogicService {
     this.slotDetails.next(newCondition);
   }
 
-  getHeight() {
-    return window.innerHeight;
-  }
-
   public gameDataValues = {
     money: 50000,
     income: 0,
