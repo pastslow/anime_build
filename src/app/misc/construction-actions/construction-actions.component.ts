@@ -1,6 +1,8 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { demolish, power_on } from '../const';
+import { GameSlotsService } from 'src/app/game-slots.service';
+import { GameBuildingsService } from 'src/app/game-buildings.service';
 
 @Component({
   selector: 'app-construction-actions',
@@ -27,27 +29,29 @@ export class ConstructionActionsComponent implements OnInit {
   public allGameSlots;
 
 
-  constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(
+  constructor(private _logicService: LogicService,
+    private _slotsService:GameSlotsService,
+    private _buildingsService:GameBuildingsService) {
+    this._slotsService.castSlotId.subscribe(
       slotId => this.slotNumber = slotId);
 
-    this._logicService.castTopSlots.subscribe(
+    this._slotsService.castTopSlots.subscribe(
       gameTopSlots => this.topSlots = gameTopSlots);
 
-    this._logicService.castMidSlots.subscribe(
+    this._slotsService.castMidSlots.subscribe(
       gameMidSlots => this.midSlots = gameMidSlots);
 
-    this._logicService.castBottomSlots.subscribe(
+    this._slotsService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
 
     this._logicService.cast.subscribe(
       gameDataValues => this.gameValues = gameDataValues);
 
-    this.slotActions = this._logicService.slotActions();
+    this.slotActions = this._buildingsService.getGameBuildings();
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
 
-    this._logicService.castSlotDetails.subscribe(
+    this._slotsService.castSlotDetails.subscribe(
       slotDetails => this.slotNeedRepair = slotDetails);
   }
 

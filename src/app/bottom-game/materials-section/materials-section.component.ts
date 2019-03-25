@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import { GameShopsService } from 'src/app/game-shops.service';
 
 @Component({
   selector: 'app-materials-section',
@@ -15,13 +16,14 @@ export class MaterialsSectionComponent implements OnInit {
   public bottomValues;
   public gameDataValues;
 
-  constructor(private _logicService: LogicService) { }
+  constructor(private _logicService: LogicService,
+    private _gameShops: GameShopsService) { }
 
   ngOnInit() {
     this._logicService.cast.subscribe(
       gameValues => this.bottomValues = gameValues);
 
-    this.bottomDataValues = this._logicService.bottomLogicData();
+    this.bottomDataValues = this._gameShops.getShopItems();
 
   }
 

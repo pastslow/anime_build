@@ -4,6 +4,9 @@ import {
   ambient, sasuke, kakashi, itachi, kaneki, akatsuki,
   kaguya, madara, mikasa, orochimaru, tsunade
 } from '../../misc/const';
+import { GameSlotsService } from 'src/app/game-slots.service';
+import { GameCharactersService } from 'src/app/game-characters.service';
+import { GameVisitorsService } from 'src/app/game-visitors.service';
 
 @Component({
   selector: 'app-calendar-events',
@@ -27,222 +30,45 @@ export class CalendarEventsComponent implements OnInit {
 
   public gameTime;
 
-  public calendarEvents = [
-    {
-      name: "No visitator",
-      img: "EMPTY",
-      description: `Currently there are not any visitors in your village.`,
-      bonuses: [
-        {
-          img: "EMPTY",
-          value: "",
-          sign: "",
-          procent: ""
-        }
-      ]
-    },
-    {
-      name: "No visitator",
-      img: "EMPTY2",
-      description: `Currently there are not any visitors in your village.`,
-      bonuses: [
-        {
-          img: "EMPTY",
-          value: "",
-          sign: "",
-          procent: ""
-        }
-      ]
-    },
-    {
-      name: "Sasuke",
-      img: "SASUKE",
-      description: `I'm one of the most powerful man in the world,
-       and I will help you to construct buildings with greater income.`,
-      bonuses: [
-        {
-          img: "INCOME",
-          value: 10,
-          sign: "+",
-          procent: "%"
-        }
-      ]
-    },
-    {
-      name: "Kakashi",
-      img: "KAKASHI",
-      description: `I'm one of Konoha's most talented person
-      and this is why I brought you some materials.`,
-      bonuses: [
-        {
-          img: "MATERIALS",
-          value: 10,
-          sign: "+",
-          procent: "%"
-        }
-      ]
-    },
-    {
-      name: "Mikasa",
-      img: "MIKASA",
-      description: `I'm here only to help you, not to stay in your way
-       this is why I brought you something.`,
-      bonuses: [
-        {
-          img: "MONEY",
-          value: 10,
-          sign: "+",
-          procent: "%"
-        }
-      ]
-    },
-    {
-      name: "Itachi",
-      img: "ITACHI",
-      description: `As a uchiha genius I will 
-      help you to get more game resources at the same cost.
-      `,
-      bonuses: [
-        {
-          img: "RESOURCE",
-          value: 15,
-          sign: "",
-          procent: "%"
-        }]
-    },
-    {
-      name: "Kaneki",
-      img: "KANEKI",
-      description: `As a member of Anteiku I will help you
-       to construct buildings with less energy consumption.`,
-      bonuses: [
-        {
-          img: "POWER",
-          value: 10,
-          sign: "",
-          procent: "%"
-        }]
-    },
-    {
-      name: "Akatsuki",
-      img: "AKATSUKI",
-      description: `A criminal organisation now came to your place.
-       They had steal from you money and materials.`,
-      bonuses: [
-        {
-          img: "MONEY",
-          value: -40,
-          sign: "",
-          procent: "%"
-        },
-        {
-          img: "MATERIALS",
-          value: -20,
-          sign: "",
-          procent: "%"
-        }]
-    },
-    {
-      name: "Kaguya",
-      img: "KAGUYA",
-      description: `Princess Kaguya has lost all faith in humanity and 
-      she has swear to bring them only bad luck.`,
-      bonuses: [
-        {
-          img: "INCOME",
-          value: -10,
-          sign: "",
-          procent: "%"
-        },
-        {
-          img: "POWER",
-          value: -10,
-          sign: "",
-          procent: "%"
-        },
-        {
-          img: "RESOURCE",
-          value: -20,
-          sign: "",
-          procent: "%"
-        }]
-    },
-    {
-      name: "Madara",
-      img: "MADARA",
-      description: `This visitator is very dangerous
-       and it has a 50% chance to break something.`,
-      bonuses: [
-        {
-          img: "SAD",
-          value: "",
-          sign: "",
-          procent: ""
-        }
-      ]
-    },
-    {
-      name: "Orochimaru",
-      img: "OROCHIMARU",
-      description: `This visitator has cast a curse on you that
-       make you see different, this is why all new construction
-        will produce less income and use greater energy.
-      `,
-      bonuses: [
-        {
-          img: "CURSE",
-          value: "",
-          sign: "",
-          procent: ""
-        }
-      ]
-    },
-    {
-      name: "Tsunade",
-      img: "TSUNADE",
-      description: `As a medic hokage if you have a curse
-       I will help you to get rid of it for free.
-      `,
-      bonuses: [
-        {
-          img: "HAPPY",
-          value: "",
-          sign: "",
-          procent: ""
-        }
-      ]
-    },
-  ]
+  public calendarEvents;
 
-  constructor(private _logicService: LogicService) {
+  constructor(private _logicService: LogicService,
+    private _slotsService: GameSlotsService,
+    private _gameVisitors: GameVisitorsService,
+    private _charactersService: GameCharactersService) {
+
     this._logicService.cast.subscribe(
       gameValues => this.gameData = gameValues);
 
-    this._logicService.castTopSlots.subscribe(
+    this.calendarEvents = this._gameVisitors.getGameVisitors();
+
+    this._slotsService.castTopSlots.subscribe(
       gameTopSlots => this.topSlots = gameTopSlots);
 
-    this._logicService.castMidSlots.subscribe(
+    this._slotsService.castMidSlots.subscribe(
       gameMidSlots => this.midSlots = gameMidSlots);
 
-    this._logicService.castBottomSlots.subscribe(
+    this._slotsService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
 
-    this._logicService.castCharacters.subscribe(
+    this._charactersService.castCharacters.subscribe(
       gameCharacters => this.gameCharacters = gameCharacters);
 
-    this._logicService.castCharacterId.subscribe(
+    this._charactersService.castCharacterId.subscribe(
       characterId => this.characterSelectedId = characterId);
 
     this._logicService.castGameTime.subscribe(
       stopWatchObj => this.gameTime = stopWatchObj);
+
   }
 
   ngOnInit() {
     this.changeEvent();
   }
 
+ // -------------------- Bonuses and events from visitors ------------------ //
   changeBonusesInGame(bonusName, value) {
     this.gameData[bonusName] = this.gameData[bonusName] + value;
     setTimeout(() => {
@@ -343,10 +169,12 @@ export class CalendarEventsComponent implements OnInit {
     }
 
   }
+
   changeNumberOfEventByName(eventName) {
     this.eventNumber = this.calendarEvents.findIndex(
       elem => elem.name === eventName);
   }
+
   changeEvent() {
 
     setInterval(() => {
@@ -358,21 +186,25 @@ export class CalendarEventsComponent implements OnInit {
         eventName === "Tsunade")) {
         eventName = "Mikasa";
         this.changeNumberOfEventByName("Mikasa");
+        return;
       }
 
       if (this.gameData.appeal < -100 && eventName === "Mikasa") {
         eventName = "Orochimaru";
         this.changeNumberOfEventByName("Orochimaru");
+        return;
       }
 
       if (this.gameData.appeal < -200 && eventName === "Kakashi") {
         eventName = "Madara";
         this.changeNumberOfEventByName("Madara");
+        return;
       }
 
       if (this.gameData.appeal < -250 && eventName === "No visitator") {
         eventName = "Akatsuki";
         this.changeNumberOfEventByName("Akatsuki");
+        return;
       }
 
       this.currentVisitatorBonus(eventName);

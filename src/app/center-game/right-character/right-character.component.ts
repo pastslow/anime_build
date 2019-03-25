@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { erzaSounds, natsuSounds, lucySounds, graySounds } from '../../misc/const';
+import { GameCharactersService } from 'src/app/game-characters.service';
 
 @Component({
   selector: 'app-right-character',
@@ -13,10 +14,10 @@ export class rightCharacterComponent implements OnInit {
 
   public characters;
 
-  constructor(private _logicService: LogicService) {
-    this._logicService.castCharacters.subscribe(
+  constructor(private _charactersService: GameCharactersService) {
+    this._charactersService.castCharacters.subscribe(
       gameCharacters => this.characters = gameCharacters);
-    this._logicService.castCharacterId.subscribe(
+    this._charactersService.castCharacterId.subscribe(
       characterId => this.characterSelected = characterId);
   }
 
@@ -25,7 +26,6 @@ export class rightCharacterComponent implements OnInit {
   }
 
   playCharacterSound() {
-
     let characterSelected = this.characters[this.characterSelected];
 
     let soundNumber = Math.floor(

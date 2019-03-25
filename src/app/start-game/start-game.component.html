@@ -1,5 +1,5 @@
 <section class="start-section">
-<app-start-data *ngIf="displayState.isMenuDisplayed"></app-start-data>
-<app-select-character *ngIf="!displayState.isMenuDisplayed" ></app-select-character>
+<app-start-data *ngIf="displayMenu.isMenuDisplayed"></app-start-data>
+<app-select-character *ngIf="!displayMenu.isMenuDisplayed" ></app-select-character>
 <app-pop-alert (click)="hideError()" class="pop-error" *ngIf="popUpError.isPopUpDisplayed"></app-pop-alert>
 </section>

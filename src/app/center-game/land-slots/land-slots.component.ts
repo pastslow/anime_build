@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import { GameSlotsService } from 'src/app/game-slots.service';
 
 @Component({
   selector: 'app-land-slots',
@@ -21,18 +22,19 @@ export class HouseBuildComponent implements OnInit {
   public allGameSlots;
 
   public isSupportingEngUpgrade;
-  constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(
+  constructor(private _logicService: LogicService,
+    private _slotsService:GameSlotsService ) {
+    this._slotsService.castSlotId.subscribe(
       slotId => this.slotIdNumber = slotId);
-    this._logicService.castTopSlots.subscribe(
+    this._slotsService.castTopSlots.subscribe(
       mapTopSlots => this.topSlots = mapTopSlots);
-    this._logicService.castMidSlots.subscribe(
+    this._slotsService.castMidSlots.subscribe(
       mapMidSlots => this.midSlots = mapMidSlots);
-    this._logicService.castBottomSlots.subscribe(
+    this._slotsService.castBottomSlots.subscribe(
       mapBottomSlots => this.bottomSlots = mapBottomSlots);
     this.allGameSlots = this.topSlots.concat(
       this.midSlots, this.bottomSlots);
-    this._logicService.castSlotDetails.subscribe(
+    this._slotsService.castSlotDetails.subscribe(
       slotDetails => this.slotNeedRepair = slotDetails);
   }
 
@@ -42,9 +44,9 @@ export class HouseBuildComponent implements OnInit {
   performActionsOnSlot(modalImg, landImg) {
     this.slotIdNumber = parseInt(landImg.slot);
     this.slotNeedRepair = this.allGameSlots[this.slotIdNumber].needRepair;
-    // Change the new value into the service
-    this._logicService.getSlotId(this.slotIdNumber);
-    this._logicService.getSlotDetails(this.slotNeedRepair);
+    
+    this._slotsService.getSlotId(this.slotIdNumber);
+    this._slotsService.getSlotDetails(this.slotNeedRepair);
 
     if (this.allGameSlots[this.slotIdNumber].buildingType === "producer") {
       this.isSupportingEngUpgrade = false;

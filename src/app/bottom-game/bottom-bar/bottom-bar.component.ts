@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { JsonPipe } from '@angular/common';
 import { btnClick } from '../../misc/const';
+import { GameSlotsService } from 'src/app/game-slots.service';
+import { GameCharactersService } from 'src/app/game-characters.service';
 
 @Component({
   selector: 'app-bottom-bar',
@@ -31,25 +33,27 @@ export class BottomBarComponent implements OnInit {
   public allGameSlots;
   public gameTime;
 
-  constructor(private _logicService: LogicService) {
+  constructor(private _logicService: LogicService,
+     private _slotsService:GameSlotsService,
+     private _charactersService: GameCharactersService) {
     this._logicService.cast.subscribe(
       gameValues => this.bottomValues = gameValues);
 
-    this._logicService.castTopSlots.subscribe(
+    this._slotsService.castTopSlots.subscribe(
       gameTopSlots => this.topSlots = gameTopSlots);
 
-    this._logicService.castMidSlots.subscribe(
+    this._slotsService.castMidSlots.subscribe(
       gameMidSlots => this.midSlots = gameMidSlots);
 
-    this._logicService.castBottomSlots.subscribe(
+    this._slotsService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
 
-    this._logicService.castCharacterId.subscribe(
+    this._charactersService.castCharacterId.subscribe(
       characterId => this.characterId = characterId);
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
 
-    this._logicService.castCharacters.subscribe(
+    this._charactersService.castCharacters.subscribe(
       gameCharacters => this.gameCharacters = gameCharacters);
 
     this._logicService.castGameTime.subscribe(
@@ -130,7 +134,6 @@ export class BottomBarComponent implements OnInit {
     localStorage.setItem("BOTTOMSLOTS", gameBottomSlots);
 
     localStorage.setItem("CHARID", this.characterId);
-    console.log("game saved");
 
     let characters = JSON.stringify(this.gameCharacters);
     localStorage.setItem("CHARACTERS", characters);

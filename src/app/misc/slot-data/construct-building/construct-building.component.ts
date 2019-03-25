@@ -1,6 +1,8 @@
 import { Component, Input, OnChanges, SimpleChanges, Output, EventEmitter } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { construct, power_off } from '../../const';
+import { GameSlotsService } from 'src/app/game-slots.service';
+import { GameBuildingsService } from 'src/app/game-buildings.service';
 
 @Component({
   selector: 'app-construct-building',
@@ -32,20 +34,22 @@ export class ConstructBuildingComponent implements OnChanges {
 
   public isModalClosed = false;
 
-  constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(
+  constructor(private _logicService: LogicService,
+    private _slotsService:GameSlotsService,
+    private _buildingsService:GameBuildingsService) {
+    this._slotsService.castSlotId.subscribe(
       slotId => this.slotIdNumber = slotId);
 
     this._logicService.cast.subscribe(
       gameValues => this.gameData = gameValues);
 
-    this._logicService.castTopSlots.subscribe(
+    this._slotsService.castTopSlots.subscribe(
       gameTopSlots => this.topSlots = gameTopSlots);
 
-    this._logicService.castMidSlots.subscribe(
+    this._slotsService.castMidSlots.subscribe(
       gameMidSlots => this.midSlots = gameMidSlots);
 
-    this._logicService.castBottomSlots.subscribe(
+    this._slotsService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
 
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
@@ -53,7 +57,7 @@ export class ConstructBuildingComponent implements OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    this.constructionArr = this._logicService.slotActions();
+    this.constructionArr = this._buildingsService.getGameBuildings();
     this.constructArr = this.constructionArr.find(
       elem => elem.name == this.btnPressed.buttonNamePressed);
   }

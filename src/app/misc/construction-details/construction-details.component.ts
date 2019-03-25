@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import { GameSlotsService } from 'src/app/game-slots.service';
 
 @Component({
   selector: 'app-construction-details',
@@ -14,14 +15,15 @@ export class ConstructionDetailsComponent implements OnInit {
 
   public allGameSlots;
 
-  constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(
+  constructor(private _logicService: LogicService,
+    private _slotsService:GameSlotsService) {
+    this._slotsService.castSlotId.subscribe(
       slotId => this.slotIdNumber = slotId);
-    this._logicService.castTopSlots.subscribe(
+    this._slotsService.castTopSlots.subscribe(
       gameTopSlots => this.topSlots = gameTopSlots);
-    this._logicService.castMidSlots.subscribe(
+    this._slotsService.castMidSlots.subscribe(
       gameMidSlots => this.midSlots = gameMidSlots);
-    this._logicService.castBottomSlots.subscribe(
+    this._slotsService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
     this.allGameSlots = this.topSlots.concat(this.midSlots, this.bottomSlots);
   }

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { ambient } from '../../misc/const';
+import { GameCharactersService } from 'src/app/game-characters.service';
 
 @Component({
   selector: 'app-center-section',
@@ -16,17 +17,18 @@ export class CenterSectionComponent implements OnInit {
   public selectedCharacterId;
   public gameCharacters;
 
-  constructor(private _logicService: LogicService) {
+  constructor(private _logicService: LogicService,
+    private _charactersService: GameCharactersService) {
     this._logicService.cast.subscribe
       (gameValues => this.gameData = gameValues);
 
     this._logicService.castPopUpError.subscribe(
       popUpErrorObj => this.popUpError = popUpErrorObj);
 
-    this._logicService.castCharacterId.subscribe(
+    this._charactersService.castCharacterId.subscribe(
       selectedCharacterId => this.selectedCharacterId = selectedCharacterId);
 
-    this._logicService.castCharacters.subscribe(
+    this._charactersService.castCharacters.subscribe(
       gameCharacters => this.gameCharacters = gameCharacters);
   }
 
@@ -46,7 +48,6 @@ export class CenterSectionComponent implements OnInit {
   ngOnInit() {
     this.getRentalIncomeAndScore();
     ambient.play();
-
   }
 
   hideError() {

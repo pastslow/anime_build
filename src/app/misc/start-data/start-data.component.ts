@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { btnClick } from '../const';
+import { GameSlotsService } from 'src/app/game-slots.service';
+import { GameCharactersService } from 'src/app/game-characters.service';
 
 
 @Component({
@@ -19,30 +21,33 @@ export class StartDataComponent implements OnInit {
   public gameCharacters;
   public gameTime;
 
-  constructor(private _logicService: LogicService) {
+  constructor(private _logicService: LogicService,
+    private _slotsService: GameSlotsService,
+    private _charactersService: GameCharactersService) {
+      
     this._logicService.castDisplayState.subscribe(
       displayStateObj => this.displayState = displayStateObj);
 
     this._logicService.cast.subscribe(
       gameValues => this.gameData = gameValues);
 
-    this._logicService.castTopSlots.subscribe(
+    this._slotsService.castTopSlots.subscribe(
       gameTopSlots => this.topSlots = gameTopSlots);
 
-    this._logicService.castMidSlots.subscribe(
+    this._slotsService.castMidSlots.subscribe(
       gameMidSlots => this.midSlots = gameMidSlots);
 
-    this._logicService.castBottomSlots.subscribe(
+    this._slotsService.castBottomSlots.subscribe(
       gameBottomSlots => this.bottomSlots = gameBottomSlots);
 
-    this._logicService.castCharacterId.subscribe(
+    this._charactersService.castCharacterId.subscribe(
       characterId => this.characterSelectedId = characterId);
 
-    this._logicService.castCharacters.subscribe(
+    this._charactersService.castCharacters.subscribe(
       gameCharacters => this.gameCharacters = gameCharacters);
 
-      this._logicService.castGameTime.subscribe(
-        stopWatchObj => this.gameTime = stopWatchObj);
+    this._logicService.castGameTime.subscribe(
+      stopWatchObj => this.gameTime = stopWatchObj);
   }
 
   ngOnInit() {
@@ -68,19 +73,19 @@ export class StartDataComponent implements OnInit {
     this._logicService.changeObject(gameData);
 
     let topSlots = JSON.parse(localStorage.getItem("TOPSLOTS"));
-    this._logicService.getSlots(topSlots);
+    this._slotsService.getSlots(topSlots);
 
     let midSlots = JSON.parse(localStorage.getItem("MIDSLOTS"));
-    this._logicService.getMidSlots(midSlots);
+    this._slotsService.getMidSlots(midSlots);
 
     let bottomSlots = JSON.parse(localStorage.getItem("BOTTOMSLOTS"));
-    this._logicService.getBottomSlots(bottomSlots);
+    this._slotsService.getBottomSlots(bottomSlots);
 
     let characters = JSON.parse(localStorage.getItem("CHARACTERS"));
-    this._logicService.getCharacters(characters);
+    this._charactersService.getCharacters(characters);
 
     let characterId = JSON.parse(localStorage.getItem("CHARID"));
-    this._logicService.getSelectedCharacterId(parseInt(characterId));
+    this._charactersService.getSelectedCharacterId(parseInt(characterId));
 
     let gameTimes = JSON.parse(localStorage.getItem("GAMETIME"));
     this._logicService.getStopWatchTime(gameTimes);

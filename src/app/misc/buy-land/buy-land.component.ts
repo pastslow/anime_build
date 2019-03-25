@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { btnClick } from '../../misc/const';
+import { GameSlotsService } from 'src/app/game-slots.service';
 
 @Component({
   selector: 'app-buy-land',
@@ -17,17 +18,18 @@ export class BuyLandComponent implements OnInit {
   public gameData;
   public slotNumberId;
 
-  constructor(private _logicService: LogicService) {
-    this._logicService.castSlotId.subscribe(
+  constructor(private _logicService: LogicService,
+    private _slotsService:GameSlotsService ) {
+    this._slotsService.castSlotId.subscribe(
       slotId => this.slotNumberId = slotId);
 
-    this._logicService.castTopSlots.subscribe(
+    this._slotsService.castTopSlots.subscribe(
       mapTopSlots => this.topSlots = mapTopSlots);
 
-    this._logicService.castMidSlots.subscribe(
+    this._slotsService.castMidSlots.subscribe(
       mapMidSlots => this.midSlots = mapMidSlots);
 
-    this._logicService.castBottomSlots.subscribe(
+    this._slotsService.castBottomSlots.subscribe(
       mapBottomSlots => this.bottomSlots = mapBottomSlots);
 
     this.allGameSlots = this.topSlots.concat(
@@ -62,7 +64,10 @@ export class BuyLandComponent implements OnInit {
     let obj = this.allGameSlots.find(elem => elem.number == landNumber);
     obj.img = "HOUSE0/NONE1";
     obj.condition = "bought";
+  }
 
+  landPrice(){
+   return this.gameData.landCost - this.gameData.appeal*100;
   }
 
 }

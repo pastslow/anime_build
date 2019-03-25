@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { btnClick } from '../../misc/const';
+import { GameCharactersService } from 'src/app/game-characters.service';
 
 @Component({
   selector: 'app-select-character',
@@ -14,10 +15,11 @@ export class SelectCharacterComponent implements OnInit {
   public gameData;
   public displayState;
 
-  constructor(private _logicService: LogicService) {
-    this._logicService.castCharacters.subscribe(
+  constructor(private _logicService: LogicService,
+    private _charactersService: GameCharactersService) {
+    this._charactersService.castCharacters.subscribe(
       gameCharacters => this.characters = gameCharacters);
-    this._logicService.castCharacterId.subscribe(
+    this._charactersService.castCharacterId.subscribe(
       characterId => this.characterId = characterId);
     this._logicService.cast.subscribe(
       gameValues => this.gameData = gameValues);
@@ -36,7 +38,7 @@ export class SelectCharacterComponent implements OnInit {
     let powerBonus = hero.bonuses.find(elem => elem.name == "Power");
     let gameResoucers = hero.bonuses.find(elem => elem.name == "Resources");
 
-    this._logicService.getSelectedCharacterId(hero.id);
+    this._charactersService.getSelectedCharacterId(hero.id);
 
     this.gameData.bonusIncome = incomeBonus.value;
     this.gameData.reduceEnergyConsumption = powerBonus.value;

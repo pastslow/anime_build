@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
+import { GameCharactersService } from 'src/app/game-characters.service';
 
 @Component({
   selector: 'app-character-curse',
@@ -12,12 +13,13 @@ export class CharacterCurseComponent implements OnInit {
   public selectedCharacterId;
   public characters;
 
-  constructor(private _logicService: LogicService) {
+  constructor(private _logicService: LogicService,
+    private _charactersService: GameCharactersService) {
     this._logicService.cast.subscribe(
       gameValues => this.gameData = gameValues);
-    this._logicService.castCharacterId.subscribe(
+    this._charactersService.castCharacterId.subscribe(
       characterId => this.selectedCharacterId = characterId);
-    this._logicService.castCharacters.subscribe(
+    this._charactersService.castCharacters.subscribe(
       gameCharacters => this.characters = gameCharacters);
   }
 
@@ -39,7 +41,7 @@ export class CharacterCurseComponent implements OnInit {
     let characterEnergyBonus = (
       selectedCharacter.bonuses.find(
         elem => elem.name === "Power"
-      ))
+      ));
 
     characterIncomeBonus.value = characterIncomeBonus.value + cureValue;
     characterEnergyBonus.value = characterEnergyBonus.value + cureValue;
