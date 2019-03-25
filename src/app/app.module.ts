@@ -25,6 +25,7 @@ import { SettingsSectionComponent } from './bottom-game/settings-section/setting
 import { PopAlertComponent } from './misc/pop-alert/pop-alert.component';
 import { ResponsiveMessageComponent } from './misc/responsive-message/responsive-message.component';
 import { CharacterCurseComponent } from './misc/character-curse/character-curse.component';
+import { UpgradeSlotComponent } from './misc/upgrade-slot/upgrade-slot.component';
 
 import { LogicService } from './logic.service';
 
@@ -53,6 +54,7 @@ import { LogicService } from './logic.service';
     PopAlertComponent,
     ResponsiveMessageComponent,
     CharacterCurseComponent,
+    UpgradeSlotComponent,
   ],
   imports: [
     BrowserModule,

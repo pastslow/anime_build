@@ -1,129 +1,17 @@
 <section>
-  <div class="top-slots container-slots">
 
-    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, slotImg)"
-      *ngFor="let slot of topSlots" class="house">
-      <img #slotImg data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
-        src="assets/BUILDINGS/{{slot.img}}.PNG" />
-
-      <div class="slot-update top-8">
-        <div class="update-container">
-          <div>
-            <img class="slot-update-img" src="assets/ICONS/{{slot.starUpdateImg}}.PNG" alt="">
-          </div>
-        </div>
+  <div *ngFor="let section of slotsArray">
+    <div [class]="section.class">
+      <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, slotImg)"
+        *ngFor="let slot of section.name" class="house">
+        <img #slotImg data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
+          src="assets/BUILDINGS/{{slot.img}}.PNG" />
+  
+        <app-upgrade-slot [parentData]="slot"></app-upgrade-slot>
       </div>
-
-      <div class="slot-update top-88">
-        <div class="update-container">
-          <div>
-            <img class="slot-update-img" src="assets/ICONS/{{slot.energyUpdateImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="slot-update top-40">
-        <div class="update-container justifty-left">
-          <div>
-            <img class="slot-repair-img" src="assets/ICONS/{{slot.repairImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="slot-update top-26">
-        <div class="update-container">
-          <div class="left-auto">
-            <img class="img-appeal" src="assets/ICONS/{{slot.appealImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
-
-  <div class="mid-slots container-slots">
-    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, midSlot)"
-      *ngFor="let slot of midSlots" class="house">
-      <img #midSlot data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
-        src="assets/BUILDINGS/{{slot.img}}.PNG" />
-
-      <div class="slot-update top-8">
-        <div class="update-container">
-          <div>
-            <img class="slot-update-img" src="assets/ICONS/{{slot.starUpdateImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="slot-update top-88">
-        <div class="update-container">
-          <div>
-            <img class="slot-update-img" src="assets/ICONS/{{slot.energyUpdateImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="slot-update top-40">
-        <div class="update-container justifty-left">
-          <div>
-            <img class="slot-repair-img" src="assets/ICONS/{{slot.repairImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="slot-update top-26">
-        <div class="update-container">
-          <div class="left-auto">
-            <img class="img-appeal" src="assets/ICONS/{{slot.appealImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
     </div>
   </div>
 
-  <div class="bottom-slots container-slots">
-    <div data-toggle="modal" data-target="#slotModal" (click)="performActionsOnSlot(modalImg, botSlot)"
-      *ngFor="let slot of bottomSlots" class="house">
-      <img #botSlot data-slot="{{slot.number}}" alt="{{slot.condition}}" class="img-slot"
-        src="assets/BUILDINGS/{{slot.img}}.PNG" />
-
-      <div class="slot-update top-8">
-        <div class="update-container">
-          <div>
-            <img class="slot-update-img" src="assets/ICONS/{{slot.starUpdateImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="slot-update top-88">
-        <div class="update-container">
-          <div>
-            <img class="slot-update-img" src="assets/ICONS/{{slot.energyUpdateImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="slot-update top-40">
-        <div class="update-container justifty-left">
-          <div>
-            <img class="slot-repair-img" src="assets/ICONS/{{slot.repairImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-      <div class="slot-update top-26">
-        <div class="update-container">
-          <div class="left-auto">
-            <img class="img-appeal" src="assets/ICONS/{{slot.appealImg}}.PNG" alt="">
-          </div>
-        </div>
-      </div>
-
-    </div>
-
-  </div>
 </section>
 
 <!-- The Modal -->

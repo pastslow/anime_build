@@ -32,70 +32,13 @@
     width: 100%;
 }
 
-.slot-update-img {
-    width: auto;
-    height: 16.16px;
-}
-
-.slot-update {
-    position: absolute;
-    display: flex;
-    justify-content: space-between;
-    width: 100%;
-    align-items: center;
-}
-
-.top-8 {
-    top: 8%;
-}
-
-.top-88 {
-    top: 88%;
-}
-
-.top-40 {
-    top: 40%;
-}
-
-.top-26 {
-    top: 26%;
-}
-
-.update-container {
-    height: 1px;
-    max-width: 146px;
-    width: 20%;
-    display: flex;
-    justify-content: center;
-}
-
 .slot-description {
     font-size: 14px;
     text-align: center;
 }
 
-.slot-repair-img {
-    width: 26px;
-}
-
-.justifty-left {
-    justify-content: left;
-}
-
-.img-appeal {
-    width: 45px;
-}
-
-.left-auto {
-    margin-left: auto;
-}
-
 @media only screen and (max-width:991px){
     .house {
-        max-width: 115px;
-    }
-
-    .update-container {
         max-width: 115px;
     }
 
@@ -111,19 +54,11 @@
         top: 63%;
     }
 
-    .img-appeal {
-        width: 40px;
-    }
-
 }
 
 @media only screen and (max-width:768px){
 
     .house {
-        max-width: 80px;
-    }
-
-    .update-container {
         max-width: 80px;
     }
 
@@ -137,18 +72,6 @@
     
     .bottom-slots {
         top: 61%;
-    }
-
-    .slot-update-img {
-        height: 13.16px;
-    }
-
-    .slot-repair-img {
-        width: 16px;
-    }
-
-    .img-appeal {
-        width: 35px;
     }
 }
 

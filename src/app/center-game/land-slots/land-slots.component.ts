@@ -22,8 +22,11 @@ export class HouseBuildComponent implements OnInit {
   public allGameSlots;
 
   public isSupportingEngUpgrade;
+
+  public slotsArray;
+
   constructor(private _logicService: LogicService,
-    private _slotsService:GameSlotsService ) {
+    private _slotsService: GameSlotsService) {
     this._slotsService.castSlotId.subscribe(
       slotId => this.slotIdNumber = slotId);
     this._slotsService.castTopSlots.subscribe(
@@ -36,6 +39,21 @@ export class HouseBuildComponent implements OnInit {
       this.midSlots, this.bottomSlots);
     this._slotsService.castSlotDetails.subscribe(
       slotDetails => this.slotNeedRepair = slotDetails);
+
+    this.slotsArray = [
+        {
+          name: this.topSlots,
+          class:"top-slots container-slots",
+        },
+        {
+          name: this.midSlots,
+          class:"mid-slots container-slots",
+        },
+        {
+          name: this.bottomSlots,
+          class:"bottom-slots container-slots",
+        },
+      ]
   }
 
   ngOnInit() {
@@ -44,7 +62,6 @@ export class HouseBuildComponent implements OnInit {
   performActionsOnSlot(modalImg, landImg) {
     this.slotIdNumber = parseInt(landImg.slot);
     this.slotNeedRepair = this.allGameSlots[this.slotIdNumber].needRepair;
-    
     this._slotsService.getSlotId(this.slotIdNumber);
     this._slotsService.getSlotDetails(this.slotNeedRepair);
 
@@ -72,3 +89,4 @@ export class HouseBuildComponent implements OnInit {
   }
 
 }
+
