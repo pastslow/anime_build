@@ -30,8 +30,8 @@ export class ConstructionActionsComponent implements OnInit {
 
 
   constructor(private _logicService: LogicService,
-    private _slotsService:GameSlotsService,
-    private _buildingsService:GameBuildingsService) {
+    private _slotsService: GameSlotsService,
+    private _buildingsService: GameBuildingsService) {
     this._slotsService.castSlotId.subscribe(
       slotId => this.slotNumber = slotId);
 
@@ -80,6 +80,60 @@ export class ConstructionActionsComponent implements OnInit {
     }
   }
 
+  upgradeValidation(gameObject, requirementObject) {
+
+    if (gameObject.condition === "underConstruction") {
+      this._logicService.displayError(
+        "This building is under construction you can not upgrade it now!");
+      return false;
+    }
+
+    if (gameObject.condition === "underDemolishing") {
+      this._logicService.displayError(
+        "This building is demolishing. You can not upgrade it!");
+      return false;
+    }
+
+    if (gameObject.condition === "bought") {
+      this._logicService.displayError(
+        "You can not upgrade an empty land!");
+      return false;
+    }
+
+    if (gameObject.buildingType === "producer" &&
+      requirementObject.upgradeFolder === "ENERGY") {
+      this._logicService.displayError(
+        "You can not upgrade a producer building!");
+      return false;
+    }
+
+    if (gameObject[requirementObject.objectImage] ===
+      `UPGRADE/${requirementObject.upgradeFolder}/UPGRADE04`) {
+      this._logicService.displayError(
+        "This building have already maximum update.");
+      return false;
+    }
+
+    if (this.gameValues.money < requirementObject.cost) {
+      this._logicService.displayError(
+        "You don't have enough money!");
+      return false;
+    }
+
+    if (this.gameValues.materials < requirementObject.materials) {
+      this._logicService.displayError("You don't have enough materials!");
+      return false;
+    }
+
+    if (this.gameValues[requirementObject.tehniciansName] <
+      requirementObject.tehniciansNumber) {
+      this._logicService.displayError(
+        `You don't have enough ${requirementObject.tehniciansName}!`);
+      return false;
+    }
+  }
+  
+  // -------------------------- Demolish Building -------------------------- //
   performDemolishBuilding() {
 
     let gameObject = this.allGameSlots.find(
@@ -166,60 +220,7 @@ export class ConstructionActionsComponent implements OnInit {
   demolishBuilding() {
     this.performDemolishBuilding();
   }
-
-  upgradeValidation(gameObject, requirementObject) {
-
-    if (gameObject.condition === "underConstruction") {
-      this._logicService.displayError(
-        "This building is under construction you can not upgrade it now!");
-      return false;
-    }
-
-    if (gameObject.condition === "underDemolishing") {
-      this._logicService.displayError(
-        "This building is demolishing. You can not upgrade it!");
-      return false;
-    }
-
-    if (gameObject.condition === "bought") {
-      this._logicService.displayError(
-        "You can not upgrade an empty land!");
-      return false;
-    }
-
-    if (gameObject.buildingType === "producer" &&
-      requirementObject.upgradeFolder === "ENERGY") {
-      this._logicService.displayError(
-        "You can not upgrade a producer building!");
-      return false;
-    }
-
-    if (gameObject[requirementObject.objectImage] ===
-      `UPGRADE/${requirementObject.upgradeFolder}/UPGRADE04`) {
-      this._logicService.displayError(
-        "This building have already maximum update.");
-      return false;
-    }
-
-    if (this.gameValues.money < requirementObject.cost) {
-      this._logicService.displayError(
-        "You don't have enough money!");
-      return false;
-    }
-
-    if (this.gameValues.materials < requirementObject.materials) {
-      this._logicService.displayError("You don't have enough materials!");
-      return false;
-    }
-
-    if (this.gameValues[requirementObject.tehniciansName] <
-      requirementObject.tehniciansNumber) {
-      this._logicService.displayError(
-        `You don't have enough ${requirementObject.tehniciansName}!`);
-      return false;
-    }
-  }
-
+  // ----------------------- Energy Building Upgrade ----------------------- //
   updateEnergyStats(gameObject, image) {
     gameObject.energyUpdateImg = image;
     let newEnergyReduction = Math.round((gameObject.energy * 10) / 100)
@@ -302,7 +303,7 @@ export class ConstructionActionsComponent implements OnInit {
     this.gameValues.incomeBeforeStopped = (
       this.gameValues.incomeBeforeStopped + newIncome);
   }
-
+  // ------------------------- Star Building Upgrade ----------------------- //
   starRatingConditions(buildingObject) {
     if (buildingObject.starUpdateImg === "UPGRADE/NOUPDATE") {
       this.updateIncomeStats(buildingObject, "UPGRADE/STAR/UPGRADE01");
@@ -359,7 +360,7 @@ export class ConstructionActionsComponent implements OnInit {
     this.isModalClosed = true;
 
   }
-
+  // ----------------------------- Repair Building ------------------------- //
   repairBuilding() {
     if (this.gameValues.energy > this.gameValues.maxEnergy) {
       this._logicService.displayError(
@@ -406,11 +407,10 @@ export class ConstructionActionsComponent implements OnInit {
 
     building.income = building.income * 2;
   }
-
-
-  actionCost(cost, number){
-   let actionCost =  this.allGameSlots[this.slotNumber][cost] / number;
-   return actionCost;
+  // ------------------ Display (repair/upgrade/demolish) cost ------------- //
+  actionCost(cost, number) {
+    let actionCost = this.allGameSlots[this.slotNumber][cost] / number;
+    return actionCost;
   }
 
 }

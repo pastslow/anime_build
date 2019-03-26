@@ -7,6 +7,10 @@
     width: 30px;
 }
 
+.volume-img:hover {
+    cursor: pointer;
+}
+
 .slider {
     -webkit-appearance: none;
     width: 90px;

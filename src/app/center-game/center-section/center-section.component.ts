@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { LogicService } from 'src/app/logic.service';
 import { ambient } from '../../misc/const';
 import { GameCharactersService } from 'src/app/game-characters.service';
+import { Howl, Howler } from 'howler';
+
 
 @Component({
   selector: 'app-center-section',
@@ -37,6 +39,7 @@ export class CenterSectionComponent implements OnInit {
 
     this.gameData.score = (
       this.gameData.score + this.gameData.income / 100);
+      
   };
 
   public getRentalIncomeAndScore() {
@@ -48,6 +51,7 @@ export class CenterSectionComponent implements OnInit {
   ngOnInit() {
     this.getRentalIncomeAndScore();
     ambient.play();
+    Howler.volume(this.gameData.volume);
   }
 
   hideError() {

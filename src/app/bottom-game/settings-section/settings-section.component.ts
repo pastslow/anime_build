@@ -13,6 +13,7 @@ export class SettingsSectionComponent implements OnInit {
   public isGameOnFullScreen;
   public volume;
   public gameData;
+  public isVolumeMuted = false;
 
   constructor(private _logicService: LogicService, @Inject(DOCUMENT) private document: any) {
     this._logicService.cast.subscribe(
@@ -29,6 +30,12 @@ export class SettingsSectionComponent implements OnInit {
   changeVolume(event) {
     Howler.volume(event.target.value);
     this.gameData.volume = event.target.value;
+
+    if(event.target.value === "0"){
+    this.isVolumeMuted = true;
+    return;
+    }
+    this.isVolumeMuted = false;
   }
 
   changeToFullScreen() {
@@ -38,13 +45,13 @@ export class SettingsSectionComponent implements OnInit {
     if (this.elem.requestFullscreen) {
       this.elem.requestFullscreen();
     } else if (this.elem.mozRequestFullScreen) {
-      //----------------------------- Firefox -----------------------------/
+      // ----------------------------- Firefox ----------------------------- //
       this.elem.mozRequestFullScreen();
     } else if (this.elem.webkitRequestFullscreen) {
-      //--------------------- Chrome, Safari and Opera --------------------/
+      // --------------------- Chrome, Safari and Opera -------------------- //
       this.elem.webkitRequestFullscreen();
     } else if (this.elem.msRequestFullscreen) {
-      //----------------------------- IE/Edge -----------------------------/
+      // ----------------------------- IE/Edge ----------------------------- //
       this.elem.msRequestFullscreen();
     }
   }
@@ -56,15 +63,29 @@ export class SettingsSectionComponent implements OnInit {
     if (this.document.exitFullscreen) {
       this.document.exitFullscreen();
     } else if (this.document.mozCancelFullScreen) {
-      //----------------------------- Firefox -----------------------------/
+      // ----------------------------- Firefox ----------------------------- //
       this.document.mozCancelFullScreen();
     } else if (this.document.webkitExitFullscreen) {
-      //--------------------- Chrome, Safari and Opera --------------------/
+      // --------------------- Chrome, Safari and Opera -------------------- //
       this.document.webkitExitFullscreen();
     } else if (this.document.msExitFullscreen) {
-      //----------------------------- IE/Edge -----------------------------/
+      // ----------------------------- IE/Edge ----------------------------- //
       this.document.msExitFullscreen();
     }
+  }
+
+  volumeMute(volumebar){
+    Howler.volume(0);
+    this.gameData.volume = 0;
+    volumebar.value = 0;
+    this.isVolumeMuted = true;
+  }
+
+  volumeUp(volumebar){
+    Howler.volume(1);
+    this.gameData.volume = 1;
+    volumebar.value = 1;
+    this.isVolumeMuted = false;
   }
 
 }

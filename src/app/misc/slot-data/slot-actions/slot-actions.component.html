@@ -1,5 +1,4 @@
 <div>
-
   <div *ngIf="menuIsDisplayed || returnToMenu" class="menu-container">
     <div (click)="button.btnMethod()" *ngFor="let button of slotActions" class="menu-button">
       <span>{{button.name}}</span>
@@ -9,5 +8,4 @@
 
   <app-construct-building (getBack)="returnToMenu = $event" [btnPressed]="parentData" *ngIf="isBuildingBtnPressed && !returnToMenu">
   </app-construct-building>
-
 </div>

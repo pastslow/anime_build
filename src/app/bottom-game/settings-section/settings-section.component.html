@@ -8,17 +8,22 @@
 
       <div>
         <div class="volume-container">
-          <div>
+
+          <div *ngIf="!isVolumeMuted" (click)="volumeMute(volumebar)">
             <img class="volume-img" src="assets/ICONS/VOLUME_UP.PNG" alt="">
           </div>
 
+          <div *ngIf="isVolumeMuted" (click)="volumeUp(volumebar)">
+            <img class="volume-img" src="assets/ICONS/MUTE.PNG" alt="">
+          </div>
+
           <div>
-            <input class="slider" type="range" min="0" max="1" value="{{volume}}" step="0.01" (change)="changeVolume($event)">
+            <input #volumebar class="slider" type="range" min="0" max="1" value="{{volume}}" step="0.01"
+              (change)="changeVolume($event)">
           </div>
         </div>
       </div>
     </div>
-
 
     <div>
       <div>
@@ -32,8 +37,8 @@
         </button>
 
         <button (click)="changeScreenToNormal()" *ngIf="isGameOnFullScreen" class="screen-btn">
-            <img class="volume-img" src="assets/ICONS/FULL_SCREEN.PNG" alt="">
-            <img class="volume-img" src="assets/ICONS/CHECKMARK06.PNG" alt="">
+          <img class="volume-img" src="assets/ICONS/FULL_SCREEN.PNG" alt="">
+          <img class="volume-img" src="assets/ICONS/CHECKMARK06.PNG" alt="">
         </button>
       </div>
     </div>

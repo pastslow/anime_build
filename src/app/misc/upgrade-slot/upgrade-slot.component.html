@@ -1,31 +1,9 @@
-<div class="slot-update top-8">
-  <div class="update-container">
-    <div>
-      <img class="slot-update-img" src="assets/ICONS/{{slot.starUpdateImg}}.PNG" alt="">
-    </div>
-  </div>
-</div>
-
-<div class="slot-update top-88">
-  <div class="update-container">
-    <div>
-      <img class="slot-update-img" src="assets/ICONS/{{slot.energyUpdateImg}}.PNG" alt="">
-    </div>
-  </div>
-</div>
-
-<div class="slot-update top-40">
-  <div class="update-container justifty-left">
-    <div>
-      <img class="slot-repair-img" src="assets/ICONS/{{slot.repairImg}}.PNG" alt="">
-    </div>
-  </div>
-</div>
-
-<div class="slot-update top-26">
-  <div class="update-container">
-    <div class="left-auto">
-      <img class="img-appeal" src="assets/ICONS/{{slot.appealImg}}.PNG" alt="">
+<div *ngFor="let upgrade of upgradeArray">
+  <div [class]="upgrade.primaryClass">
+    <div [class]="upgrade.secondaryClass">
+      <div>
+        <img [class]="upgrade.imgClass" src="assets/ICONS/{{slot[upgrade.imgName]}}.PNG" alt="">
+      </div>
     </div>
   </div>
 </div>
